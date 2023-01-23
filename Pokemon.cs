@@ -7,14 +7,35 @@ namespace Projet_7
 {
     public class Pokemon
     {
-        private int PV;
-        private int PM;
-        private int ATK;
-        private int DEF;
-        private int VIT;
-        private int ACC;
-        private int Type;
-        private int NIV;
+        private int _pv;
+        private int _pm;
+        private int _atk;
+        private int _def;
+        private int _vit;
+        private int _acc;
+        private string _type;
+        private int _niv;
+
+        public Pokemon(int pv, int pm, int atk, int def, int vit, int acc, string type, int niv)
+        {
+            _pv = pv;
+            _pm = pm;
+            _atk = atk;
+            _def = def;
+            _vit = vit;
+            _acc = acc;
+            _type = type;
+            _niv = niv;
+           
+        }
+
+        public int PV
+        {
+            get => default;
+            set
+            {
+            }
+        }
 
         public void Damage(int damage)
         {
@@ -22,16 +43,6 @@ namespace Projet_7
         }
 
         public void Heal()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void GetPV()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void SetPV()
         {
             throw new System.NotImplementedException();
         }
