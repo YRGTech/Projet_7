@@ -10,7 +10,7 @@
   <Class Name="Projet_7.Game">
     <Position X="3.25" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAEAAAAAEAAEAAAAAACAJAAACAAAAAAAAAAACBCQI=</HashCode>
+      <HashCode>AAAAEAAAAAEAAEAAAAAACAJAAACAEAAAAAAAAACBCQI=</HashCode>
       <FileName>Game.cs</FileName>
     </TypeIdentifier>
   </Class>

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization.Formatters.Binary;
+using static Serialized;
+
 
 namespace Projet_7
 {
@@ -13,6 +16,7 @@ namespace Projet_7
         const char FLOOR = '.';
         const char GRASS = '"';
         const char PLAYER = '@';
+        const char PNJ = '☻';
 
         // dimensions de la carte
         const int MAP_WIDTH = 20;
@@ -28,7 +32,7 @@ namespace Projet_7
         { WALL, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, WALL },
         { WALL, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, WALL },
         { WALL, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, WALL },
-        { WALL, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, WALL },
+        { WALL, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, PNJ, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, WALL },
         { WALL, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, GRASS, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, WALL },
         { WALL, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, WALL },
         { WALL, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, GRASS, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, WALL },
@@ -47,6 +51,7 @@ namespace Projet_7
     };
         public void Run()
         {
+
             // affichage de la carte initiale
             DrawMap();
 
@@ -84,6 +89,10 @@ namespace Projet_7
                     {
                         playerX++;
                     }
+                }
+                else if (key == ConsoleKey.Escape)
+                {
+                    
                 }
 
                 // réaffichage de la carte avec la nouvelle position du joueur
@@ -131,5 +140,6 @@ namespace Projet_7
                 Console.WriteLine();
             }
         }
+
     }
 }
