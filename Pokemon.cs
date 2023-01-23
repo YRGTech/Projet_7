@@ -31,13 +31,24 @@ namespace Projet_7
 
         public int PV
         {
-            get => default;
-            set
-            {
-            }
+            get => _pv;
+            set => _pv = value;
+            
         }
 
-        public void Damage(int damage)
+        public int PM
+        {
+            get => _pm;
+            set => _pm = value;
+        }
+
+        public int NIV
+        {
+            get => _niv;
+            set => _niv = value;
+        }
+
+        public void Hurt(int damage)
         {
             throw new System.NotImplementedException();
         }
@@ -48,6 +59,11 @@ namespace Projet_7
         }
 
         public void IsAlive()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Attack()
         {
             throw new System.NotImplementedException();
         }

@@ -1,38 +1,45 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Projet_7.Game" Collapsed="true">
-    <Position X="8.25" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAEAAgAAEAAEAAAAAACAJAAACAAAAAAAAAAACBCQI=</HashCode>
-      <FileName>Game.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Projet_7.Program" Collapsed="true">
-    <Position X="6.5" Y="2.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
-      <FileName>Program.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Projet_7.Combat" Collapsed="true">
-    <Position X="6.5" Y="1.5" Width="1.5" />
+    <Position X="3.75" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAgAAA=</HashCode>
       <FileName>Combat.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Projet_7.Pokemon">
-    <Position X="4" Y="1.5" Width="1.5" />
+  <Class Name="Projet_7.Game" Collapsed="true">
+    <Position X="5.5" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gQAAAACAAAACAADAAQAAIAAAAAAAAAAAAQAQAAAQAgI=</HashCode>
+      <HashCode>AAAAEAAgAAEAAEAAAAAACAJAAACAAAAAAAAAAACBCQI=</HashCode>
+      <FileName>Game.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projet_7.Pikachu">
+    <Position X="1.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Pikachu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projet_7.Pokemon">
+    <Position X="1.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CQAAAAAAAAAAAASAAAAIIAIAAKAgIAAAAAAQAAAAgAI=</HashCode>
       <FileName>Pokemon.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Projet_7.Pikachu" Collapsed="true">
-    <Position X="4" Y="6" Width="1.5" />
+  <Class Name="Projet_7.Program" Collapsed="true">
+    <Position X="5.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projet_7.Inventory" Collapsed="true">
+    <Position X="3.75" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Pikachu.cs</FileName>
+      <FileName>Inventory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
