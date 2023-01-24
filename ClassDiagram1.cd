@@ -25,7 +25,7 @@
   <Class Name="Projet_7.Pokemon">
     <Position X="1.25" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>iQAAAAAAAAADAgTgAAAIIAIAAIAgIAAAAAEQAAAAggA=</HashCode>
+      <HashCode>iQAAAAAIAAADAgTgAAAIIAIAAIBgIAAAAAEQAAAAggA=</HashCode>
       <FileName>Pokemon.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -46,8 +46,15 @@
   <Class Name="Projet_7.Map" Collapsed="true">
     <Position X="3.75" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ABABEABAAAAAAEIAACAACAIAAACAAAAAAEAAAACBAQA=</HashCode>
+      <HashCode>ABABEAAAAAAAAEIAAAAACAIAAACAAAAAAEAAAACBAQA=</HashCode>
       <FileName>Map.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projet_7.Griknot">
+    <Position X="3.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Pokemon.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Enum Name="Projet_7.sprite" Collapsed="true">

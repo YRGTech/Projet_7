@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Media;
 
 namespace Projet_7
 {
@@ -17,9 +18,14 @@ namespace Projet_7
             Map map = new Map();
 
             Console.Write("                                 ,'\\\r\n    _.----.        ____         ,'  _\\   ___    ___     ____\r\n_,-'       `.     |    |  /`.   \\,-'    |   \\  /   |   |    \\  |`.\r\n\\      __    \\    '-.  | /   `.  ___    |    \\/    |   '-.   \\ |  |\r\n \\.    \\ \\   |  __  |  |/    ,','_  `.  |          | __  |    \\|  |\r\n   \\    \\/   /,' _`.|      ,' / / / /   |          ,' _`.|     |  |\r\n    \\     ,-'/  /   \\    ,'   | \\/ / ,`.|         /  /   \\  |     |\r\n     \\    \\ |   \\_/  |   `-.  \\    `'  /|  |    ||   \\_/  | |\\    |\r\n      \\    \\ \\      /       `-.`.___,-' |  |\\  /| \\      /  | |   |\r\n       \\    \\ `.__,'|  |`-._    `|      |__| \\/ |  `.__,'|  | |   |\r\n        \\_.-'       |__|    `-._ |              '-.|     '-.| |   |\r\n                                `'                            '-._|");
-                Pikachu pikachu = new Pikachu();
-            
-            
+            Pikachu pikachu = new Pikachu();
+
+            Console.Write(pikachu.PV); 
+            pikachu.Hurt(10);
+            Console.Write(pikachu.PV);
+            //var player = new SoundPlayer("path/to/audiofile.wav");
+            //player.Play();
+
             // boucle de jeu
             while (true)
             {
@@ -55,15 +61,15 @@ namespace Projet_7
                         map.playerX++;
                     }
                 }
-                
+
                 // réaffichage de la carte avec la nouvelle position du joueur
                 Console.Clear();
                 map.DrawMap();
 
-                
+
             }
         }
         // fonction pour vérifier si un mouvement est valide
-        
+
     }
 }
