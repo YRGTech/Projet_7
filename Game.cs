@@ -64,7 +64,7 @@ namespace Projet_7
             playerX = loadSave.posX;
             playerY = loadSave.posY;
         }
-        public void Run()
+        public void Run() 
         {
 
             // affichage de la carte initiale
