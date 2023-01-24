@@ -16,6 +16,7 @@ namespace Projet_7
         protected string _type;
 
         private int _pv;
+        private int _pvMax;
         private int _pm;
         private int _lvl;
         private int _xp;
@@ -42,10 +43,18 @@ namespace Projet_7
                 _pv = value;
             }
         }
+        public int PVMax
+        {
+            get { return _pvMax; }
+            protected set
+            {
+                _pvMax = value;
+            }
+        }
 
         public int PM
         {
-            get { return (int)(25 * LVL / 10 + _pm); }
+            get { return _pm; }
             protected set
             {
                 _pm = value;
@@ -60,7 +69,7 @@ namespace Projet_7
 
         public int ATK
         {
-            get { return (int)(25 * LVL / 10 + _atk); }
+            get { return _atk; }
             init
             {
                 _atk = value;
@@ -68,7 +77,7 @@ namespace Projet_7
         }
         public int DEF
         {
-            get { return (int)(25 * LVL / 10 + _def); }
+            get { return _def; }
             init
             {
                 _def = value;
@@ -76,7 +85,7 @@ namespace Projet_7
         }
         public int VIT
         {
-            get { return (int)(25 * LVL / 10 + _vit); }
+            get { return _vit; }
             init
             {
                 _vit = value;
@@ -84,7 +93,7 @@ namespace Projet_7
         }
         public int ACC
         {
-            get { return (int)(25 * LVL / 10 + _acc); }
+            get { return  _acc; }
             init
             {
                 _acc = value;
@@ -95,12 +104,22 @@ namespace Projet_7
 
         public void Hurt(int damage)
         {
-            PV = 25 * LVL / 10 + PV - damage;
+            PV = PV - damage;
         }
 
-        public void Heal()
+        public int XP
         {
-            throw new System.NotImplementedException();
+            get => _xp;
+            set
+            {
+                _xp = value;
+            }
+        }
+        public void Heal(int value)
+        {
+            PV = PV + value;
+            if (PV > PVMax)
+                PV = PVMax;
         }
 
         public void IsAlive()
@@ -117,16 +136,19 @@ namespace Projet_7
         {
             Console.Write(art);
         }
+        public void LVLup()
+        {
+            LVL = LVL + 1;
+            Heal(PVMax);
+            PV = 25 * LVL / 10 + PV;
+            PM = 25 * LVL / 10 + PM;
+
+            PVMax = PV;
+        }
 
        
 
-        public int XP
-        {
-            get => default;
-            set
-            {
-            }
-        }
+
     }
 
     public class Pikachu : Pokemon
@@ -134,6 +156,7 @@ namespace Projet_7
         public Pikachu()
         {
             PV = 85;
+            PVMax = PV;
             PM = 50;
             ATK = 55;
             DEF = 40;
@@ -157,32 +180,5 @@ namespace Projet_7
 
     }
 
-    public class Griknot : Pokemon
-    {
-        public Griknot()
-        {
-            PV = 85;
-            PM = 50;
-            ATK = 55;
-            DEF = 40;
-            VIT = 90;
-            ACC = 100;
-            TYPE = "ground";
-            LVL = 1;
-        }
-
-        private double Skill1
-        {
-            get => 1.5 * ATK;
-
-        }
-
-        private double Skill2
-        {
-            get => 1.75 * ATK;
-        }
-
-
-    }
 
 }

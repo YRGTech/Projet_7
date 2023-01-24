@@ -23,6 +23,11 @@ namespace Projet_7
             Console.Write(pikachu.PV); 
             pikachu.Hurt(10);
             Console.Write(pikachu.PV);
+            pikachu.LVLup();
+            pikachu.LVLup();
+            pikachu.LVLup();
+            pikachu.LVLup();
+            Console.Write(pikachu.PV);
             //var player = new SoundPlayer("path/to/audiofile.wav");
             //player.Play();
 

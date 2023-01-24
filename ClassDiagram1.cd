@@ -1,36 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Projet_7.Combat" Collapsed="true">
+  <Class Name="Projet_7.Combat">
     <Position X="3.75" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAgAAA=</HashCode>
       <FileName>Combat.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Projet_7.Game" Collapsed="true">
+  <Class Name="Projet_7.Game">
     <Position X="5.5" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
       <FileName>Game.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Projet_7.Pikachu">
-    <Position X="1.25" Y="7.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Pokemon.cs</FileName>
-      <NewMemberFileName>Pikachu.cs</NewMemberFileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Projet_7.Pokemon">
     <Position X="1.25" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>iQAAAAAIAAADAgTgAAAIIAIAAIBgIAAAAAEQAAAAggA=</HashCode>
+      <HashCode>iQAAAAAIAAADCgToAAAIIAIAAIBgIAAAAAEQAAAIggA=</HashCode>
       <FileName>Pokemon.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Projet_7.Program" Collapsed="true">
-    <Position X="5.5" Y="2.25" Width="1.5" />
+    <Position X="9" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
@@ -43,29 +35,22 @@
       <FileName>Inventory.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Projet_7.Map" Collapsed="true">
-    <Position X="3.75" Y="2.25" Width="1.5" />
+  <Class Name="Projet_7.Map">
+    <Position X="3.75" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABABEAAAAAAAAEIAAAAACAIAAACAAAAAAEAAAACBAQA=</HashCode>
       <FileName>Map.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Projet_7.Griknot">
-    <Position X="3.5" Y="7.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Pokemon.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Enum Name="Projet_7.sprite" Collapsed="true">
-    <Position X="3.75" Y="3.5" Width="1.5" />
+    <Position X="11" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAgAAEAAAAAAAAACABAAAAAAAAAAAAAAAAACAA=</HashCode>
       <FileName>sprite.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="Projet_7.Type" Collapsed="true">
-    <Position X="5.5" Y="3.5" Width="1.5" />
+    <Position X="11" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Type.cs</FileName>
