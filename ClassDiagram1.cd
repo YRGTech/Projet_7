@@ -10,12 +10,12 @@
   <Class Name="Projet_7.Game" Collapsed="true">
     <Position X="5.5" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAACAI=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
       <FileName>Game.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Projet_7.Pikachu">
-    <Position X="1.25" Y="5.75" Width="1.5" />
+    <Position X="1.25" Y="7.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Pokemon.cs</FileName>
@@ -25,7 +25,7 @@
   <Class Name="Projet_7.Pokemon">
     <Position X="1.25" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AQAAAAAAAAAAAgSAAAAIIAIAAIAgIAAAAAAQAAAAgAI=</HashCode>
+      <HashCode>iQAAAAAAAAADAgTgAAAIIAIAAIAgIAAAAAEQAAAAggA=</HashCode>
       <FileName>Pokemon.cs</FileName>
     </TypeIdentifier>
   </Class>

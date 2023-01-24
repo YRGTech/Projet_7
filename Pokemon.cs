@@ -8,27 +8,17 @@ namespace Projet_7
 {
     public class Pokemon
     {
-        
-        public int _atk 
-        { 
-            get { return (int)(80 * Math.Log(NIV) + _atk); }  
-            set { _atk = value; }
-        }
-        public int _def { 
-            get{ return (int)(80 * Math.Log(NIV) + _def); }
-            set { _def = value; }
-        }
-        public int _vit
-        {
-            get { return (int)(80 * Math.Log(NIV) + _vit); }
-            set { _vit = value; }
-        }
-        public int _acc
-        {
-            get { return (int)(80 * Math.Log(NIV) + _acc); }
-            set { _acc = value; }
-        }
-        public string _type { get; set; }
+
+        int _atk;
+
+        int _def;
+
+        int _vit;
+
+        int _acc;
+
+        string _type;
+
 
 
         public Pokemon()
@@ -40,27 +30,55 @@ namespace Projet_7
             _vit = 0;
             _acc = 0;
             _type = "NULL";
-            NIV = 0;
-           
+            LVL = 0;
+
         }
 
         public int PV
         {
-            get { return (int)(80 * Math.Log(NIV) + PV); }
-            set { PV = value; }
+            get { return (int)(80 * Math.Log(LVL) + PV); }
+            protected set
+            {
+                _pv = value;
+            }
         }
 
         public int PM
         {
-            get { return (int)(80 * Math.Log(NIV) + PM); }
-            set { PM = value; }
+            get { return (int)(80 * Math.Log(LVL) + PM); }
+            protected set
+            {
+                _pm = value;
+            }
         }
 
-        public int NIV
+        public int LVL
         {
             get;
-            set;
+            protected set;
         }
+
+        public int ATK
+        {
+            get { return (int)(80 * Math.Log(LVL) + _atk); }
+            protected set { _atk = value; }
+        }
+        public int DEF
+        {
+            get { return (int)(80 * Math.Log(LVL) + _def); }
+            protected set { _def = value; }
+        }
+        public int VIT
+        {
+            get { return (int)(80 * Math.Log(LVL) + _vit); }
+            protected set { _vit = value; }
+        }
+        public int ACC
+        {
+            get { return (int)(80 * Math.Log(LVL) + _acc); }
+            protected set { _acc = value; }
+        }
+        public string TYPE { get; protected set; }
 
         public void Hurt(int damage)
         {
@@ -86,31 +104,35 @@ namespace Projet_7
         {
             Console.Write(art);
         }
+
+        private int _pv;
+        private int _pm;
+        private int _lvl;
     }
 
     public class Pikachu : Pokemon
     {
-        public Pikachu() 
+        public Pikachu()
         {
-            PV = 35;
+            PV = 85;
             PM = 50;
-            _atk = 55;
-            _def = 40;
-            _vit = 90;
-            _acc = 100;
-            _type = "electric";
-            NIV = 1;
+            ATK = 55;
+            DEF = 40;
+            VIT = 90;
+            ACC = 100;
+            TYPE = "electric";
+            LVL = 1;
         }
 
-        public int Skill1
+        private double Skill1
         {
-            get => 50;
+            get => 1.5 * _atk;
 
         }
 
-        public int Skill2
+        private double Skill2
         {
-            get => 75;
+            get => 1.75 * _atk;
         }
     }
 
