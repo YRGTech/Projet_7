@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 
@@ -7,45 +8,58 @@ namespace Projet_7
 {
     public class Pokemon
     {
-        private int _pv;
-        private int _pm;
-        private int _atk;
-        private int _def;
-        private int _vit;
-        private int _acc;
-        private string _type;
-        private int _niv;
-
-        public Pokemon(int pv, int pm, int atk, int def, int vit, int acc, string type, int niv)
+        
+        public int _atk 
+        { 
+            get { return (int)(80 * Math.Log(NIV) + _atk); }  
+            set { _atk = value; }
+        }
+        public int _def { 
+            get{ return (int)(80 * Math.Log(NIV) + _def); }
+            set { _def = value; }
+        }
+        public int _vit
         {
-            _pv = pv;
-            _pm = pm;
-            _atk = atk;
-            _def = def;
-            _vit = vit;
-            _acc = acc;
-            _type = type;
-            _niv = niv;
+            get { return (int)(80 * Math.Log(NIV) + _vit); }
+            set { _vit = value; }
+        }
+        public int _acc
+        {
+            get { return (int)(80 * Math.Log(NIV) + _acc); }
+            set { _acc = value; }
+        }
+        public string _type { get; set; }
+
+
+        public Pokemon()
+        {
+            PV = 0;
+            PM = 0;
+            _atk = 0;
+            _def = 0;
+            _vit = 0;
+            _acc = 0;
+            _type = "NULL";
+            NIV = 0;
            
         }
 
         public int PV
         {
-            get => _pv;
-            set => _pv = value;
-            
+            get { return (int)(80 * Math.Log(NIV) + PV); }
+            set { PV = value; }
         }
 
         public int PM
         {
-            get => _pm;
-            set => _pm = value;
+            get { return (int)(80 * Math.Log(NIV) + PM); }
+            set { PM = value; }
         }
 
         public int NIV
         {
-            get => _niv;
-            set => _niv = value;
+            get;
+            set;
         }
 
         public void Hurt(int damage)
@@ -67,5 +81,37 @@ namespace Projet_7
         {
             throw new System.NotImplementedException();
         }
+
+        public void Draw(string art)
+        {
+            Console.Write(art);
+        }
     }
+
+    public class Pikachu : Pokemon
+    {
+        public Pikachu() 
+        {
+            PV = 35;
+            PM = 50;
+            _atk = 55;
+            _def = 40;
+            _vit = 90;
+            _acc = 100;
+            _type = "electric";
+            NIV = 1;
+        }
+
+        public int Skill1
+        {
+            get => 50;
+
+        }
+
+        public int Skill2
+        {
+            get => 75;
+        }
+    }
+
 }
