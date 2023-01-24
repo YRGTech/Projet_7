@@ -17,9 +17,9 @@ namespace Projet_7
             Map map = new Map();
 
             Console.Write("                                 ,'\\\r\n    _.----.        ____         ,'  _\\   ___    ___     ____\r\n_,-'       `.     |    |  /`.   \\,-'    |   \\  /   |   |    \\  |`.\r\n\\      __    \\    '-.  | /   `.  ___    |    \\/    |   '-.   \\ |  |\r\n \\.    \\ \\   |  __  |  |/    ,','_  `.  |          | __  |    \\|  |\r\n   \\    \\/   /,' _`.|      ,' / / / /   |          ,' _`.|     |  |\r\n    \\     ,-'/  /   \\    ,'   | \\/ / ,`.|         /  /   \\  |     |\r\n     \\    \\ |   \\_/  |   `-.  \\    `'  /|  |    ||   \\_/  | |\\    |\r\n      \\    \\ \\      /       `-.`.___,-' |  |\\  /| \\      /  | |   |\r\n       \\    \\ `.__,'|  |`-._    `|      |__| \\/ |  `.__,'|  | |   |\r\n        \\_.-'       |__|    `-._ |              '-.|     '-.| |   |\r\n                                `'                            '-._|");
-                Pikachu pikachu = new Pikachu();
-            
-            
+            Pikachu pikachu = new Pikachu();
+
+
             // boucle de jeu
             while (true)
             {
@@ -32,6 +32,8 @@ namespace Projet_7
                     if (map.IsValidMove(map.playerX, map.playerY - 1))
                     {
                         map.playerY--;
+                        Console.Clear();
+                        map.DrawMap();
                     }
                 }
                 else if (key == ConsoleKey.DownArrow)
@@ -39,6 +41,8 @@ namespace Projet_7
                     if (map.IsValidMove(map.playerX, map.playerY + 1))
                     {
                         map.playerY++;
+                        Console.Clear();
+                        map.DrawMap();
                     }
                 }
                 else if (key == ConsoleKey.LeftArrow)
@@ -46,6 +50,8 @@ namespace Projet_7
                     if (map.IsValidMove(map.playerX - 1, map.playerY))
                     {
                         map.playerX--;
+                        Console.Clear();
+                        map.DrawMap();
                     }
                 }
                 else if (key == ConsoleKey.RightArrow)
@@ -53,17 +59,18 @@ namespace Projet_7
                     if (map.IsValidMove(map.playerX + 1, map.playerY))
                     {
                         map.playerX++;
+                        Console.Clear();
+                        map.DrawMap();
                     }
                 }
-                
-                // réaffichage de la carte avec la nouvelle position du joueur
-                Console.Clear();
-                map.DrawMap();
+                else if (key == ConsoleKey.X)
+                {
+                    
+                }
 
-                
             }
         }
         // fonction pour vérifier si un mouvement est valide
-        
+
     }
 }
