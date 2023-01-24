@@ -19,15 +19,16 @@ namespace Projet_7
 
             Console.Write("                                 ,'\\\r\n    _.----.        ____         ,'  _\\   ___    ___     ____\r\n_,-'       `.     |    |  /`.   \\,-'    |   \\  /   |   |    \\  |`.\r\n\\      __    \\    '-.  | /   `.  ___    |    \\/    |   '-.   \\ |  |\r\n \\.    \\ \\   |  __  |  |/    ,','_  `.  |          | __  |    \\|  |\r\n   \\    \\/   /,' _`.|      ,' / / / /   |          ,' _`.|     |  |\r\n    \\     ,-'/  /   \\    ,'   | \\/ / ,`.|         /  /   \\  |     |\r\n     \\    \\ |   \\_/  |   `-.  \\    `'  /|  |    ||   \\_/  | |\\    |\r\n      \\    \\ \\      /       `-.`.___,-' |  |\\  /| \\      /  | |   |\r\n       \\    \\ `.__,'|  |`-._    `|      |__| \\/ |  `.__,'|  | |   |\r\n        \\_.-'       |__|    `-._ |              '-.|     '-.| |   |\r\n                                `'                            '-._|");
             Pikachu pikachu = new Pikachu();
-
-            Console.Write(pikachu.PV); 
-            pikachu.Hurt(10);
-            Console.Write(pikachu.PV);
+            Pikachu pikachu2 = new Pikachu();
+            Console.Write("pv pika debu : {0}",pikachu.PV); 
+            pikachu2.Attack(pikachu,pikachu2.Skill1);
+            Console.Write("pv pika hurt: {0}", pikachu.PV);
             pikachu.LVLup();
             pikachu.LVLup();
             pikachu.LVLup();
             pikachu.LVLup();
-            Console.Write(pikachu.PV);
+            Console.Write("pv pika lvlup: {0}", pikachu.PV);
+            pikachu.Draw();
             //var player = new SoundPlayer("path/to/audiofile.wav");
             //player.Play();
 
