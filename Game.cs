@@ -6,11 +6,18 @@ using System.Threading.Tasks;
 using System.Runtime.Serialization.Formatters.Binary;
 using static Serialized;
 
+using System.Xml.Linq;
+using System.Text.Json;
+
 
 namespace Projet_7
 {
     internal class Game
     {
+        bool loop = true;
+        string loadString;
+        SerializeTheObject loadSave;
+
         // constantes pour les caractères ASCII de la carte
         const char WALL = '#';
         const char FLOOR = '.';
@@ -23,8 +30,8 @@ namespace Projet_7
         const int MAP_HEIGHT = 20;
 
         // position initiale du joueur
-        int playerX = 5;
-        int playerY = 5;
+        int playerX;
+        int playerY;
 
         // la carte
         char[,] map = new char[MAP_HEIGHT, MAP_WIDTH] {
@@ -49,14 +56,23 @@ namespace Projet_7
         { WALL, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, FLOOR, WALL },
         { WALL, WALL, WALL, WALL, WALL, WALL, WALL, WALL, WALL, WALL, WALL, WALL, WALL, WALL, WALL, WALL, WALL, WALL, WALL, WALL }
     };
+
+        public Game()
+        {
+            loadString = File.ReadAllText("t.json");
+            loadSave = JsonSerializer.Deserialize<SerializeTheObject>(loadString);
+            playerX = loadSave.posX;
+            playerY = loadSave.posY;
+        }
         public void Run()
         {
 
             // affichage de la carte initiale
             DrawMap();
+            new Game();
 
             // boucle de jeu
-            while (true)
+            while (loop)
             {
                 // récupération de la touche appuyée par le joueur
                 ConsoleKey key = Console.ReadKey(true).Key;
@@ -92,7 +108,16 @@ namespace Projet_7
                 }
                 else if (key == ConsoleKey.Escape)
                 {
-                    
+                    var position = new SerializeTheObject
+                    {
+                        posX = playerX,
+                        posY = playerY
+                        
+                };
+                    var options = new JsonSerializerOptions { WriteIndented = true };
+                    string jsonString = JsonSerializer.Serialize(position, options);
+                    File.WriteAllText("t.json", jsonString);
+                    loop = false;
                 }
 
                 // réaffichage de la carte avec la nouvelle position du joueur

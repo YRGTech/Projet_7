@@ -5,6 +5,7 @@ using System;
 
 using static Serialized;
 using System.Xml.Linq;
+using System.Text.Json;
 
 namespace Projet_7
 {
@@ -12,25 +13,24 @@ namespace Projet_7
     {
         static void Main(string[] args)
         {
-            string xmlDocPath = "C:/Users/mleconte/source/Projet_7/xmlFromPlainCode.xml";
+            /*var position = new SerializeTheObject
+            {
+                posX = 5,
+                posY = 5
+            };
 
-            //Game game = new Game();
-            //game.Run();
+            var options = new JsonSerializerOptions { WriteIndented = true };
+            string jsonString = JsonSerializer.Serialize(position, options);
+            File.WriteAllText("t.json", jsonString);*/
 
-            //appelle la fonction
-            /*XDocument xmlFromPlainCode = XmlUsingPlainCode();*/
-            //Save dans le doc XML
-            //xmlFromPlainCode.Save(xmlDocPath);
 
-            XDocument loadedDocument = XDocument.Load("C:/Users/mleconte/source/Projet_7/xmlFromPlainCode.xml");
+            Game game = new Game();
+            game.Run();
 
-            // Console Output for demo
-            /*Console.WriteLine("------ # Generated XML from code # ------");
-            Console.WriteLine(xmlFromPlainCode);
-            Console.WriteLine();*/
-            Console.WriteLine("------ # Loaded XML Document # ------");
-            Console.WriteLine(loadedDocument);
+            /*string t = File.ReadAllText("t.json");
+            SerializeTheObject loadString = JsonSerializer.Deserialize<SerializeTheObject>(t);*/
 
+            
         }
         /*static XDocument XmlUsingPlainCode()
         {
