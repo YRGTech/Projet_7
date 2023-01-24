@@ -106,6 +106,13 @@ namespace Projet_7
                         playerX++;
                     }
                 }
+                else if (key == ConsoleKey.I)
+                {
+                    
+
+
+                    loop = false;
+                }
                 else if (key == ConsoleKey.Escape)
                 {
                     var position = new SerializeTheObject
@@ -141,7 +148,7 @@ namespace Projet_7
             }
 
             return true;
-        }
+        } 
         // fonction pour dessiner la carte
         void DrawMap()
         {
@@ -165,6 +172,5 @@ namespace Projet_7
                 Console.WriteLine();
             }
         }
-
     }
 }
