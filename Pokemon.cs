@@ -9,15 +9,15 @@ namespace Projet_7
     public class Pokemon
     {
 
-        int _atk;
+        protected int _atk;
 
-        int _def;
+        protected int _def;
 
-        int _vit;
+        protected int _vit;
 
-        int _acc;
+        protected int _acc;
 
-        string _type;
+        protected string _type;
 
 
 

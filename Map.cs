@@ -40,8 +40,7 @@ namespace Projet_7
         { _wall, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor,_floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor,_floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor,_floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _wall },
         { _wall, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup,_wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup,_wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup,_wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wall }
         };
-        private int _playerX;
-        private int _playerY;
+       
 
         public Map()
         {
