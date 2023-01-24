@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Projet_7
 {
-    public class Inventory : Menu
+    public class bouf : Item
     {
     }
 }
