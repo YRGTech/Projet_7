@@ -7,42 +7,52 @@ namespace Projet_7
 {
     public class Inventory
     {
+
+        
+
         public void inventory()
         {
+            bool bool_inventory = true;
 
-
-            while ()
+            while (bool_inventory)
             {
+                Console.Clear();
+                Console.Write("                            Inventory");
+                Console.Write("\n");
+                Console.Write("1) Potion\n");
+                Console.Write("2) Potion\n");
+                Console.Write("3) Potion\n");
+                Console.Write("4) Potion\n");
+                Console.Write("Q) Quitter");
+
                 // récupération de la touche appuyée par le joueur
                 ConsoleKey key = Console.ReadKey(true).Key;
 
-                // mise à jour de la position du joueur en fonction de la touche appuyée
-                if (key == ConsoleKey.UpArrow)
-                {
-                }
-                else if (key == ConsoleKey.DownArrow)
+                // Séléction du type d'objet dans l'inventaire
+                if (key == ConsoleKey.NumPad1)
                 {
 
                 }
-                else if (key == ConsoleKey.LeftArrow)
+                else if (key == ConsoleKey.NumPad2)
                 {
 
                 }
-                else if (key == ConsoleKey.RightArrow)
+                else if (key == ConsoleKey.NumPad3)
                 {
 
                 }
-                else if (key == ConsoleKey.I)
+                else if (key == ConsoleKey.NumPad4)
                 {
 
-
+                }
+                else if (key == ConsoleKey.Q)
+                {
+                    bool_inventory = false;
                     
                 }
 
-                // réaffichage de la carte avec la nouvelle position du joueur
+                
                 Console.Clear();
-              
-
 
             }
         }

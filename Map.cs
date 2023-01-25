@@ -13,13 +13,20 @@ namespace Projet_7
         const char _floor = (char)sprite.FLOOR;
         const char _grass = (char)sprite.GRASS;
         const char _player = (char)sprite.PLAYER;
+        const char _angleUL = (char)sprite.ANGLEUL;
+        const char _angleUR = (char)sprite.ANGLEUR;
+        const char _angleDL = (char)sprite.ANGLEDL;
+        const char _angleDR = (char)sprite.ANGLEDR;
+
+
+
 
         // dimensions de la carte
         const int MAP_WIDTH = 50;
         const int MAP_HEIGHT = 20;
 
         char[,] _map = new char[MAP_HEIGHT, MAP_WIDTH] {
-        { _wall, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup,_wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup,_wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup,_wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wall },
+        { _angleUL, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup,_wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup,_wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup,_wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _angleUR },
         { _wall, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor,_floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor,_floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor,_floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _wall },
         { _wall, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor,_floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor,_floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor,_floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _wall },
         { _wall, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor,_floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor,_floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor,_floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _wall },
@@ -38,7 +45,7 @@ namespace Projet_7
         { _wall, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor,_floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor,_floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor,_floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _wall },
         { _wall, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor,_floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor,_floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor,_floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _wall },
         { _wall, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor,_floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor,_floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor,_floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _floor, _wall },
-        { _wall, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup,_wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup,_wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup,_wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wall }
+        { _angleDL, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup,_wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup,_wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup,_wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _angleDR }
         };
        
 

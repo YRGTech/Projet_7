@@ -5,11 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Media;
 
+
 namespace Projet_7
 {
     internal class Game
     {
-        public bool loop = true;
+        public bool loop;
         public bool boolInventory = false;
 
 
@@ -20,10 +21,9 @@ namespace Projet_7
             Map map = new Map();
             Console.Write("                                 ,'\\\r\n    _.----.        ____         ,'  _\\   ___    ___     ____\r\n_,-'       `.     |    |  /`.   \\,-'    |   \\  /   |   |    \\  |`.\r\n\\      __    \\    '-.  | /   `.  ___    |    \\/    |   '-.   \\ |  |\r\n \\.    \\ \\   |  __  |  |/    ,','_  `.  |          | __  |    \\|  |\r\n   \\    \\/   /,' _`.|      ,' / / / /   |          ,' _`.|     |  |\r\n    \\     ,-'/  /   \\    ,'   | \\/ / ,`.|         /  /   \\  |     |\r\n     \\    \\ |   \\_/  |   `-.  \\    `'  /|  |    ||   \\_/  | |\\    |\r\n      \\    \\ \\      /       `-.`.___,-' |  |\\  /| \\      /  | |   |\r\n       \\    \\ `.__,'|  |`-._    `|      |__| \\/ |  `.__,'|  | |   |\r\n        \\_.-'       |__|    `-._ |              '-.|     '-.| |   |\r\n                                `'                            '-._|");
             Pikachu pikachu = new Pikachu();
+            Inventory inventory = new Inventory();
+            loop = true;
 
-            Console.Write(pikachu.PV);
-            pikachu.Hurt(10);
-            Console.Write(pikachu.PV);
             //var player = new SoundPlayer("path/to/audiofile.wav");
             //player.Play();
 
@@ -64,17 +64,12 @@ namespace Projet_7
                 }
                 else if (key == ConsoleKey.I)
                 {
-
-
-                    boolInventory = true;
-                    loop = false;
+                    inventory.inventory();
                 }
 
                 // réaffichage de la carte avec la nouvelle position du joueur
-                Console.Clear();
+                Console.SetCursorPosition(0,0);
                 map.DrawMap();
-
-
             }
         }
         // fonction pour vérifier si un mouvement est valide

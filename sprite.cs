@@ -11,6 +11,17 @@ namespace Projet_7
         WALLUP = '═',
         FLOOR = ' ',
         GRASS = '#',
-        PLAYER = '@'
+        PLAYER = '@',
+        ANGLEUL = '╔',
+        ANGLEUR = '╗',
+        ANGLEDL = '╚',
+        ANGLEDR = '╝',
+        TU = '╦',
+        TL = '╠',
+        TR = '╣',
+        TD = '╩',
+        CROSS = '╬'
+
+
     }
 }
