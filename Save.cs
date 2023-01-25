@@ -2,17 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Projet_7
 {
-    public class Inventory : Menu
+    internal class Save
     {
-        public Inventory() { }
+        public Save() { }
 
-        public void openInventory()
+        public void openSaveMenu()
         {
             Console.Clear();
-            Console.WriteLine("This is the inventory");
+            Console.WriteLine("This is the save menu");
         }
     }
 }

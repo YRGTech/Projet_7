@@ -8,9 +8,6 @@ namespace Projet_7
 {
     internal class Game
     {
-
-
-
         public void Run()
         {
             // affichage de la carte initiale
@@ -65,6 +62,8 @@ namespace Projet_7
                 }
                 else if (key == ConsoleKey.X)
                 {
+                    Menu menu= new Menu();
+                    menu.createMenu(map);
                     
                 }
 
