@@ -17,13 +17,13 @@ namespace Projet_7
             while (bool_inventory)
             {
                 Console.Clear();
-                Console.Write("                            Inventory");
+                Console.Write("              Inventory");
                 Console.Write("\n");
-                Console.Write("1) Potion\n");
-                Console.Write("2) Potion\n");
-                Console.Write("3) Potion\n");
-                Console.Write("4) Potion\n");
-                Console.Write("Q) Quitter");
+                Console.Write("  Potion");
+                Console.Write("                   Potion\n");
+                Console.Write("  Potion");
+                Console.Write("                   Potion\n");
+                Console.Write("  Quitter");
 
                 // récupération de la touche appuyée par le joueur
                 ConsoleKey key = Console.ReadKey(true).Key;
