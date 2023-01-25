@@ -4,6 +4,7 @@
     {
         static void Main(string[] args)
         {
+            ConsoleManager.WindowSetup();
             Game game = new Game();
             game.Run();
         }

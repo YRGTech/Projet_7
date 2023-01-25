@@ -31,7 +31,7 @@ namespace Projet_7
             _def = 0;
             _vit = 0;
             _acc = 0;
-            _type = Type.NORMAL;
+            _type = Type.Normal;
             LVL = 0;
             Name = "Pokemon";
 
@@ -40,18 +40,18 @@ namespace Projet_7
         public int PV
         {
             get { return _pv; }
-            protected set {_pv = value;}
+            protected set { _pv = value; }
         }
         public int PVMax
         {
             get { return _pvMax; }
-            protected set { _pvMax = value;}
+            protected set { _pvMax = value; }
         }
 
         public int PM
         {
             get { return _pm; }
-            protected set{ _pm = value; }
+            protected set { _pm = value; }
         }
 
         public int LVL
@@ -63,53 +63,54 @@ namespace Projet_7
         public int ATK
         {
             get { return _atk; }
-            init{ _atk = value;}
+            init { _atk = value; }
         }
         public int DEF
         {
             get { return _def; }
-            init { _def = value;}
+            init { _def = value; }
         }
         public int VIT
         {
             get { return _vit; }
-            init{ _vit = value;}
+            init { _vit = value; }
         }
         public int ACC
         {
             get { return _acc; }
-            init{ _acc = value;}
+            init { _acc = value; }
 
         }
-        public Type TYPE { 
-            get => _type; 
-            init { _type = value;} 
+        public Type TYPE
+        {
+            get => _type;
+            init { _type = value; }
         }
 
         public int XP
         {
             get => _xp;
-            set{ _xp = value;}
+            set { _xp = value; }
         }
 
         public string Name
         {
             get => _name;
-            protected set { _name = value;}
+            protected set { _name = value; }
         }
         public string Art
         {
             get => _art;
             init { _art = value; }
         }
-        public virtual void Hurt(int damage,Type type)
+        public virtual void Hurt(int damage, Type type)
         {
-            
+
         }
         public void Attack(Pokemon target, double skill)
         {
             Console.Write("");
-            target.Hurt((int)skill,target.TYPE);
+            target.Hurt((int)skill, target.TYPE);
         }
 
         public void Heal(int value)
@@ -155,9 +156,8 @@ namespace Projet_7
             TYPE = Type.Electric;
             LVL = 1;
             Name = "Pikachu";
-            Art = "quu..__\r\n $$$b  `---.__\r\n  \"$$b        `--.                          ___.---uuudP\r\n   `$$b           `.__.------.__     __.---'      $$$$\"              .\r\n     \"$b          -'            `-.-'            $$$\"              .'|\r\n       \".                                       d$\"             _.'  |\r\n         `.   /                              ...\"             .'     |\r\n           `./                           ..::-'            _.'       |\r\n            /                         .:::-'            .-'         .'\r\n           :                          ::''\\          _.'            |\r\n          .' .-.             .-.           `.      .'               |\r\n          : /'$$|           .@\"$\\           `.   .'              _.-'\r\n         .'|$u$$|          |$$,$$|           |  <            _.-'\r\n         | `:$$:'          :$$$$$:           `.  `.       .-'\r\n         :                  `\"--'             |    `-.     \\\r\n        :##.       ==             .###.       `.      `.    `\\\r\n        |##:                      :###:        |        >     >\r\n        |#'     `..'`..'          `###'        x:      /     /\r\n         \\                                   xXX|     /    ./\r\n          \\                                xXXX'|    /   ./\r\n          /`-.                                  `.  /   /\r\n         :    `-  ...........,                   | /  .'\r\n         |         ``:::::::'       .            |<    `.\r\n         |             ```          |           x| \\ `.:``.\r\n         |                         .'    /'   xXX|  `:`M`M':.\r\n         |    |                    ;    /:' xXXX'|  -'MMMMM:'\r\n         `.  .'                   :    /:'       |-'MMMM.-'\r\n          |  |                   .'   /'        .'MMM.-'\r\n          `'`'                   :  ,'          |MMM<\r\n            |                     `'            |tbap\\\r\n             \\                                  :MM.-'\r\n              \\                 |              .''\r\n               \\.               `.            /\r\n                /     .:::::::.. :           /\r\n               |     .:::::::::::`.         /\r\n               |   .:::------------\\       /\r\n              /   .''               >::'  /\r\n              `',:                 :    .'\r\n                                   `:.:'";
+            Art = "`;-.          ___,\r\n  `.`\\_...._/`.-\"`\r\n    \\        /      ,\r\n    /()   () \\    .' `-._\r\n   |)  .    ()\\  /   _.'\r\n   \\  -'-     ,; '. <\r\n    ;.__     ,;|   > \\\r\n   / ,    / ,  |.-'.-'\r\n  (_/    (_/ ,;|.<`\r\n    \\    ,     ;-`\r\n     >   \\    /\r\n    (_,-'`> .'\r\n         (_,'";
         }
-
         public double Skill1
         {
             get => 1.5 * ATK;
@@ -174,8 +174,8 @@ namespace Projet_7
             switch (type)
             {
                 case Type.Electric:
-                    damage = damage * 1/2;
-                    Console.WriteLine("{0} degat pas efficace dans ta geule\n",damage);
+                    damage = damage * 1 / 2;
+                    Console.WriteLine("{0} degat pas efficace dans ta geule\n", damage);
                     break;
                 case Type.Ground:
                     damage = damage * 2;
@@ -195,9 +195,9 @@ namespace Projet_7
             damage = damage - DEF;
 
             PV = PV - damage;
-            if(PV <0) { PV= 0; }
+            if (PV < 0) { PV = 0; }
         }
-        
+
     }
 
 

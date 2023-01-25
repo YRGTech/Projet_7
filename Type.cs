@@ -7,7 +7,7 @@ namespace Projet_7
 {
     public enum Type
     {
-        NORMAL = 0,
+        Normal = 0,
         Fighting,
         Flying,
         Poison,

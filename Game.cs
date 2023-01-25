@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Media;
+using System.Runtime.InteropServices;
+using System.Runtime.Versioning;
 
 namespace Projet_7
 {
@@ -16,61 +18,90 @@ namespace Projet_7
         {
             // affichage de la carte initiale
             Map map = new Map();
+            Console.SetCursorPosition(0, 0);
+            Console.WriteLine("\r\n░█▀▀▄░░░░░░░░░░░▄▀▀█ ");
+            Console.SetCursorPosition( 0,1);
+            Console.WriteLine("\r\n░█░░░▀▄░▄▄▄▄▄░▄▀░░░█" );
+            Console.SetCursorPosition( 0,2);
+            Console.WriteLine("\r\n░░▀▄░░░▀░░░░░▀░░░▄▀");
+            Console.SetCursorPosition( 0,3);
+            Console.WriteLine("\r\n░░░░▌░▄▄░░░▄▄░▐▀▀");
+            Console.SetCursorPosition(0,4);
+            Console.WriteLine("\r\n░░░▐░░█▄░░░▄█░░▌▄▄▀▀▀▀█");
+            Console.SetCursorPosition( 0,5);
+            Console.WriteLine("\r\n░░░▌▄▄▀▀░▄░▀▀▄▄▐░░░░░░█");
+            Console.SetCursorPosition( 0,6);
+            Console.WriteLine("\r\n▄▀▀▐▀▀░▄▄▄▄▄░▀▀▌▄▄▄░░░█");
+            Console.SetCursorPosition( 0,7);
+            Console.WriteLine("\r\n█░░░▀▄░█░░░█░▄▀░░░░█▀▀▀");
+            Console.SetCursorPosition( 0,8);
+            Console.WriteLine("\r\n░▀▄░░▀░░▀▀▀░░▀░░░▄█▀");
+            Console.SetCursorPosition( 0,9);
+            Console.WriteLine("\r\n░░░█░░░░░░░░░░░▄▀▄░▀▄");
+            Console.SetCursorPosition( 0,10);
+            Console.WriteLine("\r\n░░░█░░░░░░░░░▄▀█░░█░░█");
+            Console.SetCursorPosition( 0,11);
+            Console.WriteLine("\r\n░░░█░░░░░░░░░░░█▄█░░▄▀");
+            Console.SetCursorPosition( 0,12);
+            Console.WriteLine("\r\n░░░█░░░░░░░░░░░████▀");
+            Console.SetCursorPosition( 0, 13);
+            Console.WriteLine("\r\n░░░▀▄▄▀▀▄▄▀▀▄▄▄█▀");
 
-            Console.Write("                                 ,'\\\r\n    _.----.        ____         ,'  _\\   ___    ___     ____\r\n_,-'       `.     |    |  /`.   \\,-'    |   \\  /   |   |    \\  |`.\r\n\\      __    \\    '-.  | /   `.  ___    |    \\/    |   '-.   \\ |  |\r\n \\.    \\ \\   |  __  |  |/    ,','_  `.  |          | __  |    \\|  |\r\n   \\    \\/   /,' _`.|      ,' / / / /   |          ,' _`.|     |  |\r\n    \\     ,-'/  /   \\    ,'   | \\/ / ,`.|         /  /   \\  |     |\r\n     \\    \\ |   \\_/  |   `-.  \\    `'  /|  |    ||   \\_/  | |\\    |\r\n      \\    \\ \\      /       `-.`.___,-' |  |\\  /| \\      /  | |   |\r\n       \\    \\ `.__,'|  |`-._    `|      |__| \\/ |  `.__,'|  | |   |\r\n        \\_.-'       |__|    `-._ |              '-.|     '-.| |   |\r\n                                `'                            '-._|");
+
+            Console.Write(" ________  ___  ___  __    ________  ___  __    _______      \r\n|\\   __  \\|\\  \\|\\  \\|\\  \\ |\\   __  \\|\\  \\|\\  \\ |\\  ___ \\     \r\n\\ \\  \\|\\  \\ \\  \\ \\  \\/  /|\\ \\  \\|\\  \\ \\  \\/  /|\\ \\   __/|    \r\n \\ \\   ____\\ \\  \\ \\   ___  \\ \\  \\\\\\  \\ \\   ___  \\ \\  \\_|/__  \r\n  \\ \\  \\___|\\ \\  \\ \\  \\\\ \\  \\ \\  \\\\\\  \\ \\  \\\\ \\  \\ \\  \\_|\\ \\ \r\n   \\ \\__\\    \\ \\__\\ \\__\\\\ \\__\\ \\_______\\ \\__\\\\ \\__\\ \\_______\\\r\n    \\|__|     \\|__|\\|__| \\|__|\\|_______|\\|__| \\|__|\\|_______|");
             Pikachu pikachu = new Pikachu();
             Pikachu pikachu2 = new Pikachu();
-            Console.Write("pv pika debu : {0}",pikachu.PV); 
-            pikachu2.Attack(pikachu,pikachu2.Skill1);
+            Console.Write("pv pika debu : {0}", pikachu.PV);
+            pikachu2.Attack(pikachu, pikachu2.Skill1);
             Console.Write("pv pika hurt: {0}", pikachu.PV);
             pikachu.LVLup();
             pikachu.LVLup();
             pikachu.LVLup();
             pikachu.LVLup();
-            Console.Write("pv pika lvlup: {0}", pikachu.PV);
+            Console.Write("pv pika lvlup: {0}\n", pikachu.PV);
             pikachu.Draw();
             //var player = new SoundPlayer("path/to/audiofile.wav");
             //player.Play();
-
+            bool start = false;
             // boucle de jeu
             while (true)
             {
+
                 // récupération de la touche appuyée par le joueur
                 ConsoleKey key = Console.ReadKey(true).Key;
 
                 // mise à jour de la position du joueur en fonction de la touche appuyée
-                if (key == ConsoleKey.UpArrow)
+                switch (key)
                 {
-                    if (map.IsValidMove(map.playerX, map.playerY - 1))
-                    {
+                    case ConsoleKey.Spacebar:
+                        start = true;
+                        Console.Clear();
+                        map.DrawMap();
+                        break;
+                    case ConsoleKey.UpArrow:
                         map.playerY--;
-                    }
-                }
-                else if (key == ConsoleKey.DownArrow)
-                {
-                    if (map.IsValidMove(map.playerX, map.playerY + 1))
-                    {
+                        break;
+                    case ConsoleKey.DownArrow:
                         map.playerY++;
-                    }
-                }
-                else if (key == ConsoleKey.LeftArrow)
-                {
-                    if (map.IsValidMove(map.playerX - 1, map.playerY))
-                    {
+                        break;
+                    case ConsoleKey.LeftArrow:
                         map.playerX--;
-                    }
-                }
-                else if (key == ConsoleKey.RightArrow)
-                {
-                    if (map.IsValidMove(map.playerX + 1, map.playerY))
-                    {
+                        break;
+                    case ConsoleKey.RightArrow:
                         map.playerX++;
-                    }
+                        break;
+                    default:
+                        break;
                 }
 
-                // réaffichage de la carte avec la nouvelle position du joueur
-                Console.Clear();
-                map.DrawMap();
+                if (start)
+                {
+                    // réaffichage de la carte avec la nouvelle position du joueur
+
+                    Console.SetCursorPosition(0, 0);
+                    map.DrawMap();
+                }
+
 
 
             }

@@ -17,6 +17,8 @@ namespace Projet_7
         // dimensions de la carte
         const int MAP_WIDTH = 50;
         const int MAP_HEIGHT = 20;
+        public  int MAPWIDTH { get => 50; }
+        public  int MAPHEIGHT { get => 20;  }
 
         char[,] _map = new char[MAP_HEIGHT, MAP_WIDTH] {
         { _wall, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup,_wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup,_wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup,_wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wallup, _wall },
