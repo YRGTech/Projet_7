@@ -49,17 +49,7 @@ namespace Projet_7
 
 
             Console.Write(" ________  ___  ___  __    ________  ___  __    _______      \r\n|\\   __  \\|\\  \\|\\  \\|\\  \\ |\\   __  \\|\\  \\|\\  \\ |\\  ___ \\     \r\n\\ \\  \\|\\  \\ \\  \\ \\  \\/  /|\\ \\  \\|\\  \\ \\  \\/  /|\\ \\   __/|    \r\n \\ \\   ____\\ \\  \\ \\   ___  \\ \\  \\\\\\  \\ \\   ___  \\ \\  \\_|/__  \r\n  \\ \\  \\___|\\ \\  \\ \\  \\\\ \\  \\ \\  \\\\\\  \\ \\  \\\\ \\  \\ \\  \\_|\\ \\ \r\n   \\ \\__\\    \\ \\__\\ \\__\\\\ \\__\\ \\_______\\ \\__\\\\ \\__\\ \\_______\\\r\n    \\|__|     \\|__|\\|__| \\|__|\\|_______|\\|__| \\|__|\\|_______|");
-            Pikachu pikachu = new Pikachu();
-            Pikachu pikachu2 = new Pikachu();
-            Console.Write("pv pika debu : {0}", pikachu.PV);
-            pikachu2.Attack(pikachu, pikachu2.Skill1);
-            Console.Write("pv pika hurt: {0}", pikachu.PV);
-            pikachu.LVLup();
-            pikachu.LVLup();
-            pikachu.LVLup();
-            pikachu.LVLup();
-            Console.Write("pv pika lvlup: {0}\n", pikachu.PV);
-            pikachu.Draw();
+            
             //var player = new SoundPlayer("path/to/audiofile.wav");
             //player.Play();
             bool start = false;

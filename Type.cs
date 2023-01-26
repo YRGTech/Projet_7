@@ -24,6 +24,7 @@ namespace Projet_7
         Ice,
         Dragon,
         Dark,
-        Fairy
+        Fairy,
+        Giselle
     }
 }

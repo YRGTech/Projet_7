@@ -21,7 +21,7 @@ namespace Projet_7
         private Type _type;
         private string _name;
         private string _art;
-
+        private int _xpMax;
 
         public Pokemon()
         {
@@ -62,22 +62,22 @@ namespace Projet_7
 
         public int ATK
         {
-            get { return _atk; }
+            get { return (int)(25 * Math.Log2(LVL) + _atk); }
             init { _atk = value; }
         }
         public int DEF
         {
-            get { return _def; }
+            get { return (int)(25 * Math.Log2(LVL) + _def); }
             init { _def = value; }
         }
         public int VIT
         {
-            get { return _vit; }
+            get { return (int)(25 * Math.Log2(LVL) + _vit); }
             init { _vit = value; }
         }
         public int ACC
         {
-            get { return _acc; }
+            get { return (int)(25 * Math.Log2(LVL) + _acc); }
             init { _acc = value; }
 
         }
@@ -91,6 +91,11 @@ namespace Projet_7
         {
             get => _xp;
             set { _xp = value; }
+        }
+        public int XPMax
+        {
+            get => (int)(25 * Math.Log2(LVL) + _xpMax);
+            set { _xpMax = value; }
         }
 
         public string Name
@@ -134,8 +139,9 @@ namespace Projet_7
         {
             LVL = LVL + 1;
             Heal(PVMax);
-            PV = 25 * LVL / 10 + PV;
-            PM = 25 * LVL / 10 + PM;
+            PV = (int)(5 * Math.Log2(LVL) + PV);
+            PM = (int)(5 * Math.Log2(LVL) + PM);
+            
 
             PVMax = PV;
         }
@@ -193,7 +199,8 @@ namespace Projet_7
                     break;
             }
             damage = damage - DEF;
-
+            if (damage < 0)
+                damage = LVL;
             PV = PV - damage;
             if (PV < 0) { PV = 0; }
         }
