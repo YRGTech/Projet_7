@@ -8,6 +8,10 @@ namespace Projet_7
     public class Inventory
     {
         bool bool_inventory = true;
+        bool bool_potion = false;
+        bool bool_bouf = false;
+        bool bool_debouf = false;
+        int menu = 0;
         int posX = 0;
         int posY = 1;
         int pos = 0;
@@ -15,42 +19,43 @@ namespace Projet_7
         {
             bool bool_inventory = true;
             int posX = 0;
-            int posY= 1;
+            int posY = 1;
             int pos = 0;
             Console.Clear();
             Console.CursorVisible = false;
 
-            while (bool_inventory)
+            while (menu == 0)
             {
                 Console.SetCursorPosition(0, 0);
                 Console.Write("          Inventory");
                 Console.Write("\n");
                 Console.Write("  Potion");
-                Console.Write("              Bouf\n");
-                Console.Write("  Debouf");
-                Console.Write("              Quit\n");
+                Console.Write("              Debouf\n");
+                Console.Write("  Bouf");
+                Console.Write("                Quit\n");
 
+                move();
                 Console.SetCursorPosition(posX, posY);
                 Console.Write("->");
-
-                move(posX, posY, pos);
-                
-                
             }
+            menu = 0;
         }
 
-        void test(int posX, int posY, int pos)
+        void test()
         {
             switch (pos)
             {
                 case (1):
-                    potion(posX, posY, pos);
+                    menu = 1;
+                    potion();
                     break;
                 case (2):
-                    bouf(posX, posY, pos); 
+                    menu = 2;
+                    bouf();
                     break;
                 case (21):
-                    debouf(posX, posY, pos);
+                    menu = 3;
+                    debouf();
                     break;
                 case (22):
                     quit();
@@ -58,58 +63,83 @@ namespace Projet_7
             }
         }
 
-        void potion(int posX, int posY, int pos)
+        void potion()
         {
-            Console.SetCursorPosition(0, 0);
-            Console.Write("          Inventory");
-            Console.Write("\n");
-            Console.Write("  Potion");
-            Console.Write("              Bouf\n");
-            Console.Write("  Debouf");
-            Console.Write("              Quit\n");
+            while (menu == 1)
+            {
+                Console.SetCursorPosition(0, 0);
+                Console.Write("          Potion");
+                Console.Write("\n");
+                Console.Write("  small potion 20pv");
+                Console.Write("   potion 50pv\n");
+                Console.Write("  Big potion 100");
+                Console.Write("      Quit\n");
 
-            Console.SetCursorPosition(posX, posY);
-            Console.Write("->");
+                Console.SetCursorPosition(posX, posY);
+                Console.Write("->");
 
-            move(posX, posY, pos);
+                move();
+            }
         }
-        void bouf(int posX, int posY, int pos)
+        void bouf()
         {
-            Console.SetCursorPosition(0, 0);
-            Console.Write("          Inventory");
-            Console.Write("\n");
-            Console.Write("  Potion");
-            Console.Write("              Bouf\n");
-            Console.Write("  Debouf");
-            Console.Write("              Quit\n");
+            while (menu == 2)
+            {
+                Console.SetCursorPosition(0, 0);
+                Console.Write("          Bouf");
+                Console.Write("\n");
+                Console.Write("  boeuf +damage");
+                Console.Write("       Cheetah +dodge\n");
+                Console.Write("  tortoise +defence");
+                Console.Write("   Quit\n");
 
-            Console.SetCursorPosition(posX, posY);
-            Console.Write("->");
+                Console.SetCursorPosition(posX, posY);
+                Console.Write("->");
 
-            move(posX, posY, pos);
+                move();
+            }
         }
-        void debouf(int posX, int posY, int pos)
+        void debouf()
         {
-            Console.SetCursorPosition(0, 0);
-            Console.Write("          Inventory");
-            Console.Write("\n");
-            Console.Write("  Potion");
-            Console.Write("              Bouf\n");
-            Console.Write("  Debouf");
-            Console.Write("              Quit\n");
+            while (menu == 3)
+            {
+                Console.SetCursorPosition(0, 0);
+                Console.Write("          Debouf");
+                Console.Write("\n");
+                Console.Write("  Pangolin -Defence");
+                Console.Write("   Mirror *can attack himself\n");
+                Console.Write("  GlueGun no dodge");
+                Console.Write("   Quit\n");
 
-            Console.SetCursorPosition(posX, posY);
-            Console.Write("->");
+                Console.SetCursorPosition(posX, posY);
+                Console.Write("->");
 
-            move(posX, posY, pos);
+                move();
+            }
         }
         void quit()
         {
-
+            switch (menu)
+            {
+                case (0):
+                    menu = 5;
+                    break;
+                case (1):
+                    menu = 0;
+                    break;
+                case (2):
+                    menu = 0;
+                    break;
+                case (3):
+                    menu = 0;
+                    break;
+            }
         }
 
-        void move(int posX, int posY, int pos)
+        void move()
         {
+            Console.SetCursorPosition(posX, posY);
+            Console.Write("->");
 
             // récupération de la touche appuyée par le joueur
             ConsoleKey key = Console.ReadKey(true).Key;
@@ -133,9 +163,9 @@ namespace Projet_7
                     posX = 20;
                     break;
                 case ConsoleKey.Enter:
-                    pos = posX + posY;
-                    test(posX, posY, pos);
                     Console.Clear();
+                    pos = posX + posY;
+                    test();
                     break;
             }
 
