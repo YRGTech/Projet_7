@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Headers;
@@ -12,14 +13,12 @@ namespace Projet_7
         private static List<Option>? options;
         public void createMenu(Map map)
         {
-            TeamSummary ts = new TeamSummary();
-            Inventory inv = new Inventory();
             Save save= new Save();
             options = new List<Option>
             {
-                new Option("Team Summary",() => ts.openTeamSummary() ),
-                new Option("Inventory", () => inv.openInventory()),
-                new Option("Save", () => save.openSaveMenu()),
+                new Option("Team Summary",() => openTeamSummary() ),
+                new Option("Inventory", () => openInventory()),
+                new Option("Save", () => openSave()),
                 new Option("Exit",() => map.DrawMap()),
             };
             int index = 0;
@@ -27,44 +26,71 @@ namespace Projet_7
             WriteMenu(options, options[index]);
 
             ConsoleKey key = Console.ReadKey(true).Key;
-            do
+            switch (key)
             {
-                if (key == ConsoleKey.DownArrow)
-                {
-                    if (index + 1 < options.Count)
+                case ConsoleKey.DownArrow:
+                    if (index + 1 < options.Count) 
                     {
                         index++;
                         WriteMenu(options, options[index]);
                     }
-                }
-                if (key == ConsoleKey.UpArrow)
-                {
-                    if (index - 1 >= 0)
+                    break;
+                case ConsoleKey.UpArrow:
+                    if (index - 1 >=0) 
                     {
                         index--;
                         WriteMenu(options, options[index]);
                     }
-                }
-                if (key == ConsoleKey.Enter)
-                {
-                    options[index].Selected.Invoke();
-                    index = 0;
-                }
+                    break;
+                case ConsoleKey.Enter:
+                    {
+                        options[index].Selected.Invoke();
+                        index = 0;
+                    }
+                    break;
+                case ConsoleKey.Escape:
+                    {
+                        Console.Clear();
+                        map.DrawMap();
+                    }
+                    break;
+                default:
+                    {
+                        WriteMenu(options, options[index]);
+                        break;
+                    }
+                    
             }
-            while (key != ConsoleKey.Escape);
             Console.ReadKey();
         }
 
+        public static void openTeamSummary()
+        {
+            TeamSummary ts = new TeamSummary();
+            ts.openTeamSummary();
+        }
+
+        public static void openInventory()
+        {
+            Inventory In = new Inventory();
+            In.openInventory();
+        }
+
+        public static void openSave()
+        {
+            Save save = new Save();
+            save.openSaveMenu();
+        }
 
 
-        public void WriteMenu(List<Option> options, Option selectedOption)
+        public static void WriteMenu(List<Option> options, Option selectedOption)
         {
             Console.Clear();
             foreach (Option option in options) 
             {
                 if (option == selectedOption)
                 {
-                    Console.WriteLine("> ");
+                    Console.Write("> ");
                 }
                 else
                 {
