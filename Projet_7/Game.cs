@@ -9,93 +9,100 @@ using System.Runtime.Versioning;
 
 namespace Projet_7
 {
-    internal class Game
+    public class Game
     {
-
-
+        public bool OpenMenu { get; set; }
+        public bool Explo { get; set; }
+        public Map? Map { get; set; }
 
         public void Run()
         {
+            Menu menu = new Menu();
             // affichage de la carte initiale
-            Map map = new Map();
+            Map = new Map();
             Console.SetCursorPosition(0, 0);
             Console.WriteLine("\r\n░█▀▀▄░░░░░░░░░░░▄▀▀█ ");
-            Console.SetCursorPosition( 0,1);
-            Console.WriteLine("\r\n░█░░░▀▄░▄▄▄▄▄░▄▀░░░█" );
-            Console.SetCursorPosition( 0,2);
+            Console.SetCursorPosition(0, 1);
+            Console.WriteLine("\r\n░█░░░▀▄░▄▄▄▄▄░▄▀░░░█");
+            Console.SetCursorPosition(0, 2);
             Console.WriteLine("\r\n░░▀▄░░░▀░░░░░▀░░░▄▀");
-            Console.SetCursorPosition( 0,3);
+            Console.SetCursorPosition(0, 3);
             Console.WriteLine("\r\n░░░░▌░▄▄░░░▄▄░▐▀▀");
-            Console.SetCursorPosition(0,4);
+            Console.SetCursorPosition(0, 4);
             Console.WriteLine("\r\n░░░▐░░█▄░░░▄█░░▌▄▄▀▀▀▀█");
-            Console.SetCursorPosition( 0,5);
+            Console.SetCursorPosition(0, 5);
             Console.WriteLine("\r\n░░░▌▄▄▀▀░▄░▀▀▄▄▐░░░░░░█");
-            Console.SetCursorPosition( 0,6);
+            Console.SetCursorPosition(0, 6);
             Console.WriteLine("\r\n▄▀▀▐▀▀░▄▄▄▄▄░▀▀▌▄▄▄░░░█");
-            Console.SetCursorPosition( 0,7);
+            Console.SetCursorPosition(0, 7);
             Console.WriteLine("\r\n█░░░▀▄░█░░░█░▄▀░░░░█▀▀▀");
-            Console.SetCursorPosition( 0,8);
+            Console.SetCursorPosition(0, 8);
             Console.WriteLine("\r\n░▀▄░░▀░░▀▀▀░░▀░░░▄█▀");
-            Console.SetCursorPosition( 0,9);
+            Console.SetCursorPosition(0, 9);
             Console.WriteLine("\r\n░░░█░░░░░░░░░░░▄▀▄░▀▄");
-            Console.SetCursorPosition( 0,10);
+            Console.SetCursorPosition(0, 10);
             Console.WriteLine("\r\n░░░█░░░░░░░░░▄▀█░░█░░█");
-            Console.SetCursorPosition( 0,11);
+            Console.SetCursorPosition(0, 11);
             Console.WriteLine("\r\n░░░█░░░░░░░░░░░█▄█░░▄▀");
-            Console.SetCursorPosition( 0,12);
+            Console.SetCursorPosition(0, 12);
             Console.WriteLine("\r\n░░░█░░░░░░░░░░░████▀");
-            Console.SetCursorPosition( 0, 13);
+            Console.SetCursorPosition(0, 13);
             Console.WriteLine("\r\n░░░▀▄▄▀▀▄▄▀▀▄▄▄█▀");
 
 
             Console.Write(" ________  ___  ___  __    ________  ___  __    _______      \r\n|\\   __  \\|\\  \\|\\  \\|\\  \\ |\\   __  \\|\\  \\|\\  \\ |\\  ___ \\     \r\n\\ \\  \\|\\  \\ \\  \\ \\  \\/  /|\\ \\  \\|\\  \\ \\  \\/  /|\\ \\   __/|    \r\n \\ \\   ____\\ \\  \\ \\   ___  \\ \\  \\\\\\  \\ \\   ___  \\ \\  \\_|/__  \r\n  \\ \\  \\___|\\ \\  \\ \\  \\\\ \\  \\ \\  \\\\\\  \\ \\  \\\\ \\  \\ \\  \\_|\\ \\ \r\n   \\ \\__\\    \\ \\__\\ \\__\\\\ \\__\\ \\_______\\ \\__\\\\ \\__\\ \\_______\\\r\n    \\|__|     \\|__|\\|__| \\|__|\\|_______|\\|__| \\|__|\\|_______|");
-            bool openMenu = false;
-            
+
+
             //var player = new SoundPlayer("path/to/audiofile.wav");
             //player.Play();
-            bool start = false;
+
             // boucle de jeu
-            while (true && openMenu ==false)
+            while (true && OpenMenu == false)
             {
                 // récupération de la touche appuyée par le joueur
                 ConsoleKey key = Console.ReadKey(true).Key;
 
                 // mise à jour de la position du joueur en fonction de la touche appuyée
-                ****suppr
-                
-		switch (key)
+
+
+                switch (key)
                 {
                     case ConsoleKey.Spacebar:
-                        start = true;
+                        Explo = true;
                         Console.Clear();
-                        map.DrawMap();
+                        Map.DrawMap();
                         break;
                     case ConsoleKey.UpArrow:
-                        map.playerY--;
+                        Map.playerY--;
                         break;
                     case ConsoleKey.DownArrow:
-                        map.playerY++;
+                        Map.playerY++;
                         break;
                     case ConsoleKey.LeftArrow:
-                        map.playerX--;
+                        Map.playerX--;
                         break;
                     case ConsoleKey.RightArrow:
-                        map.playerX++;
+                        Map.playerX++;
                         break;
-                    case ConsoleKey.X :
-                        Menu menu= new Menu();
-                        menu.createMenu(map);
-                        openMenu = true;
+                    case ConsoleKey.X:
+                        Explo = false;
+                        OpenMenu = true;
+                        break;
                     default:
                         break;
                 }
 
-                if (start)
+                if (Explo)
                 {
                     // réaffichage de la carte avec la nouvelle position du joueur
 
                     Console.SetCursorPosition(0, 0);
-                    map.DrawMap();
+                    Map.DrawMap();
+                }
+                else if (OpenMenu)
+                {
+                    menu.createMenu(this);
+
                 }
 
 
