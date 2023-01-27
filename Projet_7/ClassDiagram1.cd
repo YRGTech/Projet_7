@@ -72,7 +72,7 @@
   <Enum Name="Projet_7.Type" Collapsed="true">
     <Position X="9.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIAAAAAAAACAAAIBUAAAAAACAAsAABAEAAEAAAAcAA=</HashCode>
+      <HashCode>AAIAQAAAAAACAAAIBUAAAAAACAAsAABAEAAEAAAAcAA=</HashCode>
       <FileName>Type.cs</FileName>
     </TypeIdentifier>
   </Enum>

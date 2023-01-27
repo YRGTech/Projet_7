@@ -174,7 +174,7 @@ namespace Projet_7
         {
             get => 1.75 * ATK;
         }
-
+        
         public override void Hurt(int damage, Type type)
         {
             switch (type)
@@ -194,6 +194,10 @@ namespace Projet_7
                 case Type.Steel:
                     damage = damage * 1 / 2;
                     Console.WriteLine("{0} degat pas efficace dans ta geule\n", damage);
+                    break;
+                case Type.Giselle:
+                    damage = damage * 2;
+                    Console.WriteLine("{0} degat efficace dans ta geule\n", damage);
                     break;
                 default:
                     break;
