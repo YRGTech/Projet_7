@@ -49,19 +49,21 @@ namespace Projet_7
 
 
             Console.Write(" ________  ___  ___  __    ________  ___  __    _______      \r\n|\\   __  \\|\\  \\|\\  \\|\\  \\ |\\   __  \\|\\  \\|\\  \\ |\\  ___ \\     \r\n\\ \\  \\|\\  \\ \\  \\ \\  \\/  /|\\ \\  \\|\\  \\ \\  \\/  /|\\ \\   __/|    \r\n \\ \\   ____\\ \\  \\ \\   ___  \\ \\  \\\\\\  \\ \\   ___  \\ \\  \\_|/__  \r\n  \\ \\  \\___|\\ \\  \\ \\  \\\\ \\  \\ \\  \\\\\\  \\ \\  \\\\ \\  \\ \\  \\_|\\ \\ \r\n   \\ \\__\\    \\ \\__\\ \\__\\\\ \\__\\ \\_______\\ \\__\\\\ \\__\\ \\_______\\\r\n    \\|__|     \\|__|\\|__| \\|__|\\|_______|\\|__| \\|__|\\|_______|");
+            bool openMenu = false;
             
             //var player = new SoundPlayer("path/to/audiofile.wav");
             //player.Play();
             bool start = false;
             // boucle de jeu
-            while (true)
+            while (true && openMenu ==false)
             {
-
                 // récupération de la touche appuyée par le joueur
                 ConsoleKey key = Console.ReadKey(true).Key;
 
                 // mise à jour de la position du joueur en fonction de la touche appuyée
-                switch (key)
+                ****suppr
+                
+		switch (key)
                 {
                     case ConsoleKey.Spacebar:
                         start = true;
@@ -80,6 +82,10 @@ namespace Projet_7
                     case ConsoleKey.RightArrow:
                         map.playerX++;
                         break;
+                    case ConsoleKey.X :
+                        Menu menu= new Menu();
+                        menu.createMenu(map);
+                        openMenu = true;
                     default:
                         break;
                 }
