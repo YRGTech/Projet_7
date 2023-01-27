@@ -5,8 +5,7 @@ using System.Text;
 
 namespace Projet_7
 {
-    public enum Type
+    public class Stat : Menu
     {
-        ELK = 0
     }
 }
