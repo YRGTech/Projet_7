@@ -82,6 +82,7 @@ namespace Projet_7
 
         public void DrawMap()
         {
+            Console.Clear();
             // parcours de la carte
             for (int y = 0; y < MAP_HEIGHT; y++)
             {
