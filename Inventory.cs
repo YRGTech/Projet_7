@@ -7,20 +7,33 @@ namespace Projet_7
 {
     public class Inventory
     {
-        bool bool_inventory = true;
-        bool bool_potion = false;
-        bool bool_bouf = false;
-        bool bool_debouf = false;
+        // ----------  Curseur dans le menu ---------
         int menu = 0;
         int posX = 0;
         int posY = 1;
-        int pos = 0;
+        Pos pos = 0;
+
+        // ----------  Nombre de potion ---------
+        int SPotion = 0;
+        int Potion = 0;
+        int BPotion = 0;
+
+        // ----------  Nombre de buff ---------
+        int Cheetah = 0;
+        int Tortoise = 0;
+        int boeuf = 0;
+
+        // ----------  Nombre de debuff
+        // ................................................................................... ---------
+        int Glue = 0;
+        int Mirror = 0;
+        int Pangolin = 0;
+
+
         public void inventory()
         {
-            bool bool_inventory = true;
-            int posX = 0;
-            int posY = 1;
-            int pos = 0;
+            posX = 0;
+            posY = 1;
             Console.Clear();
             Console.CursorVisible = false;
 
@@ -35,32 +48,64 @@ namespace Projet_7
                 Console.Write("                Quit\n");
 
                 move();
-                Console.SetCursorPosition(posX, posY);
-                Console.Write("->");
             }
             menu = 0;
         }
 
+        enum Pos
+        {
+            Potion = 1,
+            Bouf = 2,
+            Debouf = 21,
+
+            Spotion = 101,
+            MPotion = 102,
+            BPotion = 121,
+
+            boeuf = 201,
+            Cheetah = 202,
+            Tortoise = 221,
+
+            Glue = 301,
+            Mirror = 302,
+            Pangolin = 321
+            
+        }
+
         void test()
         {
+            switch (menu)
+            {
+                case 1:
+                    pos+=100;
+                    break;
+                case 2:
+                    pos += 200;
+                    break;
+                case 3:
+                    pos += 300;
+                    break;
+
+            }
             switch (pos)
             {
-                case (1):
+                case Pos.Potion:
                     menu = 1;
                     potion();
                     break;
-                case (2):
+                case Pos.Bouf:
                     menu = 2;
                     bouf();
                     break;
-                case (21):
+                case Pos.Debouf:
                     menu = 3;
                     debouf();
                     break;
-                case (22):
+                default:
                     quit();
                     break;
             }
+
         }
 
         void potion()
@@ -72,7 +117,7 @@ namespace Projet_7
                 Console.Write("\n");
                 Console.Write("  small potion 20pv");
                 Console.Write("   potion 50pv\n");
-                Console.Write("  Big potion 100");
+                Console.Write("  Big potion 100pv");
                 Console.Write("      Quit\n");
 
                 Console.SetCursorPosition(posX, posY);
@@ -164,7 +209,7 @@ namespace Projet_7
                     break;
                 case ConsoleKey.Enter:
                     Console.Clear();
-                    pos = posX + posY;
+                    pos = (Pos)(posX + posY);
                     test();
                     break;
             }

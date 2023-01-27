@@ -11,7 +11,6 @@ namespace Projet_7
     internal class Game
     {
         public bool loop;
-        public bool boolInventory = false;
 
 
 
