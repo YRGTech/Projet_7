@@ -1,0 +1,129 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Xml.Linq;
+
+namespace Projet_7
+{
+    public class Menu
+    {
+        private static List<Option>? options;
+<<<<<<< HEAD
+        public void createMenu(Game game)
+=======
+        public void createMenu(Map map)
+>>>>>>> ae08b9356f60f8b87ea110b2fd50e6207da1aeef
+        {
+            Save save= new Save();
+            options = new List<Option>
+            {
+                new Option("Team Summary",() => openTeamSummary() ),
+                new Option("Inventory", () => openInventory()),
+                new Option("Save", () => openSave()),
+<<<<<<< HEAD
+                new Option("Exit",() => game.Map.DrawMap()),
+=======
+                new Option("Exit",() => map.DrawMap()),
+>>>>>>> ae08b9356f60f8b87ea110b2fd50e6207da1aeef
+            };
+            int index = 0;
+
+            WriteMenu(options, options[index]);
+
+            ConsoleKey key = Console.ReadKey(true).Key;
+            switch (key)
+            {
+                case ConsoleKey.DownArrow:
+                    if (index + 1 < options.Count) 
+                    {
+                        index++;
+                        WriteMenu(options, options[index]);
+                    }
+                    break;
+                case ConsoleKey.UpArrow:
+                    if (index - 1 >=0) 
+                    {
+                        index--;
+                        WriteMenu(options, options[index]);
+                    }
+                    break;
+                case ConsoleKey.Enter:
+                    {
+                        options[index].Selected.Invoke();
+                        index = 0;
+                    }
+                    break;
+                case ConsoleKey.Escape:
+                    {
+<<<<<<< HEAD
+                        game.Explo = true;
+                        game.OpenMenu = false;
+=======
+                        Console.Clear();
+                        map.DrawMap();
+>>>>>>> ae08b9356f60f8b87ea110b2fd50e6207da1aeef
+                    }
+                    break;
+                default:
+                    {
+                        WriteMenu(options, options[index]);
+                        break;
+                    }
+                    
+            }
+            Console.ReadKey();
+        }
+
+        public static void openTeamSummary()
+        {
+            TeamSummary ts = new TeamSummary();
+            ts.openTeamSummary();
+        }
+
+        public static void openInventory()
+        {
+            Inventory In = new Inventory();
+            In.openInventory();
+        }
+
+        public static void openSave()
+        {
+            Save save = new Save();
+            save.openSaveMenu();
+        }
+
+
+        public static void WriteMenu(List<Option> options, Option selectedOption)
+        {
+            Console.Clear();
+            foreach (Option option in options) 
+            {
+                if (option == selectedOption)
+                {
+                    Console.Write("> ");
+                }
+                else
+                {
+                    Console.Write (" ");
+                }
+                Console.WriteLine(option.Name);
+            }
+        }
+    }
+
+    public class Option
+    {
+        public string Name { get;}
+        public Action Selected { get; }
+
+        public Option(string name, Action selected)
+        {
+            Name = name;
+            Selected = selected;
+        }
+    }
+
+}
