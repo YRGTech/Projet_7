@@ -13,13 +13,13 @@ namespace Projet_7
         private static List<Option>? options;
         public void createMenu(Game game)
         {
-            Save save= new Save();
             options = new List<Option>
             {
                 new Option("Team Summary",() => openTeamSummary() ),
                 new Option("Inventory", () => openInventory()),
                 new Option("Save", () => openSave()),
-                new Option("Exit",() => game.Map.DrawMap()),
+                new Option("Resume Game", () => game.Map.DrawMap()),
+                new Option("Exit",() => Environment.Exit(0)),
             };
             int index = 0;
 
@@ -87,16 +87,35 @@ namespace Projet_7
 
         public static void WriteMenu(List<Option> options, Option selectedOption)
         {
+            int temp = 0;
             Console.Clear();
+            Console.SetCursorPosition(65, 0);
+            Console.WriteLine(" _____ ______   _______   ________   ___  ___ \r\n");
+            Console.SetCursorPosition(65, 1);
+            Console.WriteLine("|\\   _ \\  _   \\|\\  ___ \\ |\\   ___  \\|\\  \\|\\  \\    \r\n");
+            Console.SetCursorPosition(65, 2);
+            Console.WriteLine("\\ \\  \\\\\\__\\ \\  \\ \\   __/|\\ \\  \\\\ \\  \\ \\  \\\\\\  \\   \r\n");
+            Console.SetCursorPosition(65, 3);
+            Console.WriteLine(" \\ \\  \\\\|__| \\  \\ \\  \\_|/_\\ \\  \\\\ \\  \\ \\  \\\\\\  \\  \r\n");
+            Console.SetCursorPosition(65, 4);
+            Console.WriteLine("  \\ \\  \\    \\ \\  \\ \\  \\_|\\ \\ \\  \\\\ \\  \\ \\  \\\\\\  \\ \r\n");
+            Console.SetCursorPosition(65, 5);
+            Console.WriteLine("   \\ \\__\\    \\ \\__\\ \\_______\\ \\__\\\\ \\__\\ \\_______\\ \r\n");
+            Console.SetCursorPosition(65, 6);
+            Console.WriteLine("    \\|__|     \\|__|\\|_______|\\|__| \\|__|\\|_______|\r\n");
             foreach (Option option in options) 
             {
                 if (option == selectedOption)
                 {
-                    Console.Write("> ");
+                    Console.SetCursorPosition(84, 20 + temp);
+                    Console.Write("-> ");
+                    temp += 1;
                 }
                 else
                 {
+                    Console.SetCursorPosition(86, 20+ temp);
                     Console.Write (" ");
+                    temp += 1;
                 }
                 Console.WriteLine(option.Name);
             }
