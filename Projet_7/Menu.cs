@@ -24,44 +24,46 @@ namespace Projet_7
             int index = 0;
 
             WriteMenu(options, options[index]);
-
-            ConsoleKey key = Console.ReadKey(true).Key;
-            switch (key)
+            
+            while (game.OpenMenu == true)
             {
-                case ConsoleKey.DownArrow:
-                    if (index + 1 < options.Count) 
-                    {
-                        index++;
-                        WriteMenu(options, options[index]);
-                    }
-                    break;
-                case ConsoleKey.UpArrow:
-                    if (index - 1 >=0) 
-                    {
-                        index--;
-                        WriteMenu(options, options[index]);
-                    }
-                    break;
-                case ConsoleKey.Enter:
-                    {
-                        options[index].Selected.Invoke();
-                        index = 0;
-                    }
-                    break;
-                case ConsoleKey.Escape:
-                    {
-                        game.Explo = true;
-                        game.OpenMenu = false;
-                    }
-                    break;
-                default:
-                    {
-                        WriteMenu(options, options[index]);
+                ConsoleKey key = Console.ReadKey(true).Key;
+                switch (key)
+                {
+                    case ConsoleKey.DownArrow:
+                        if (index + 1 < options.Count)
+                        {
+                            index++;
+                            WriteMenu(options, options[index]);
+                        }
                         break;
-                    }
-                    
+                    case ConsoleKey.UpArrow:
+                        if (index - 1 >= 0)
+                        {
+                            index--;
+                            WriteMenu(options, options[index]);
+                        }
+                        break;
+                    case ConsoleKey.Enter:
+                        {
+                            options[index].Selected.Invoke();
+                            index = 0;
+                        }
+                        break;
+                    case ConsoleKey.Escape:
+                        {
+                            game.Explo = true;
+                            game.OpenMenu = false;
+                        }
+                        break;
+                    default:
+                        {
+                            WriteMenu(options, options[index]);
+                            break;
+                        }
+
+                }
             }
-            Console.ReadKey();
         }
 
         public static void openTeamSummary()
