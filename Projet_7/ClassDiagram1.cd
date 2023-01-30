@@ -21,10 +21,10 @@
       <FileName>Inventory.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Projet_7.Map" Collapsed="true">
-    <Position X="7.75" Y="3.25" Width="1.5" />
+  <Class Name="Projet_7.Map">
+    <Position X="13.25" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ABABEAAAAAAAAEIAAAAQCAIAAACAAAAQAEAAAACBAQA=</HashCode>
+      <HashCode>ABABEAAAAAAACEIAAAAACAIAAAKAAAAAAEAAAgCBAQA=</HashCode>
       <FileName>Map.cs</FileName>
     </TypeIdentifier>
   </Class>

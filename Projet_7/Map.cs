@@ -84,6 +84,10 @@ namespace Projet_7
                 for (int x = 0; x < MAP_HEIGHT; x++)
                 {
                     // affichage du caractère de la carte
+                    if (_map[y, x] == _floor)
+                    {
+                        Console.BackgroundColor = ConsoleColor.White;
+                    } else Console.BackgroundColor = ConsoleColor.Black;
                     Console.Write(_map[y, x]);
                 }
                 // passage à la ligne suivante
