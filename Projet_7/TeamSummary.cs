@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace Projet_7
 {
-    public  class TeamSummary : Pokemon
+    public  class TeamSummary : Pikachu
     {
         public TeamSummary() { }
 
         public void openTeamSummary()
         {
+            Pikachu pikachu = new Pikachu();
             Console.Clear();
             Console.SetCursorPosition(25, 0);
             Console.WriteLine(" _________  _______   ________  _____ ______           ________  ___  ___  _____ ______   _____ ______   ________  ________      ___    ___ \r\n");
@@ -29,10 +30,40 @@ namespace Projet_7
             Console.WriteLine("\\|__|  \\|_______|\\|__|\\|__|\\|__|     \\|__|       |\\_________\\|_______|\\|__|     \\|__|\\|__|     \\|__|\\|__|\\|__|\\|__|\\|__|\\___/ /     \r\n");
             Console.SetCursorPosition(82, 7);
             Console.WriteLine("\\|_________|                                                          \\|___|/      \r\n");
-            Console.SetCursorPosition(25, 10);
-            //Console.WriteLine("Name :    {0}"
+            Console.WriteLine("===============================================================================================================================================");
+            Console.WriteLine("|                  {0}                                             |                                                                          |", pikachu.Name);
+            Console.WriteLine("|                                                                  |                                                                          |");
+            Console.WriteLine("|                                                                  |                                                                          |");
+            Console.WriteLine("|                                                                  |                                                                          |");
+            Console.WriteLine("|                                                                  |                                                                          |");
+            Console.WriteLine("|                                                                  |                                                                          |");
+            Console.WriteLine("|                                                                  |                                                                          |");
+            Console.WriteLine("|                                                                  |                                                                          |");
+            Console.WriteLine("|                                                                  |                                                                          |");
+            Console.WriteLine("|                                                                  |                                                                          |");
+            Console.WriteLine("|                                                                  |                                                                          |");
+            Console.WriteLine("|                                                                  |                                                                          |");
+            Console.WriteLine("|                                                                  |                                                                          |");
+            Console.WriteLine("|                                                                  |                                                                          |");
+            Console.WriteLine("|                                                                  |                                                                          |");
+            Console.WriteLine("|                                                                  |                                                                          |");
+            Console.WriteLine("|                                                                  |                                                                          |");
+            Console.WriteLine("|                                                                  |                                                                          |");
+            Console.WriteLine("|                                                                  |                                                                          |");
+            Console.WriteLine("|                                                                  |                                                                          |");
+            Console.WriteLine("|                                                                  |                                                                          |");
+            Console.WriteLine("|                                                                  |                                                                          |");
+            Console.WriteLine("|                                                                  |                                                                          |");
+            Console.WriteLine("|                                                                  |                                                                          |");
+            Console.WriteLine("|                                                                  |                                                                          |");
+            Console.WriteLine("|                                                                  |                                                                          |");
+            Console.WriteLine("|                                                                  |                                                                          |");
+            Console.WriteLine("===============================================================================================================================================");
 
         }
 
+        public void WriteMenu(string Stats)
+        {
+        }
     }
 }
