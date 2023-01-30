@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-
-namespace Projet_7
+﻿namespace Projet_7
 {
     public class Map
     {
@@ -87,7 +81,8 @@ namespace Projet_7
                     if (_map[y, x] == _floor)
                     {
                         Console.BackgroundColor = ConsoleColor.White;
-                    } else Console.BackgroundColor = ConsoleColor.Black;
+                    }
+                    else Console.BackgroundColor = ConsoleColor.Black;
                     Console.Write(_map[y, x]);
                 }
                 // passage à la ligne suivante
@@ -98,11 +93,11 @@ namespace Projet_7
         public void UpdatePlayerPos(int x, int y)
         {
             Console.SetCursorPosition(playerX, playerY);
-            Console.Write(_map[playerY,playerX]);
+            Console.Write(_map[playerY, playerX]);
             Console.SetCursorPosition(x, y);
             Console.Write(_player);
             playerX = x;
-            playerY = y;   
+            playerY = y;
 
         }
     }

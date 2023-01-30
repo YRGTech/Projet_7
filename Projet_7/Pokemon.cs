@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-
-namespace Projet_7
+﻿namespace Projet_7
 {
     public class Pokemon
     {
@@ -114,7 +108,7 @@ namespace Projet_7
         }
         public void Attack(Pokemon target, double skill)
         {
-           
+
             target.Hurt((int)skill, target.TYPE);
         }
 
@@ -141,7 +135,7 @@ namespace Projet_7
             Heal(PVMax);
             PV = (int)(5 * Math.Log2(LVL) + PV);
             PM = (int)(5 * Math.Log2(LVL) + PM);
-            
+
 
             PVMax = PV;
         }
@@ -174,7 +168,7 @@ namespace Projet_7
         {
             get => 1.75 * ATK;
         }
-        
+
         public override void Hurt(int damage, Type type)
         {
             switch (type)
