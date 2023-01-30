@@ -114,7 +114,7 @@ namespace Projet_7
         }
         public void Attack(Pokemon target, double skill)
         {
-            Console.Write("");
+           
             target.Hurt((int)skill, target.TYPE);
         }
 

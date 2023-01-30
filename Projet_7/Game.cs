@@ -54,6 +54,7 @@ namespace Projet_7
             //player.Play();
             bool start = false;
             // boucle de jeu
+           
             while (true)
             {
 
@@ -64,33 +65,32 @@ namespace Projet_7
                 switch (key)
                 {
                     case ConsoleKey.Spacebar:
-                        start = true;
+                        
                         Console.Clear();
                         map.DrawMap();
+                        map.UpdatePlayerPos(map.playerX, map.playerY );
                         break;
                     case ConsoleKey.UpArrow:
-                        map.playerY--;
+                        if(map.IsValidMove(map.playerX, map.playerY-1))
+                            map.UpdatePlayerPos(map.playerX, map.playerY - 1);
                         break;
                     case ConsoleKey.DownArrow:
-                        map.playerY++;
+                        if (map.IsValidMove(map.playerX, map.playerY+1))
+                            map.UpdatePlayerPos(map.playerX, map.playerY + 1);
                         break;
                     case ConsoleKey.LeftArrow:
-                        map.playerX--;
+                        if (map.IsValidMove(map.playerX-1, map.playerY))
+                            map.UpdatePlayerPos(map.playerX - 1, map.playerY);
                         break;
                     case ConsoleKey.RightArrow:
-                        map.playerX++;
+                        if (map.IsValidMove(map.playerX+1, map.playerY))
+                            map.UpdatePlayerPos(map.playerX + 1, map.playerY);
                         break;
                     default:
                         break;
                 }
 
-                if (start)
-                {
-                    // réaffichage de la carte avec la nouvelle position du joueur
-
-                    Console.SetCursorPosition(0, 0);
-                    map.DrawMap();
-                }
+                
 
 
 
