@@ -3,7 +3,7 @@
     public class Combat
     {
         private int _turn;
-
+        private bool _fight;
         public Combat()
         {
 
@@ -42,7 +42,7 @@
 
         public void Fight()
         {
-            throw new System.NotImplementedException();
+           
         }
     }
 }
