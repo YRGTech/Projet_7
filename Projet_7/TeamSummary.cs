@@ -41,34 +41,40 @@ namespace Projet_7
                 switch (iterator)
                 {
                 case 0:
-                    WriteCapacity(Name.ToString());
+                    WriteCapacity("Name :",Name.ToString());
                     break;
                 case 5:
-                    WriteCapacity(LVL.ToString());
+                    WriteCapacity("Level :",LVL.ToString());
                     break;
-                case 9:
-                    WriteCapacity(XP.ToString());
+                case 7:
+                    WriteCapacity("Experience :",XP.ToString());
+                    break;
+                case 15:
+                    WriteCapacity("Attack :", ATK.ToString());
                     break;
                 default:
-            Console.WriteLine("PIKA PIKA");
+            Console.WriteLine("                                                                                                                                               ");
                 break;
                 }
             }
             Console.WriteLine("===============================================================================================================================================");
         }
-        public void WriteCapacity(string statistic)
+        public void WriteCapacity(string statshown, string statistic)
         {
-            for (int iterator = 0; iterator < 90 - statistic.Length; iterator++)
+            for (int iterator = 0; iterator < 140 - statistic.Length; iterator++)
             {
                 switch (iterator)
                 {
                     case 0:
                         Console.Write("|");
                         break;
-                    case (87):
+                    case (132):
                         Console.Write("|\r\n");
                         break;
-                    case (44):
+                    case (61):
+                        Console.Write(statshown);
+                        break;
+                    case (71):
                         Console.Write(statistic);
                         break;
                     default:
