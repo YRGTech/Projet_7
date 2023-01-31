@@ -8,6 +8,7 @@ namespace Projet_7
 {
     public  class TeamSummary : Pikachu
     {
+        private int _id = 0;
         public TeamSummary() { }
 
         public void openTeamSummary()
@@ -35,53 +36,81 @@ namespace Projet_7
 
         public void WriteMenu(Pokemon IneedaHero)
         {
+            int XPneeded = IneedaHero.XPMax - IneedaHero.XP;
             Console.WriteLine("===============================================================================================================================================");
-            for (int iterator = 0; iterator < 30 ; iterator++)
+            for (int iterator = 0; iterator < 29 ; iterator++)
             {
                 switch (iterator)
                 {
                 case 0:
-                    WriteCapacity("Name :",Name.ToString());
+                    WriteCapacity("Name :",IneedaHero.Name.ToString());
+                    break;
+                case 1:
+                    WriteCapacity("Type :", IneedaHero.TYPE.ToString());
                     break;
                 case 5:
-                    WriteCapacity("Level :",LVL.ToString());
+                    WriteCapacity("Level :", IneedaHero.LVL.ToString());
+                    break;
+                case 6:
+                    WriteCapacity("Experience :", IneedaHero.XP.ToString());
                     break;
                 case 7:
-                    WriteCapacity("Experience :",XP.ToString());
+                    WriteCapacity("Before Next Level :", XPneeded.ToString());
+                    break;
+                case 13:
+                    WritePVPM("PV :", PV.ToString(), IneedaHero.PVMax.ToString());
+                    break;
+                case 14:
+                    WritePVPM("PM :", PM.ToString(), IneedaHero.PMMax.ToString());
                     break;
                 case 15:
-                    WriteCapacity("Attack :", ATK.ToString());
+                    WriteCapacity("Attack :", IneedaHero.ATK.ToString());
                     break;
-                default:
-            Console.WriteLine("                                                                                                                                               ");
+                case 16:
+                    WriteCapacity("Defense :", IneedaHero.DEF.ToString());
                 break;
                 }
+                Console.WriteLine(" ");
             }
             Console.WriteLine("===============================================================================================================================================");
+            WriteEdgeBorder();
         }
         public void WriteCapacity(string statshown, string statistic)
         {
-            for (int iterator = 0; iterator < 140 - statistic.Length; iterator++)
+            Console.SetCursorPosition(68, 12 + _id);
+            Console.Write(statshown);
+            Console.Write("{0} \n",statistic);
+            if (_id == 1)
             {
-                switch (iterator)
-                {
-                    case 0:
-                        Console.Write("|");
-                        break;
-                    case (132):
-                        Console.Write("|\r\n");
-                        break;
-                    case (61):
-                        Console.Write(statshown);
-                        break;
-                    case (71):
-                        Console.Write(statistic);
-                        break;
-                    default:
-                        Console.Write(" ");
-                        break;
-                }
-
+                _id += 4;
+            }
+            else if (_id == 7)
+            {
+                _id += 4;
+            }
+            else
+            {
+                _id++;
+            }
+        }
+        public void WritePVPM(string statshown, string statistic, string statistic_max)
+        {
+            Console.SetCursorPosition(68, 12 + _id);
+            Console.Write(statshown);
+            Console.Write("{0}/{1}", statistic, statistic_max);
+            _id++;
+        }
+        public void WriteEdgeBorder()
+        {
+            for (int iterator = 0; iterator < 30; iterator++)
+            {
+                Console.SetCursorPosition(0, 10 + iterator);
+                Console.Write("|");
+            }
+            for (int iterator2 =0; iterator2 < 30; iterator2++)
+            {
+                Console.SetCursorPosition(142, 10 + iterator2);
+                Console.Write("|");
             }
         }
     }
