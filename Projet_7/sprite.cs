@@ -6,6 +6,6 @@
         WALLUP = '═',
         FLOOR = ' ',
         GRASS = '#',
-        PLAYER = '@'
+        PLAYER = '☺'
     }
 }

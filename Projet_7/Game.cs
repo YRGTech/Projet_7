@@ -1,4 +1,6 @@
-﻿namespace Projet_7
+﻿using System.Numerics;
+
+namespace Projet_7
 {
     internal class Game
     {
@@ -28,7 +30,7 @@
             Console.SetCursorPosition(Console.WindowWidth / 2, 8);
             Console.WriteLine(" ▀▄░░▀░░▀▀▀░░▀░░░▄█▀\r\n");
             Console.SetCursorPosition(Console.WindowWidth / 2, 9);
-            Console.WriteLine("   █░░░░░░░░░░░▄▀▄░▀\r\n▄");
+            Console.WriteLine("   █░░░░░░░░░░░▄▀▄░▀▄\r\n");
             Console.SetCursorPosition(Console.WindowWidth / 2, 10);
             Console.WriteLine("   █░░░░░░░░░▄▀█░░█░░█\r\n");
             Console.SetCursorPosition(Console.WindowWidth / 2, 11);
@@ -45,7 +47,7 @@
             //player.Play();
             bool start = false;
             // boucle de jeu
-
+            Pikachu pikachu = new Pikachu();
             while (true)
             {
 
@@ -81,13 +83,32 @@
                         break;
                 }
 
-
+                if (map.IsPlayerOnGrass())
+                {
+                    Random rand = new Random();
+                    switch (rand.Next(8))
+                    {
+                        case 0:
+                            Console.BackgroundColor = ConsoleColor.Black;
+                            Console.ForegroundColor = ConsoleColor.White;
+                            Combat c = new Combat(pikachu);
+                            c.Fight();
+                            Console.Clear();
+                            Console.SetCursorPosition(10, 10);
+                            Console.Write(c.win);
+                            map.DrawMap();
+                            map.UpdatePlayerPos(map.playerX, map.playerY);
+                            break;
+                        default:
+                            break;
+                    }
+                }
 
 
 
             }
         }
-        // fonction pour vérifier si un mouvement est valide
+        
 
     }
 }

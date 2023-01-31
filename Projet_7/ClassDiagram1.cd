@@ -1,76 +1,135 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Projet_7.Combat">
-    <Position X="7.75" Y="5.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAgQAAAAIAAAAAAAAAAAAAAAAAAABAAAAAQAgACA=</HashCode>
-      <FileName>Combat.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Projet_7.Game" Collapsed="true">
-    <Position X="9.5" Y="2.25" Width="1.5" />
+    <Position X="21" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
       <FileName>Game.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Projet_7.Inventory" Collapsed="true">
-    <Position X="11.25" Y="2.25" Width="1.5" />
+    <Position X="17.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Inventory.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Projet_7.Map">
-    <Position X="13.25" Y="2.25" Width="1.5" />
+  <Class Name="Projet_7.Map" Collapsed="true">
+    <Position X="19.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ABABEAAAAAAACEIAAAAACAIAAAKAAAAAAEAAAgCBAQA=</HashCode>
+      <HashCode>ABABEAAAAAAACEIAAAAACAIAAAKAAAAAAEAAAgCBAYA=</HashCode>
       <FileName>Map.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Projet_7.Pokemon">
-    <Position X="5.25" Y="2.25" Width="1.5" />
-    <Compartments>
-      <Compartment Name="Fields" Collapsed="true" />
-      <Compartment Name="Properties" Collapsed="true" />
-    </Compartments>
+  <Class Name="Projet_7.Pokemon" Collapsed="true">
+    <Position X="8.25" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>iQAAIAAIAAADCgToAAAIIAYAAIBkIIAAAAEQAAAIggA=</HashCode>
+      <HashCode>mQAAIAAIAAADCgSoAAAAIAYAAIBkAIAAAAEQAAAIgAA=</HashCode>
       <FileName>Pokemon.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Projet_7.Pikachu">
-    <Position X="5.25" Y="10.5" Width="1.5" />
+    <Position X="15" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
       <FileName>Pokemon.cs</FileName>
       <NewMemberFileName>Pikachu.cs</NewMemberFileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Projet_7.Program" Collapsed="true">
-    <Position X="9.5" Y="3.25" Width="1.5" />
+    <Position X="21" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Projet_7.ConsoleManager" Collapsed="true">
-    <Position X="3.25" Y="0.75" Width="1.5" />
+    <Position X="19.25" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>BAAAAEAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAgAAA=</HashCode>
       <FileName>ConsoleManager.cs</FileName>
       <NewMemberFileName>Game.cs</NewMemberFileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="Projet_7.Combat" Collapsed="true">
+    <Position X="17.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AFAAAgQAAEAIwAAAAAAAAAAgYIAAAAABAAAAAwCgACA=</HashCode>
+      <FileName>Combat.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projet_7.Giselle">
+    <Position X="3.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Pokemon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projet_7.Flabebe">
+    <Position X="1.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Pokemon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projet_7.Chuchmur">
+    <Position X="12.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Pokemon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projet_7.Farfuret">
+    <Position X="10.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Pokemon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projet_7.Boustiflor">
+    <Position X="8.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Pokemon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projet_7.Seviper">
+    <Position X="6" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Pokemon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projet_7.Funecire">
+    <Position X="5.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Pokemon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projet_7.Insolourdo">
+    <Position X="8.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Pokemon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projet_7.Picassault">
+    <Position X="11" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Pokemon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Enum Name="Projet_7.sprite" Collapsed="true">
-    <Position X="7.75" Y="4.5" Width="1.5" />
+    <Position X="17.5" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAgAAEAAAAAAAAACABAAAAAAAAAAAAAAAAACAA=</HashCode>
       <FileName>sprite.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="Projet_7.Type" Collapsed="true">
-    <Position X="9.5" Y="4.5" Width="1.5" />
+    <Position X="19.25" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIAQAAAAAACAAAIBUAAAAAACAAsAABAEAAEAAAAcAA=</HashCode>
       <FileName>Type.cs</FileName>
