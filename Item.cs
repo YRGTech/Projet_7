@@ -1,39 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using static Projet_7.Inventory;
 
 namespace Projet_7
 {
-    internal class Item
+    public class Item
     {
-        public Item()
+        public string Name { get; }
+        public string Description { get; } 
+        public int Amount { get; protected set; }
+        public int Percentage { get; }
+        public virtual string Used => $"Il vous reste {Amount} objets";
+
+        public Item(string name, int amount, string description, int percentage)
         {
-            // ----------  Nombre de potion ---------
-            int Potionnette = 3;
-            int Potion = 3;
-            int MaximaPocion = 3;
-
-            // ----------  Nombre de buff  ---------
-            int Cheetah = 3;
-            int Tortoise = 3;
-            int Boeuf = 3;
-
-            // ----------  Nombre de debuff  ---------
-            int Glue = 3;
-            int Mirror = 3;
-            int Pangolin = 3;
+            Name = name;
+            Amount = amount;
+            Description = description;
+            Percentage = percentage;
         }
 
-        Inventory inventaire = new Inventory();
-
-        void useItem() // ---------------------------------------------  Use Item --------------------------------------------------------------
+        void useItem(int pos) 
         {
-            switch (inventaire.pos)
+            switch (pos)
             {
 
-                case Pos.SPotion: // ---------------------  Potion ----------------------------
+                /*case Pos.SPotion: // ---------------------  Potion ----------------------------
                     if (Potionnette > 0)
                     {
                         Potionnette--;
@@ -267,12 +263,17 @@ namespace Projet_7
                         Console.Clear();
 
                     }
-                    break;
+                    break;*/
 
                 default:
                     break;
             }
 
+
+        }
+    
+        public virtual void UseItem()
+        {
 
         }
     }

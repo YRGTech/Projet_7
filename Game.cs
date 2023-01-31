@@ -12,7 +12,7 @@ namespace Projet_7
     {
         public bool loop;
 
-
+        Inventory _inventory;
 
         public void Run()
         {
@@ -20,7 +20,8 @@ namespace Projet_7
             Map map = new Map();
             Console.Write("                                 ,'\\\r\n    _.----.        ____         ,'  _\\   ___    ___     ____\r\n_,-'       `.     |    |  /`.   \\,-'    |   \\  /   |   |    \\  |`.\r\n\\      __    \\    '-.  | /   `.  ___    |    \\/    |   '-.   \\ |  |\r\n \\.    \\ \\   |  __  |  |/    ,','_  `.  |          | __  |    \\|  |\r\n   \\    \\/   /,' _`.|      ,' / / / /   |          ,' _`.|     |  |\r\n    \\     ,-'/  /   \\    ,'   | \\/ / ,`.|         /  /   \\  |     |\r\n     \\    \\ |   \\_/  |   `-.  \\    `'  /|  |    ||   \\_/  | |\\    |\r\n      \\    \\ \\      /       `-.`.___,-' |  |\\  /| \\      /  | |   |\r\n       \\    \\ `.__,'|  |`-._    `|      |__| \\/ |  `.__,'|  | |   |\r\n        \\_.-'       |__|    `-._ |              '-.|     '-.| |   |\r\n                                `'                            '-._|");
             Pikachu pikachu = new Pikachu();
-            Inventory inventory = new Inventory();
+            _inventory = new Inventory(0,5,5,0);
+            
             loop = true;
 
             //var player = new SoundPlayer("path/to/audiofile.wav");
@@ -63,7 +64,7 @@ namespace Projet_7
                 }
                 else if (key == ConsoleKey.I)
                 {
-                    inventory.inventory();
+                    _inventory.Draw();
                 }
 
                 // réaffichage de la carte avec la nouvelle position du joueur
