@@ -7,10 +7,11 @@ namespace Projet_7
 {
     public class Potionnette : Potion
     {
+        public int Amount { get; set; }
         public Potionnette(string name, int amount, string description, int percentage)
              : base(name, amount, description, percentage)
         {
-
+            Amount= amount;
         }
         public override void UseItem()
         {

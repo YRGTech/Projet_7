@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Xml.Linq;
 
 namespace Projet_7
 {
@@ -192,15 +193,24 @@ namespace Projet_7
             PosY = 5;
         }
 
-
-        void ShowPotion()
+        public int GetAmount(Potion potion)
         {
-            while (Menu == 1)
+            Potion potionn = potion;
+            int number = potion.Amount;
+            return number;
+        }
+
+        public int ShowPotion()
+        {
+            Potion potionnette = new Potion("Potionnette", 3, "ça régène un peu mais pas bcp", 20);
+            int oui = potionnette.Amount;
+            return oui;
+            /*while (Menu == 1)
             {
                 Console.SetCursorPosition(0, 0);
                 Console.Write("\n\n                      Potion");
                 Console.Write("\n\n\n");
-                //Console.Write("       " + Potionnette + "x Potionnette 20pv");
+                Console.Write("       " + oui + "x Potionnette 20pv") ;
                 //Console.Write("            " + MaximaPocion + "x Maxima pocion 150pv\n");
                 //Console.Write("       " + MPotion + "x Potion 50pv");
                 Console.Write("                 Quit");
@@ -209,8 +219,9 @@ namespace Projet_7
                 Console.Write("->");
 
                 MoveCursor();
-            }
+            }*/
         }
+
         void ShowBouf()
         {
             while (Menu == 2)
