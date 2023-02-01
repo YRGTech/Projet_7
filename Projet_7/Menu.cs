@@ -15,7 +15,7 @@ namespace Projet_7
         {
             options = new List<Option>
             {
-                new Option("Team Summary",() => openTeamSummary() ),
+                new Option("Team Summary",() => openTeamSummary(game) ),
                 new Option("Inventory", () => openInventory()),
                 new Option("Save", () => openSave()),
                 new Option("Resume Game", () => game.Map.DrawMap()),
@@ -66,10 +66,10 @@ namespace Projet_7
             }
         }
 
-        public static void openTeamSummary()
+        public static void openTeamSummary(Game game)
         {
             TeamSummary ts = new TeamSummary();
-            ts.openTeamSummary();
+            ts.openTeamSummary(game);
         }
 
         public static void openInventory()

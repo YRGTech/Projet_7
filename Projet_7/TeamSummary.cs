@@ -10,7 +10,7 @@ namespace Projet_7
     {
         public TeamSummary() { }
 
-        public void openTeamSummary()
+        public void openTeamSummary(Game game)
         {
             Console.Clear();
             Console.WriteLine("this is the team Summary");
