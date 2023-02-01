@@ -3,7 +3,7 @@
   <Class Name="Projet_7.Game" Collapsed="true">
     <Position X="21" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <HashCode>AAAAEAAAAAAAZAAgABAAgAAAQAAAAAAAEAAAAAAAAAI=</HashCode>
       <FileName>Game.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -24,7 +24,7 @@
   <Class Name="Projet_7.Pokemon" Collapsed="true">
     <Position X="8.25" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>mQAAIAAIAAADCgSoAAAAIAYAAIBkAIAAAAEQAAAIgAA=</HashCode>
+      <HashCode>mQAAIAAIAAADCgSoAAAAIAYAAIBkAIAAEAEQAAAIgAA=</HashCode>
       <FileName>Pokemon.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -87,13 +87,13 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Projet_7.Boustiflor">
-    <Position X="8.25" Y="2" Width="1.5" />
+    <Position X="10.5" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
       <FileName>Pokemon.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Projet_7.Seviper">
+  <Class Name="Projet_7.Abo">
     <Position X="6" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
@@ -118,6 +118,13 @@
     <Position X="11" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Pokemon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projet_7.PikachuDresseur">
+    <Position X="15" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
       <FileName>Pokemon.cs</FileName>
     </TypeIdentifier>
   </Class>

@@ -40,7 +40,7 @@ namespace Projet_7
                     Enemy = new Flabebe(enemyLVL);
                     break;
                 case 2:
-                    Enemy = new Seviper(enemyLVL);
+                    Enemy = new Abo(enemyLVL);
                     break;
                 case 3:
                     Enemy = new Boustiflor(enemyLVL);
@@ -69,13 +69,13 @@ namespace Projet_7
             Player = player;
         }
 
-        private Pokemon Player
+        public Pokemon Player
         {
             get;
             set;
         }
 
-        private Pokemon Enemy
+        public Pokemon Enemy
         {
             get;
             set;
@@ -105,7 +105,7 @@ namespace Projet_7
                             WriteMenu(options, options[index]);
                         }
                         break;
-                    case ConsoleKey.Enter:
+                    case ConsoleKey.Spacebar:
                         {
                             options[index].Selected.Invoke();
                             _turn = false;
@@ -125,6 +125,7 @@ namespace Projet_7
             switch (rand.Next(5))
             {
                 case 0:
+                    if (Enemy.TYPE == Type.Giselle) HeavyAttack(Enemy, Enemy);
                     break;
                 case 1:
                 case 2:
@@ -132,6 +133,10 @@ namespace Projet_7
                     LightAttack(Enemy, Player);
                     break;
                 case 4:
+                case 5:
+                case 6:
+                case 7:
+                case 8:
                     HeavyAttack(Enemy, Player);
                     break;
                 default:
@@ -168,7 +173,7 @@ namespace Projet_7
                             WriteMenu(attackOptions, attackOptions[index]);
                         }
                         break;
-                    case ConsoleKey.Enter:
+                    case ConsoleKey.Spacebar:
                         {
                             attackOptions[index].Selected.Invoke();
                             _atkInProgress = false;
@@ -185,15 +190,18 @@ namespace Projet_7
         }
         public void Flee()
         {
-            throw new System.NotImplementedException();
+            _fight = false;
+            Player.Heal(Player.PVMax);
+            win = false;
         }
         public void LightAttack(Pokemon poke, Pokemon target)
         {
-            poke.Attack(target, target.Skill1);
+            poke.Attack(target, poke.Skill1);
         }
         public void HeavyAttack(Pokemon poke, Pokemon target)
         {
-            poke.Attack(target, target.Skill2);
+            if (poke == Player) poke.PM -= 10;
+            poke.Attack(target, poke.Skill2);
         }
 
         public void Fight()
@@ -204,28 +212,38 @@ namespace Projet_7
 
             while (_fight)
             {
-                PlayerTurn();
-                EnemyTurn();
+
                 if (Player.PV == 0)
                 {
                     lose = true;
                     _fight = false;
                     Player.Heal(Player.PVMax);
+
                 }
+                else PlayerTurn();
+
                 if (Enemy.PV == 0)
                 {
                     win = true;
                     _fight = false;
                     Player.Heal(Player.PVMax);
-
-
+                    Player.XP += (60 * Enemy.LVL) / 7;
+                    while (Player.XP >= Player.XPMax)
+                    {
+                        Console.WriteLine("XP nxt LVL: {0}      XP: {1}", Player.XPMax, Player.XP);
+                        Player.XP -= Player.XPMax;
+                        Player.LVLup();
+                    }
                 }
+                else EnemyTurn();
 
             }
         }
         public void WriteMenu(List<Option> options, Option selectedOption)
         {
             Console.Clear();
+             Enemy.Draw();
+            Player.Draw();
             foreach (Option option in options)
             {
                 if (option == selectedOption)
@@ -242,6 +260,7 @@ namespace Projet_7
             Console.SetCursorPosition(10, 10);
             Console.Write(Player.Name);
             Console.WriteLine(Player.PV);
+            Console.WriteLine(Player.LVL);
             Console.SetCursorPosition(10, 11);
             Console.Write(Enemy.Name);
             Console.WriteLine(Enemy.PV);

@@ -36,5 +36,17 @@ namespace TestProject1
             Pikachu pikachu = new Pikachu(2);
             Console.Write(pikachu.DEF);
         }
+        [Test]
+        public void TestFailGiselle()
+        {
+            Pikachu pikachu = new Pikachu();
+            Combat c = new Combat(pikachu);
+            Giselle gizl = new Giselle(100);
+            Console.WriteLine(gizl.PV);
+            c.Enemy=gizl;
+            c.EnemyTurn();
+            Console.WriteLine(gizl.PV);
+            Assert.IsTrue(gizl.PV < gizl.PVMax);
+        }
     }
 }

@@ -5,12 +5,115 @@ namespace Projet_7
     internal class Game
     {
 
+        bool start = true;
+        bool win;
 
+        Map map = new Map();
 
+        Pikachu pikachu = new PikachuDresseur();
         public void Run()
         {
-            // affichage de la carte initiale
-            Map map = new Map();
+
+
+
+            StartScreen();
+            // boucle de jeu
+            while (true)
+            {
+
+                if (start)
+                {
+                    ConsoleKey key = Console.ReadKey(true).Key;
+                    switch (key)
+                    {
+                        case ConsoleKey.Spacebar:
+                            start = false;
+                            Console.Clear();
+                            Console.BackgroundColor = ConsoleColor.Black;
+                            map.DrawMap();
+                            map.UpdatePlayerPos(map.playerX, map.playerY);
+                            break;
+                        default:
+                            break;
+                    }
+
+                }
+                else
+                {
+                    MovePlayer();
+
+                    if (map.IsPlayerOnGrass())
+                    {
+                        Random rand = new Random();
+                        switch (rand.Next(8))
+                        {
+                            case 0:
+                                StartCombat();
+                                if (win) WinScreen();
+                                else LoseScreen();
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+            }
+        }
+
+        public void StartCombat()
+        {
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.White;
+            Combat c = new Combat(pikachu);
+            c.Fight();
+            win = c.win;
+            start = true;
+        }
+        public void WinScreen()
+        {
+            //Console.Clear();
+            Console.SetCursorPosition((Console.WindowWidth / 2) - 10, (Console.WindowHeight / 2) - 4);
+            Console.WriteLine("(  (                 \r\n");
+            Console.SetCursorPosition((Console.WindowWidth / 2) - 10, (Console.WindowHeight / 2) - 3);
+            Console.WriteLine(" )\\))(   ' (          \r\n");
+            Console.SetCursorPosition((Console.WindowWidth / 2) - 10, (Console.WindowHeight / 2) - 2);
+            Console.WriteLine("((_)()\\ )  )\\   (     \r\n");
+            Console.SetCursorPosition((Console.WindowWidth / 2) - 10, (Console.WindowHeight / 2) - 1);
+            Console.WriteLine("_(())\\_)()((_)  )\\ )  \r\n");
+            Console.SetCursorPosition((Console.WindowWidth / 2) - 10, (Console.WindowHeight / 2) - 0);
+            Console.WriteLine("\\ \\((_)/ / (_) _(_/(  \r\n");
+            Console.SetCursorPosition((Console.WindowWidth / 2) - 10, (Console.WindowHeight / 2) + 1);
+            Console.WriteLine(" \\ \\/\\/ /  | || ' \\)) \r\n");
+            Console.SetCursorPosition((Console.WindowWidth / 2) - 10, (Console.WindowHeight / 2) + 2);
+            Console.WriteLine("  \\_/\\_/   |_||_||_|  \r\n");
+            Console.SetCursorPosition((Console.WindowWidth / 2) - 10, (Console.WindowHeight / 2) + 3);
+            Console.WriteLine("                      \r\n");
+        }
+        public void LoseScreen()
+        {
+            Console.Clear();
+            Console.SetCursorPosition((Console.WindowWidth / 2) - 30, (Console.WindowHeight / 2) - 4);
+            Console.WriteLine(" ▄█        ▄██████▄     ▄████████    ▄████████    ▄████████ \r\n");
+            Console.SetCursorPosition((Console.WindowWidth / 2) - 30, (Console.WindowHeight / 2) - 3);
+            Console.WriteLine("███       ███    ███   ███    ███   ███    ███   ███    ███ \r\n");
+            Console.SetCursorPosition((Console.WindowWidth / 2) - 30, (Console.WindowHeight / 2) - 2);
+            Console.WriteLine("███       ███    ███   ███    █▀    ███    █▀    ███    ███ \r\n");
+            Console.SetCursorPosition((Console.WindowWidth / 2) - 30, (Console.WindowHeight / 2) - 1);
+            Console.WriteLine("███       ███    ███   ███         ▄███▄▄▄      ▄███▄▄▄▄██▀ \r\n");
+            Console.SetCursorPosition((Console.WindowWidth / 2) - 30, (Console.WindowHeight / 2));
+            Console.WriteLine("███       ███    ███ ▀███████████ ▀▀███▀▀▀     ▀▀███▀▀▀▀▀   \r\n");
+            Console.SetCursorPosition((Console.WindowWidth / 2) - 30, (Console.WindowHeight / 2) + 1);
+            Console.WriteLine("███       ███    ███          ███   ███    █▄  ▀███████████ \r\n");
+            Console.SetCursorPosition((Console.WindowWidth / 2) - 30, (Console.WindowHeight / 2) + 2);
+            Console.WriteLine("███▌    ▄ ███    ███    ▄█    ███   ███    ███   ███    ███ \r\n");
+            Console.SetCursorPosition((Console.WindowWidth / 2) - 30, (Console.WindowHeight / 2) + 3);
+            Console.WriteLine("█████▄▄██  ▀██████▀   ▄████████▀    ██████████   ███    ███ \r\n");
+            Console.SetCursorPosition((Console.WindowWidth / 2) - 30, (Console.WindowHeight / 2) + 4);
+            Console.WriteLine("▀                                                ███    ███ \r\n");
+        }
+        public void StartScreen()
+        {
+
             Console.SetCursorPosition(Console.WindowWidth / 2, 0);
             Console.WriteLine(" █▀▀▄          ▄▀▀█\r\n ");
             Console.SetCursorPosition(Console.WindowWidth / 2, 1);
@@ -43,72 +146,33 @@ namespace Projet_7
 
             Console.Write(" ________  ___  ___  __    ________  ___  __    _______      \r\n|\\   __  \\|\\  \\|\\  \\|\\  \\ |\\   __  \\|\\  \\|\\  \\ |\\  ___ \\     \r\n\\ \\  \\|\\  \\ \\  \\ \\  \\/  /|\\ \\  \\|\\  \\ \\  \\/  /|\\ \\   __/|    \r\n \\ \\   ____\\ \\  \\ \\   ___  \\ \\  \\\\\\  \\ \\   ___  \\ \\  \\_|/__  \r\n  \\ \\  \\___|\\ \\  \\ \\  \\\\ \\  \\ \\  \\\\\\  \\ \\  \\\\ \\  \\ \\  \\_|\\ \\ \r\n   \\ \\__\\    \\ \\__\\ \\__\\\\ \\__\\ \\_______\\ \\__\\\\ \\__\\ \\_______\\\r\n    \\|__|     \\|__|\\|__| \\|__|\\|_______|\\|__| \\|__|\\|_______|");
 
-            //var player = new SoundPlayer("path/to/audiofile.wav");
-            //player.Play();
-            bool start = false;
-            // boucle de jeu
-            Pikachu pikachu = new Pikachu();
-            while (true)
+        }
+        public void MovePlayer()
+        {
+            ConsoleKey key = Console.ReadKey(true).Key;
+
+            switch (key)
             {
 
-                // récupération de la touche appuyée par le joueur
-                ConsoleKey key = Console.ReadKey(true).Key;
-
-                // mise à jour de la position du joueur en fonction de la touche appuyée
-                switch (key)
-                {
-                    case ConsoleKey.Spacebar:
-
-                        Console.Clear();
-                        map.DrawMap();
-                        map.UpdatePlayerPos(map.playerX, map.playerY);
-                        break;
-                    case ConsoleKey.UpArrow:
-                        if (map.IsValidMove(map.playerX, map.playerY - 1))
-                            map.UpdatePlayerPos(map.playerX, map.playerY - 1);
-                        break;
-                    case ConsoleKey.DownArrow:
-                        if (map.IsValidMove(map.playerX, map.playerY + 1))
-                            map.UpdatePlayerPos(map.playerX, map.playerY + 1);
-                        break;
-                    case ConsoleKey.LeftArrow:
-                        if (map.IsValidMove(map.playerX - 1, map.playerY))
-                            map.UpdatePlayerPos(map.playerX - 1, map.playerY);
-                        break;
-                    case ConsoleKey.RightArrow:
-                        if (map.IsValidMove(map.playerX + 1, map.playerY))
-                            map.UpdatePlayerPos(map.playerX + 1, map.playerY);
-                        break;
-                    default:
-                        break;
-                }
-
-                if (map.IsPlayerOnGrass())
-                {
-                    Random rand = new Random();
-                    switch (rand.Next(8))
-                    {
-                        case 0:
-                            Console.BackgroundColor = ConsoleColor.Black;
-                            Console.ForegroundColor = ConsoleColor.White;
-                            Combat c = new Combat(pikachu);
-                            c.Fight();
-                            Console.Clear();
-                            Console.SetCursorPosition(10, 10);
-                            Console.Write(c.win);
-                            map.DrawMap();
-                            map.UpdatePlayerPos(map.playerX, map.playerY);
-                            break;
-                        default:
-                            break;
-                    }
-                }
-
-
-
+                case ConsoleKey.UpArrow:
+                    if (map.IsValidMove(map.playerX, map.playerY - 1))
+                        map.UpdatePlayerPos(map.playerX, map.playerY - 1);
+                    break;
+                case ConsoleKey.DownArrow:
+                    if (map.IsValidMove(map.playerX, map.playerY + 1))
+                        map.UpdatePlayerPos(map.playerX, map.playerY + 1);
+                    break;
+                case ConsoleKey.LeftArrow:
+                    if (map.IsValidMove(map.playerX - 1, map.playerY))
+                        map.UpdatePlayerPos(map.playerX - 1, map.playerY);
+                    break;
+                case ConsoleKey.RightArrow:
+                    if (map.IsValidMove(map.playerX + 1, map.playerY))
+                        map.UpdatePlayerPos(map.playerX + 1, map.playerY);
+                    break;
+                default:
+                    break;
             }
         }
-        
-
     }
 }

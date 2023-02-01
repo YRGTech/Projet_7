@@ -9,11 +9,11 @@
         private int _pvMax;
         private int _pm;
         private int _lvl;
-        private int _xp;
+        private double _xp;
         private Type _type;
         private string _name;
         private string _art;
-        private int _xpMax;
+        private double _xpMax;
 
         public Pokemon()
         {
@@ -27,76 +27,27 @@
 
         }
 
-        public int PV
-        {
-            get { return _pv; }
-            protected set { _pv = value; }
-        }
-        public int PVMax
-        {
-            get { return _pvMax; }
-            protected set { _pvMax = value; }
-        }
+        public int PV { get { return _pv; } protected set { _pv = value; } }
+        public int PVMax { get { return _pvMax; } protected set { _pvMax = value; } }
 
-        public int PM
-        {
-            get { return _pm; }
-            protected set { _pm = value; }
-        }
+        public int PM { get { return _pm; } set { _pm = value; } }
+        public int PMmax { get; protected set; }
 
-        public int LVL
-        {
-            get => _lvl;
-            set { _lvl = value; }
-        }
+        public int LVL { get => _lvl; set { _lvl = value; } }
 
-        public int ATK
-        {
-            get { return  _atk; }
-            init { _atk = value; }
-        }
-        public int DEF
-        {
-            get { return _def; }
-            init { _def = value; }
-        }
-        public Type TYPE
-        {
-            get => _type;
-            init { _type = value; }
-        }
+        public int ATK { get { return _atk; } init { _atk = value; } }
+        public int DEF { get { return _def; } init { _def = value; } }
+        public Type TYPE { get => _type; init { _type = value; } }
 
-        public int XP
-        {
-            get => _xp;
-            set { _xp = value; }
-        }
-        public int XPMax
-        {
-            get => _xpMax + _xpMax/4;
-            set { _xpMax = value; }
-        }
+        public double XP { get => _xp; set { _xp = value; } }
+        public double XPMax { get => 0.8 * Math.Pow(LVL, 3); set { _xpMax = value; } }
 
-        public string Name
-        {
-            get => _name;
-            protected set { _name = value; }
-        }
-        public string Art
-        {
-            get => _art;
-            init { _art = value; }
-        }
-        public double Skill1
-        {
-            get;set;
+        public string Name { get => _name; protected set { _name = value; } }
+        public string Art { get => _art; init { _art = value; } }
+        public double Skill1 { get; set; }
 
-        }
+        public double Skill2 { get; set; }
 
-        public double Skill2
-        {
-            get;set;
-        }
         public virtual void Hurt(int damage, Type type)
         {
 
@@ -109,7 +60,7 @@
 
         public void Heal(int value)
         {
-            PV = PV + value;
+            PV += value;
             if (PV > PVMax)
                 PV = PVMax;
         }
@@ -120,7 +71,7 @@
         }
 
 
-        public void Draw()
+        public virtual void Draw()
         {
             Console.Write(_art);
         }
@@ -146,6 +97,7 @@
             PV = 95;
             PVMax = PV;
             PM = 50;
+            PMmax = PM;
             ATK = 80;
             DEF = 50;
             TYPE = Type.Electric;
@@ -175,8 +127,9 @@
             {
                 LVLup();
             }
-            
+
         }
+
 
 
         public override void Hurt(int damage, Type type)
@@ -202,29 +155,45 @@
                 default:
                     break;
             }
-            
+
             if (damage < 0)
                 damage = LVL;
             PV = PV - damage;
             if (PV < 0) { PV = 0; }
         }
 
+        
     }
 
-    public class Seviper : Pokemon
+    public class PikachuDresseur : Pikachu
     {
-       
-        public Seviper(int lvl)
+        public PikachuDresseur()
         {
-            PV = 123;
+            PV = 95;
             PVMax = PV;
-            PM = 100;
-            ATK = 100;
-            DEF = 60;
-            TYPE = Type.Poison;
+            PM = 50;
+            PMmax = PM;
+            ATK = 80;
+            DEF = 50;
+            TYPE = Type.Electric;
             LVL = 1;
             XPMax = 60;
-            Name = "Seviper";
+            Name = "PikachuDresseur";
+            Art = "`;-.          ___,\r\n  `.`\\_...._/`.-\"`\r\n    \\        /      ,\r\n    /()   () \\    .' `-._\r\n   |)  .    ()\\  /   _.'\r\n   \\  -'-     ,; '. <\r\n    ;.__     ,;|   > \\\r\n   / ,    / ,  |.-'.-'\r\n  (_/    (_/ ,;|.<`\r\n    \\    ,     ;-`\r\n     >   \\    /\r\n    (_,-'`> .'\r\n         (_,'";
+            Skill1 = 1.5 * ATK;
+            Skill2 = 2 * ATK;
+        }
+        public PikachuDresseur(int lvl)
+        {
+            PV = 95;
+            PVMax = PV;
+            PM = 50;
+            ATK = 80;
+            DEF = 50;
+            TYPE = Type.Electric;
+            LVL = 1;
+            XPMax = 60;
+            Name = "CopyOfPikachu";
             Art = "`;-.          ___,\r\n  `.`\\_...._/`.-\"`\r\n    \\        /      ,\r\n    /()   () \\    .' `-._\r\n   |)  .    ()\\  /   _.'\r\n   \\  -'-     ,; '. <\r\n    ;.__     ,;|   > \\\r\n   / ,    / ,  |.-'.-'\r\n  (_/    (_/ ,;|.<`\r\n    \\    ,     ;-`\r\n     >   \\    /\r\n    (_,-'`> .'\r\n         (_,'";
             Skill1 = 1.5 * ATK;
             Skill2 = 2 * ATK;
@@ -235,6 +204,7 @@
             }
 
         }
+
 
 
         public override void Hurt(int damage, Type type)
@@ -253,6 +223,102 @@
                     break;
                 case Type.Steel:
                     damage = damage * 1 / 2;
+                    break;
+                case Type.Giselle:
+                    damage = damage * 2;
+                    break;
+                default:
+                    break;
+            }
+
+            if (damage < 0)
+                damage = LVL;
+            PV = PV - damage;
+            if (PV < 0) { PV = 0; }
+        }
+
+        public override void Draw()
+        {
+            Console.SetCursorPosition(3 * Console.WindowWidth / 4, 0);
+            Console.WriteLine("`;-.          ___,\r\n");
+            Console.SetCursorPosition(3 * Console.WindowWidth / 4, 1);
+            Console.WriteLine("  `.`\\_...._/`.-\"`\r\n");
+            Console.SetCursorPosition(3 * Console.WindowWidth / 4, 2);
+            Console.WriteLine("    \\        /      ,\r\n");
+            Console.SetCursorPosition(3 * Console.WindowWidth / 4, 3);
+            Console.WriteLine("    /()   () \\    .' `-._\r\n");
+            Console.SetCursorPosition(3 * Console.WindowWidth / 4, 4);
+            Console.WriteLine("   |)  .    ()\\  /   _.'\r\n");
+            Console.SetCursorPosition(3 * Console.WindowWidth / 4, 5);
+            Console.WriteLine("   \\  -'-     ,; '. <\r\n");
+            Console.SetCursorPosition(3 * Console.WindowWidth / 4, 6);
+            Console.WriteLine("    ;.__     ,;|   > \\\r\n");
+            Console.SetCursorPosition(3 * Console.WindowWidth / 4, 7);
+            Console.WriteLine("   / ,    / ,  |.-'.-'\r\n");
+            Console.SetCursorPosition(3 * Console.WindowWidth / 4, 8);
+            Console.WriteLine("  (_/    (_/ ,;|.<`\r\n");
+            Console.SetCursorPosition(3 * Console.WindowWidth / 4, 9);
+            Console.WriteLine("    \\    ,     ;-`\r\n");
+            Console.SetCursorPosition(3 * Console.WindowWidth / 4, 10);
+            Console.WriteLine("     >   \\    /\r\n");
+            Console.SetCursorPosition(3 * Console.WindowWidth / 4, 11);
+            Console.WriteLine("    (_,-'`> .'\r\n");
+            Console.SetCursorPosition(3 * Console.WindowWidth / 4, 12);
+            Console.WriteLine("         (_,'");
+
+        }
+    }
+
+    public class Abo : Pokemon
+    {
+
+        public Abo(int lvl)
+        {
+            PV = 85;
+            PVMax = PV;
+            ATK = 60;
+            DEF = 44;
+            TYPE = Type.Poison;
+            LVL = 1;
+            XPMax = 60;
+            Name = "Abo";
+            Art = "                            __..._              \r\n                        ..-'      o.            \r\n                     .-'            :           \r\n                 _..'             .'__..--<     \r\n          ...--\"\"                 '-.           \r\n      ..-\"                       __.'           \r\n    .'                  ___...--'               \r\n   :        ____....---'                        \r\n  :       .'                                    \r\n :       :           _____                      \r\n :      :    _..--\"\"\"     \"\"\"--..__             \r\n:       :  .\"                      \"\"i--.       \r\n:       '.:                         :    '.     \r\n:         '--...___i---\"\"\"\"--..___.'      :     \r\n :                 \"\"---...---\"\"          :     \r\n  '.                                     :      \r\n    '-.                                 :       \r\n       '--...                         .'        \r\n         :   \"\"---....._____.....---\"\"          \r\n         '.    '.                               \r\n           '-..  '.                             \r\n               '.  :                            \r\n          fsc   : .'                            \r\n               /  :                             \r\n             .'   :                             \r\n           .' .--'                              \r\n          '--'";
+            Skill1 = 1.5 * ATK;
+            Skill2 = 2 * ATK;
+
+            for (int i = 0; i < lvl; i++)
+            {
+                LVLup();
+            }
+
+        }
+
+
+        public override void Hurt(int damage, Type type)
+        {
+            damage = damage - DEF;
+            switch (type)
+            {
+                case Type.Fighting:
+                    damage = damage * 1 / 2;
+                    break;
+                case Type.Fairy:
+                    damage = damage * 1 / 2;
+                    break;
+                case Type.Bug:
+                    damage = damage * 1 / 2;
+                    break;
+                case Type.Grass:
+                    damage = damage * 1 / 2;
+                    break;
+                case Type.Poison:
+                    damage = damage * 1 / 2;
+                    break;
+                case Type.Psychic:
+                    damage = damage * 2;
+                    break;
+                case Type.Ground:
+                    damage = damage * 2;
                     break;
                 case Type.Giselle:
                     damage = damage * 2;
@@ -271,12 +337,11 @@
 
     public class Boustiflor : Pokemon
     {
-       
+
         public Boustiflor(int lvl)
         {
             PV = 115;
             PVMax = PV;
-            PM = 50;
             ATK = 90;
             DEF = 50;
             TYPE = Type.Grass;
@@ -300,17 +365,32 @@
             damage = damage - DEF;
             switch (type)
             {
+                case Type.Water:
+                    damage = damage * 1 / 2;
+                    break;
+                case Type.Fire:
+                    damage = damage * 2;
+                    break;
                 case Type.Electric:
                     damage = damage * 1 / 2;
                     break;
-                case Type.Ground:
+                case Type.Ice:
                     damage = damage * 2;
                     break;
-                case Type.Flying:
+                case Type.Bug:
+                    damage = damage * 2;
+                    break;
+                case Type.Grass:
                     damage = damage * 1 / 2;
                     break;
-                case Type.Steel:
+                case Type.Poison:
+                    damage = damage * 2;
+                    break;
+                case Type.Ground:
                     damage = damage * 1 / 2;
+                    break;
+                case Type.Flying:
+                    damage = damage * 2;
                     break;
                 case Type.Giselle:
                     damage = damage * 2;
@@ -329,12 +409,11 @@
 
     public class Farfuret : Pokemon
     {
-       
+
         public Farfuret(int lvl)
         {
             PV = 105;
             PVMax = PV;
-            PM = 50;
             ATK = 95;
             DEF = 55;
             TYPE = Type.Dark;
@@ -358,16 +437,22 @@
             damage = damage - DEF;
             switch (type)
             {
-                case Type.Electric:
-                    damage = damage * 1 / 2;
-                    break;
-                case Type.Ground:
+                case Type.Fighting:
                     damage = damage * 2;
                     break;
-                case Type.Flying:
+                case Type.Fairy:
+                    damage = damage * 2;
+                    break;
+                case Type.Bug:
+                    damage = damage * 2;
+                    break;
+                case Type.Psychic:
+                    damage = damage * 0;
+                    break;
+                case Type.Ghost:
                     damage = damage * 1 / 2;
                     break;
-                case Type.Steel:
+                case Type.Dark:
                     damage = damage * 1 / 2;
                     break;
                 case Type.Giselle:
@@ -387,12 +472,11 @@
 
     public class Chuchmur : Pokemon
     {
-        
+
         public Chuchmur(int lvl)
         {
             PV = 114;
             PVMax = PV;
-            PM = 51;
             ATK = 51;
             DEF = 23;
             TYPE = Type.Normal;
@@ -416,17 +500,11 @@
             damage = damage - DEF;
             switch (type)
             {
-                case Type.Electric:
-                    damage = damage * 1 / 2;
-                    break;
-                case Type.Ground:
+                case Type.Fighting:
                     damage = damage * 2;
                     break;
-                case Type.Flying:
-                    damage = damage * 1 / 2;
-                    break;
-                case Type.Steel:
-                    damage = damage * 1 / 2;
+                case Type.Ghost:
+                    damage = damage * 0;
                     break;
                 case Type.Giselle:
                     damage = damage * 2;
@@ -445,19 +523,18 @@
 
     public class Flabebe : Pokemon
     {
-       
+
         public Flabebe(int lvl)
         {
             PV = 94;
             PVMax = PV;
-            PM = 50;
             ATK = 38;
             DEF = 39;
             TYPE = Type.Fairy;
             LVL = 1;
             XPMax = 60;
             Name = "Flabebe";
-            Art = "`;-.          ___,\r\n  `.`\\_...._/`.-\"`\r\n    \\        /      ,\r\n    /()   () \\    .' `-._\r\n   |)  .    ()\\  /   _.'\r\n   \\  -'-     ,; '. <\r\n    ;.__     ,;|   > \\\r\n   / ,    / ,  |.-'.-'\r\n  (_/    (_/ ,;|.<`\r\n    \\    ,     ;-`\r\n     >   \\    /\r\n    (_,-'`> .'\r\n         (_,'";
+            Art = ".-.'  '.-.\r\n          .-(   \\  /   )-.\r\n         /   '..oOOo..'   \\\r\n ,       \\.--.oOOOOOOo.--./\r\n |\\  ,   (   :oOOOOOOo:   )\r\n_\\.\\/|   /'--'oOOOOOOo'--'\\\r\n'-.. ;/| \\   .''oOOo''.   /\r\n.--`'. :/|'-(   /  \\   )-'\r\n '--. `. / //'-'.__.'-;\r\n   `'-,_';//      ,  /|\r\n        '((       |\\/./_\r\n          \\\\  . |\\; ..-'\r\n           \\\\ |\\: .'`--.\r\n            \\\\, .' .--'\r\n             ))'_,-'`\r\n       jgs  //-'\r\n           // \r\n          //\r\n         |/";
             Skill1 = 1.5 * ATK;
             Skill2 = 2 * ATK;
 
@@ -474,16 +551,19 @@
             damage = damage - DEF;
             switch (type)
             {
-                case Type.Electric:
+                case Type.Fighting:
                     damage = damage * 1 / 2;
                     break;
-                case Type.Ground:
+                case Type.Poison:
                     damage = damage * 2;
                     break;
-                case Type.Flying:
+                case Type.Steel:
+                    damage = damage * 2;
+                    break;
+                case Type.Dragon:
                     damage = damage * 1 / 2;
                     break;
-                case Type.Steel:
+                case Type.Dark:
                     damage = damage * 1 / 2;
                     break;
                 case Type.Giselle:
@@ -503,20 +583,19 @@
 
     public class Picassault : Pokemon
     {
-        
+
         public Picassault(int lvl)
         {
 
             PV = 85;
             PVMax = PV;
-            PM = 50;
             ATK = 75;
             DEF = 30;
             TYPE = Type.Flying;
             LVL = 1;
             XPMax = 60;
             Name = "Picassault";
-            Art = "`;-.          ___,\r\n  `.`\\_...._/`.-\"`\r\n    \\        /      ,\r\n    /()   () \\    .' `-._\r\n   |)  .    ()\\  /   _.'\r\n   \\  -'-     ,; '. <\r\n    ;.__     ,;|   > \\\r\n   / ,    / ,  |.-'.-'\r\n  (_/    (_/ ,;|.<`\r\n    \\    ,     ;-`\r\n     >   \\    /\r\n    (_,-'`> .'\r\n         (_,'";
+            Art = "         .   ,\r\n       '. '.  \\  \\\r\n      ._ '-.'. `\\  \\\r\n        '-._; .'; `-.'. \r\n       `~-.; '.       '.\r\n        '--,`           '.\r\n           -='.          ;\r\n .--=~~=-,    -.;        ;\r\n .-=`;    `~,_.;        /\r\n`  ,-`'    .-;         |\r\n   .-~`.    .;         ;\r\n    .;.-   .-;         ,\\\r\n      `.'   ,=;     .-'  `~.-._\r\n       .';   .';  .'      .'   '-.\r\n         .\\  ;  ;        ,.' _  a',\r\n        .'~\";-`   ;      ;\"~` `'-=.)\r\n      .' .'   . _;  ;',  ;\r\n      '-.._`~`.'  \\  ; ; :\r\n           `~'    _'\\\\_ \\\\_ \r\n                 /=`^^=`\"\"/`)-.\r\n            jgs  \\ =  _ =     =\\\r\n                  `\"\"` `~-. =   ;";
             Skill1 = 1.5 * ATK;
             Skill2 = 2 * ATK;
 
@@ -534,16 +613,25 @@
             switch (type)
             {
                 case Type.Electric:
-                    damage = damage * 1 / 2;
-                    break;
-                case Type.Ground:
                     damage = damage * 2;
                     break;
-                case Type.Flying:
+                case Type.Ground:
+                    damage = damage * 0;
+                    break;
+                case Type.Fighting:
                     damage = damage * 1 / 2;
                     break;
-                case Type.Steel:
+                case Type.Ice:
+                    damage = damage * 2;
+                    break;
+                case Type.Bug:
                     damage = damage * 1 / 2;
+                    break;
+                case Type.Grass:
+                    damage = damage * 1 / 2;
+                    break;
+                case Type.Rock:
+                    damage = damage * 2;
                     break;
                 case Type.Giselle:
                     damage = damage * 2;
@@ -562,19 +650,18 @@
 
     public class Insolourdo : Pokemon
     {
-       
+
         public Insolourdo(int lvl)
         {
             PV = 150;
             PVMax = PV;
-            PM = 50;
             ATK = 70;
             DEF = 70;
             TYPE = Type.Normal;
             LVL = 1;
             XPMax = 60;
             Name = "Insolourdo";
-            Art = "`;-.          ___,\r\n  `.`\\_...._/`.-\"`\r\n    \\        /      ,\r\n    /()   () \\    .' `-._\r\n   |)  .    ()\\  /   _.'\r\n   \\  -'-     ,; '. <\r\n    ;.__     ,;|   > \\\r\n   / ,    / ,  |.-'.-'\r\n  (_/    (_/ ,;|.<`\r\n    \\    ,     ;-`\r\n     >   \\    /\r\n    (_,-'`> .'\r\n         (_,'";
+            Art = "                           _     _\r\n   ,,,,,,,,,,,,,,,,,,,,,,,  \\   /\r\n / (  (  (  (  (  (  (  (  \\( = =)\r\n<  (  (  (  (  (  (  (  (  / ( ^ )\r\n \\ (__(__(__(__(__(__(__(__)   ~      -cfbd-\r\n   ^  ^  ^  ^  ^  ^  ^  ^  ^";
             Skill1 = 1.5 * ATK;
             Skill2 = 2 * ATK;
 
@@ -591,17 +678,11 @@
             damage = damage - DEF;
             switch (type)
             {
-                case Type.Electric:
-                    damage = damage * 1 / 2;
+                case Type.Ghost:
+                    damage = damage * 0;
                     break;
-                case Type.Ground:
+                case Type.Fighting:
                     damage = damage * 2;
-                    break;
-                case Type.Flying:
-                    damage = damage * 1 / 2;
-                    break;
-                case Type.Steel:
-                    damage = damage * 1 / 2;
                     break;
                 case Type.Giselle:
                     damage = damage * 2;
@@ -620,19 +701,18 @@
 
     public class Funecire : Pokemon
     {
-        
+
         public Funecire(int lvl)
         {
             PV = 100;
             PVMax = PV;
-            PM = 50;
             ATK = 30;
             DEF = 55;
             TYPE = Type.Ghost;
             LVL = 1;
             XPMax = 60;
             Name = "Funecire";
-            Art = "`;-.          ___,\r\n  `.`\\_...._/`.-\"`\r\n    \\        /      ,\r\n    /()   () \\    .' `-._\r\n   |)  .    ()\\  /   _.'\r\n   \\  -'-     ,; '. <\r\n    ;.__     ,;|   > \\\r\n   / ,    / ,  |.-'.-'\r\n  (_/    (_/ ,;|.<`\r\n    \\    ,     ;-`\r\n     >   \\    /\r\n    (_,-'`> .'\r\n         (_,'";
+            Art = "            )\r\n           (_)\r\n          .-'-.\r\n          |   |\r\n          |   |\r\n          |   |\r\n          |   |\r\n        __|   |__   .-.\r\n     .-'  |   |  `-:   :\r\n    :     `---'     :-'\r\njgs  `-._       _.-'\r\n         '\"\"\"\"\"\"";
             Skill1 = 1.5 * ATK;
             Skill2 = 2 * ATK;
 
@@ -649,17 +729,23 @@
             damage = damage - DEF;
             switch (type)
             {
-                case Type.Electric:
-                    damage = damage * 1 / 2;
+                case Type.Fighting:
+                    damage = damage * 0;
                     break;
-                case Type.Ground:
+                case Type.Normal:
+                    damage = damage * 0;
+                    break;
+                case Type.Ghost:
                     damage = damage * 2;
                     break;
-                case Type.Flying:
+                case Type.Poison:
                     damage = damage * 1 / 2;
                     break;
-                case Type.Steel:
+                case Type.Bug:
                     damage = damage * 1 / 2;
+                    break;
+                case Type.Dark:
+                    damage = damage * 2;
                     break;
                 case Type.Giselle:
                     damage = damage * 2;
@@ -678,19 +764,19 @@
 
     public class Giselle : Pokemon
     {
-       
+
         public Giselle(int lvl)
         {
             PV = 100;
             PVMax = PV;
-            PM = 100;
-            ATK = 100;
-            DEF = 100;
+            PM = 1000;
+            ATK = 200;
+            DEF = 200;
             TYPE = Type.Giselle;
             LVL = 1;
             XPMax = 60;
             Name = "Giselle";
-            Art = "`;-.          ___,\r\n  `.`\\_...._/`.-\"`\r\n    \\        /      ,\r\n    /()   () \\    .' `-._\r\n   |)  .    ()\\  /   _.'\r\n   \\  -'-     ,; '. <\r\n    ;.__     ,;|   > \\\r\n   / ,    / ,  |.-'.-'\r\n  (_/    (_/ ,;|.<`\r\n    \\    ,     ;-`\r\n     >   \\    /\r\n    (_,-'`> .'\r\n         (_,'";
+            Art = "                                              _\r\n                                   .-.  .--''` )\r\n                                _ |  |/`   .-'`\r\n                               ( `\\      /`\r\n                               _)   _.  -'._\r\n                             /`  .'     .-.-;\r\n                             `).'      /  \\  \\\r\n                            (`,        \\_o/_o/__\r\n                             /           .-''`  ``'-.\r\n                             {         /` ,___.--''`\r\n                             {   ;     '-. \\ \\\r\n           _   _             {   |'-....-`'.\\_\\\r\n          / './ '.           \\   \\          `\"`\r\n       _  \\   \\  |            \\   \\\r\n      ( '-.J     \\_..----.._ __)   `\\--..__\r\n     .-`                    `        `\\    ''--...--.\r\n    (_,.--\"\"`/`         .-             `\\       .__ _)\r\n            |          (                 }    .__ _)\r\n            \\_,         '.               }_  - _.'\r\n               \\_,         '.            } `'--'\r\n                  '._.     ,_)          /\r\n                     |    /           .'\r\n                      \\   |    _   .-'\r\n                       \\__/;--.||-'\r\n                        _||   _||__   __\r\n                 _ __.-` \"`)(` `\"  ```._)\r\n           jgs  (_`,-   ,-'  `''-.   '-._)\r\n               (  (    /          '.__.'\r\n                `\"`'--'";
             Skill1 = 3.5 * ATK;
             Skill2 = 4 * ATK;
 
@@ -707,20 +793,62 @@
             damage = damage - DEF;
             switch (type)
             {
-                case Type.Electric:
-                    damage = damage * 1 / 2;
+                case Type.Normal:
+                    damage = damage / 4;
                     break;
-                case Type.Ground:
-                    damage = damage * 2;
+                case Type.Fighting:
+                    damage = damage / 4;
                     break;
                 case Type.Flying:
-                    damage = damage * 1 / 2;
+                    damage = damage / 4;
+                    break;
+                case Type.Poison:
+                    damage = damage / 4;
+                    break;
+                case Type.Ground:
+                    damage = damage / 4;
+                    break;
+                case Type.Rock:
+                    damage = damage / 4;
+                    break;
+                case Type.Bug:
+                    damage = damage / 4;
+                    break;
+                case Type.Ghost:
+                    damage = damage / 4;
                     break;
                 case Type.Steel:
-                    damage = damage * 1 / 2;
+                    damage = damage / 4;
+                    break;
+                case Type.Fire:
+                    damage = damage / 4;
+                    break;
+                case Type.Water:
+                    damage = damage / 4;
+                    break;
+                case Type.Grass:
+                    damage = damage / 4;
+                    break;
+                case Type.Electric:
+                    damage = damage / 4;
+                    break;
+                case Type.Psychic:
+                    damage = damage / 4;
+                    break;
+                case Type.Ice:
+                    damage = damage / 4;
+                    break;
+                case Type.Dragon:
+                    damage = damage / 4;
+                    break;
+                case Type.Dark:
+                    damage = damage / 4;
+                    break;
+                case Type.Fairy:
+                    damage = damage / 4;
                     break;
                 case Type.Giselle:
-                    damage = damage * 2;
+                    damage = damage * 8;
                     break;
                 default:
                     break;
