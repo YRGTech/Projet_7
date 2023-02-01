@@ -17,6 +17,7 @@ namespace Projet_7
             Pikachu pikachu = new Pikachu();
             Console.Clear();
             writeTitle();
+            //changer le new pikachu pour le pikachu du game
             WriteMenu(pikachu);
             writePikachu();
             while (_teamSummaryOpened)
@@ -73,21 +74,24 @@ namespace Projet_7
                 }
                 Console.WriteLine(" ");
             }
+            Console.SetCursorPosition(0, 40);
             Console.WriteLine("===============================================================================================================================================");
             WriteEdgeBorder();
+            Console.SetCursorPosition((Console.WindowWidth/2) - 16, 43);
+            Console.WriteLine("Press ESC to quit");
         }
         public void WriteCapacity(string statshown, string statistic)
         {
-            Console.SetCursorPosition(68, 12 + _id);
+            Console.SetCursorPosition(65, 15 + _id);
             Console.Write(statshown);
             Console.Write("{0} \n",statistic);
             if (_id == 1)
             {
-                _id += 4;
+                _id += 6;
             }
-            else if (_id == 7)
+            else if (_id == 9)
             {
-                _id += 4;
+                _id += 6;
             }
             else
             {
@@ -96,7 +100,7 @@ namespace Projet_7
         }
         public void WritePVPM(string statshown, string statistic, string statistic_max)
         {
-            Console.SetCursorPosition(68, 12 + _id);
+            Console.SetCursorPosition(65, 12 + _id);
             Console.Write(statshown);
             Console.Write("{0}/{1}", statistic, statistic_max);
             _id++;
