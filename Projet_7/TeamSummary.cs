@@ -15,23 +15,9 @@ namespace Projet_7
         {
             Pikachu pikachu = new Pikachu();
             Console.Clear();
-            Console.SetCursorPosition(25, 0);
-            Console.WriteLine("________  ___  ___  __    ________          ________  ___  ___  _____ ______   _____ ______   ________  ________      ___    ___ \r\n");
-            Console.SetCursorPosition(25, 1);
-            Console.WriteLine("|\\   __  \\|\\  \\|\\  \\|\\  \\ |\\   __  \\        |\\   ____\\|\\  \\|\\  \\|\\   _ \\  _   \\|\\   _ \\  _   \\|\\   __  \\|\\   __  \\    |\\  \\  /  /|\r\n");
-            Console.SetCursorPosition(25, 2);
-            Console.WriteLine("\\ \\  \\|\\  \\ \\  \\ \\  \\/  /|\\ \\  \\|\\  \\       \\ \\  \\___|\\ \\  \\\\\\  \\ \\  \\\\\\__\\ \\  \\ \\  \\\\\\__\\ \\  \\ \\  \\|\\  \\ \\  \\|\\  \\   \\ \\  \\/  / /\r\n");
-            Console.SetCursorPosition(25, 3);
-            Console.WriteLine(" \\ \\   ____\\ \\  \\ \\   ___  \\ \\   __  \\       \\ \\_____  \\ \\  \\\\\\  \\ \\  \\\\|__| \\  \\ \\  \\\\|__| \\  \\ \\   __  \\ \\   _  _\\   \\ \\    / / \r\n");
-            Console.SetCursorPosition(25, 4);
-            Console.WriteLine("  \\ \\  \\___|\\ \\  \\ \\  \\\\ \\  \\ \\  \\ \\  \\       \\|____|\\  \\ \\  \\\\\\  \\ \\  \\    \\ \\  \\ \\  \\    \\ \\  \\ \\  \\ \\  \\ \\  \\\\  \\|   \\/  /  /  \r\n");
-            Console.SetCursorPosition(25, 5);
-            Console.WriteLine("   \\ \\__\\    \\ \\__\\ \\__\\\\ \\__\\ \\__\\ \\__\\        ____\\_\\  \\ \\_______\\ \\__\\    \\ \\__\\ \\__\\    \\ \\__\\ \\__\\ \\__\\ \\__\\\\ _\\ __/  / /    \r\n");
-            Console.SetCursorPosition(25, 6);
-            Console.WriteLine("    \\|__|     \\|__|\\|__| \\|__|\\|__|\\|__|       |\\_________\\|_______|\\|__|     \\|__|\\|__|     \\|__|\\|__|\\|__|\\|__|\\|__|\\___/ /     \r\n");
-            Console.SetCursorPosition(25, 7);
-            Console.WriteLine("                                               \\|_________|                                                          \\|___|/      \r\n");
+            writeTitle();
             WriteMenu(pikachu);
+            writePikachu();
         }
 
         public void WriteMenu(Pokemon IneedaHero)
@@ -112,6 +98,57 @@ namespace Projet_7
                 Console.SetCursorPosition(142, 10 + iterator2);
                 Console.Write("|");
             }
+        }
+
+        public void writePikachu()
+        {
+            Console.SetCursorPosition(155, 16);
+            Console.WriteLine("░█▀▀▄░░░░░░░░░░░▄▀▀█ \r\n");
+            Console.SetCursorPosition(155, 17);
+            Console.WriteLine("░█░░░▀▄░▄▄▄▄▄░▄▀░░░█\r\n");
+            Console.SetCursorPosition(155, 18);
+            Console.WriteLine("░░▀▄░░░▀░░░░░▀░░░▄▀ \r\n");
+            Console.SetCursorPosition(155, 19);
+            Console.WriteLine("░░░░▌░▄▄░░░▄▄░▐▀▀ \r\n");
+            Console.SetCursorPosition(155, 20);
+            Console.WriteLine("░░░▐░░█▄░░░▄█░░▌▄▄▀▀▀▀█\r\n");
+            Console.SetCursorPosition(155, 21);
+            Console.WriteLine("░░░▌▄▄▀▀░▄░▀▀▄▄▐░░░░░░█ \r\n");
+            Console.SetCursorPosition(155, 22);
+            Console.WriteLine("▄▀▀▐▀▀░▄▄▄▄▄░▀▀▌▄▄▄░░░█ \r\n");
+            Console.SetCursorPosition(155, 23);
+            Console.WriteLine("█░░░▀▄░█░░░█░▄▀░░░░█▀▀▀ \r\n");
+            Console.SetCursorPosition(155, 24);
+            Console.WriteLine("░▀▄░░▀░░▀▀▀░░▀░░░▄█▀ \r\n");
+            Console.SetCursorPosition(155, 25);
+            Console.WriteLine("░░░█░░░░░░░░░░░▄▀▄░▀▄ \r\n");
+            Console.SetCursorPosition(155, 26);
+            Console.WriteLine("░░░█░░░░░░░░░▄▀█░░█░░█ \r\n");
+            Console.SetCursorPosition(155, 27);
+            Console.WriteLine("░░░█░░░░░░░░░░░█▄█░░▄▀ \r\n");
+            Console.SetCursorPosition(155, 28);
+            Console.WriteLine("░░░█░░░░░░░░░░░████▀ \r\n");
+            Console.SetCursorPosition(155, 29);
+            Console.WriteLine("░░░▀▄▄▀▀▄▄▀▀▄▄▄█▀ \r\n");
+        }
+        public void writeTitle()
+        {
+            Console.SetCursorPosition(25, 0);
+            Console.WriteLine("________  ___  ___  __    ________          ________  ___  ___  _____ ______   _____ ______   ________  ________      ___    ___ \r\n");
+            Console.SetCursorPosition(25, 1);
+            Console.WriteLine("|\\   __  \\|\\  \\|\\  \\|\\  \\ |\\   __  \\        |\\   ____\\|\\  \\|\\  \\|\\   _ \\  _   \\|\\   _ \\  _   \\|\\   __  \\|\\   __  \\    |\\  \\  /  /|\r\n");
+            Console.SetCursorPosition(25, 2);
+            Console.WriteLine("\\ \\  \\|\\  \\ \\  \\ \\  \\/  /|\\ \\  \\|\\  \\       \\ \\  \\___|\\ \\  \\\\\\  \\ \\  \\\\\\__\\ \\  \\ \\  \\\\\\__\\ \\  \\ \\  \\|\\  \\ \\  \\|\\  \\   \\ \\  \\/  / /\r\n");
+            Console.SetCursorPosition(25, 3);
+            Console.WriteLine(" \\ \\   ____\\ \\  \\ \\   ___  \\ \\   __  \\       \\ \\_____  \\ \\  \\\\\\  \\ \\  \\\\|__| \\  \\ \\  \\\\|__| \\  \\ \\   __  \\ \\   _  _\\   \\ \\    / / \r\n");
+            Console.SetCursorPosition(25, 4);
+            Console.WriteLine("  \\ \\  \\___|\\ \\  \\ \\  \\\\ \\  \\ \\  \\ \\  \\       \\|____|\\  \\ \\  \\\\\\  \\ \\  \\    \\ \\  \\ \\  \\    \\ \\  \\ \\  \\ \\  \\ \\  \\\\  \\|   \\/  /  /  \r\n");
+            Console.SetCursorPosition(25, 5);
+            Console.WriteLine("   \\ \\__\\    \\ \\__\\ \\__\\\\ \\__\\ \\__\\ \\__\\        ____\\_\\  \\ \\_______\\ \\__\\    \\ \\__\\ \\__\\    \\ \\__\\ \\__\\ \\__\\ \\__\\\\ _\\ __/  / /    \r\n");
+            Console.SetCursorPosition(25, 6);
+            Console.WriteLine("    \\|__|     \\|__|\\|__| \\|__|\\|__|\\|__|       |\\_________\\|_______|\\|__|     \\|__|\\|__|     \\|__|\\|__|\\|__|\\|__|\\|__|\\___/ /     \r\n");
+            Console.SetCursorPosition(25, 7);
+            Console.WriteLine("                                               \\|_________|                                                          \\|___|/      \r\n");
         }
     }
 }
