@@ -18,7 +18,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Projet_7.Inventory">
-    <Position X="20.5" Y="1.25" Width="1.5" />
+    <Position X="21.5" Y="1" Width="1.5" />
     <NestedTypes>
       <Enum Name="Projet_7.Inventory.Pos" Collapsed="true">
         <TypeIdentifier>
@@ -27,14 +27,14 @@
       </Enum>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AIAAAAAAAAAAAgAAAAAAwAiAAAAKAAAAAACAEAAAAIA=</HashCode>
+      <HashCode>AIAAAAAAAAAAAgAAAAAAyAiAAAAKAAAAAACAEAIAAIA=</HashCode>
       <FileName>Inventory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Projet_7.Item">
     <Position X="8.5" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>BAAAAAQAAAAgAAAAAAAAAASAAAgAAAAAAAAAAAAAAEA=</HashCode>
+      <HashCode>BAAAAAQAAAAgCAAAAAAAAASAAAgAAAAAAAACAAAAAEA=</HashCode>
       <FileName>Item.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -76,7 +76,7 @@
   <Class Name="Projet_7.Potion">
     <Position X="4.75" Y="5.75" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAASAAAgAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Potion.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -97,7 +97,7 @@
   <Class Name="Projet_7.Potionnette">
     <Position X="3" Y="9" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAQAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Potionnette.cs</FileName>
     </TypeIdentifier>
   </Class>

@@ -10,6 +10,9 @@ namespace Projet_7
 {
     public class Inventory
     {
+
+
+
         public enum Pos
         {
             Potion = 10,
@@ -25,7 +28,7 @@ namespace Projet_7
             Tortoise = 211,
 
             Pangolin = 341,
-            Bat = 311,
+            Bat = 310,
         }
 
 
@@ -34,16 +37,44 @@ namespace Projet_7
         public int PosY { get; set; }
         public Pos ppos { get; set; }
 
-        public Inventory(int menu, int posX, int posY, Pos pos)
+        public Potion Potionnette { get; set; }
+        public Potion MPotion { get; set; }
+        public Potion BPotion { get; set; }
+
+        public Bouf Boeuf { get; set; }
+        public Bouf Mage { get; set; }
+        public Bouf Tortoise { get; set; }
+
+        public Debouf Pangolin { get; set; }
+        public Debouf Bat { get; set; }
+
+        public Pikachu Pikachu { get; set; }
+        public Pokemon Opponent { get; set; }
+
+        public Inventory(int menu, int posX, int posY, Pos pos , 
+            Potion potionnette, Potion mption, Potion bpotion,
+            Bouf boeuf, Bouf mage, Bouf tortoise,
+            Debouf pangolin, Debouf bat, 
+            Pikachu pikachu)
         {
             Menu = menu;
             PosX = posX;
             PosY = posY;
             ppos = pos;
+            Potionnette = potionnette;
+            MPotion = mption;
+            BPotion = bpotion;
+            Boeuf = boeuf;
+            Mage = mage;
+            Tortoise = tortoise;
+            Pangolin = pangolin;
+            Bat = bat;
+            Pikachu= pikachu;
+
         }
 
 
-        internal void Draw()
+        public void Draw()
         {
             PosX = 5;
             PosY = 5;
@@ -60,6 +91,7 @@ namespace Projet_7
                 Console.Write("                         Debouf\n");
                 Console.Write("       Bouf");
                 Console.Write("                           Quit\n");
+                Console.Write($"pv = {Pikachu.PV}, PM = {Pikachu.PM}, def = {Pikachu.DEF}, atk = {Pikachu.ATK}");
 
                 MoveCursor();
             }
@@ -73,34 +105,68 @@ namespace Projet_7
             // Input
             Console.SetCursorPosition(PosX, PosY);
             Console.Write("->");
-            ConsoleKey key = Console.ReadKey(true).Key;
-            switch (key)
+
+            if (Menu == 3)
             {
-                case ConsoleKey.UpArrow:
-                    PosY = 5;
-                    break;
+                ConsoleKey key = Console.ReadKey(true).Key;
+                switch (key)
+                {
+                    case ConsoleKey.UpArrow:
+                        PosY = 5;
+                        break;
 
-                case ConsoleKey.LeftArrow:
-                    PosX = 5;
-                    break;
+                    case ConsoleKey.LeftArrow:
+                        PosX = 5;
+                        break;
 
-                case ConsoleKey.DownArrow:
-                    PosY = 6;
-                    break;
+                    case ConsoleKey.DownArrow:
+                        PosY = 6;
+                        PosX = 5;
+                        break;
 
-                case ConsoleKey.RightArrow:
-                    PosX = 36;
-                    break;
-                case ConsoleKey.Enter:
-                    Console.Clear();
-                    ppos = (Pos)(PosX + PosY);
-                    DetectClickLocation();
-                    break;
+                    case ConsoleKey.RightArrow:
+                        PosX = 36;
+                        PosY = 5;
+                        break;
+                    case ConsoleKey.Enter:
+                        Console.Clear();
+                        ppos = (Pos)(PosX + PosY);
+                        DetectClickLocation();
+                        break;
+                }
+            }
+            else
+            {
+                ConsoleKey key = Console.ReadKey(true).Key;
+                switch (key)
+                {
+                    case ConsoleKey.UpArrow:
+                        PosY = 5;
+                        break;
+
+                    case ConsoleKey.LeftArrow:
+                        PosX = 5;
+                        break;
+
+                    case ConsoleKey.DownArrow:
+                        PosY = 6;
+                        break;
+
+                    case ConsoleKey.RightArrow:
+                        PosX = 36;
+                        break;
+                    case ConsoleKey.Enter:
+                        Console.Clear();
+                        ppos = (Pos)(PosX + PosY);
+                        DetectClickLocation();
+                        break;
+                }
             }
         }
 
         void DetectClickLocation()
         {
+           
             switch (Menu)
             {
                 case 1:
@@ -132,39 +198,32 @@ namespace Projet_7
 
                 //Potion
                 case Pos.SPotion:
-                    Menu = 1;
+                    Potionnette.Amount = Potionnette.usePotion(Potionnette.Amount, Potionnette.Description,Pikachu,Potionnette.Percentage, Potionnette.Name);
                     break;
                 case Pos.MPotion:
-                    Menu = 2;
-                    ShowBouf();
+                    MPotion.Amount = MPotion.usePotion(MPotion.Amount, MPotion.Description, Pikachu, MPotion.Percentage, MPotion.Name); 
                     break;
                 case Pos.BPotion:
-                    Menu = 3;
-                    ShowDebouf();
+                    BPotion.Amount = BPotion.usePotion(BPotion.Amount, BPotion.Description, Pikachu, BPotion.Percentage, BPotion.Name); 
                     break;
 
                 //Bouf
                 case Pos.Boeuf:
-                    Menu = 1;
-                    ShowPotion();
+                    Boeuf.Amount = Boeuf.useBoeuf(Boeuf.Amount, Boeuf.Description, Pikachu, Boeuf.Percentage, Boeuf.Name); 
                     break;
                 case Pos.Mage:
-                    Menu = 2;
-                    ShowBouf();
+                    Mage.Amount = Mage.useMage(Mage.Amount, Mage.Description, Pikachu, Mage.Percentage, Mage.Name);
                     break;
                 case Pos.Tortoise:
-                    Menu = 3;
-                    ShowDebouf();
+                    Tortoise.Amount = Tortoise.useTortoise(Tortoise.Amount, Tortoise.Description, Pikachu, Tortoise.Percentage, Tortoise.Name);
                     break;
 
                 //Debouf
                 case Pos.Bat:
-                    Menu = 1;
-                    ShowPotion();
+                    Bat.Amount = Bat.useBat(Bat.Amount, Bat.Description, Pikachu, Bat.Percentage, Bat.Name);
                     break;
                 case Pos.Pangolin:
-                    Menu = 2;
-                    ShowBouf();
+                    Pangolin.Amount = Pangolin.usePangolin(Pangolin.Amount, Pangolin.Description, Pikachu, Pangolin.Percentage, Pangolin.Name);
                     break;
                 default:
                     Return();
@@ -193,33 +252,27 @@ namespace Projet_7
             PosY = 5;
         }
 
-        public int GetAmount(Potion potion)
-        {
-            Potion potionn = potion;
-            int number = potion.Amount;
-            return number;
-        }
+        
 
-        public int ShowPotion()
+        public void ShowPotion()
         {
-            Potion potionnette = new Potion("Potionnette", 3, "ça régène un peu mais pas bcp", 20);
-            int oui = potionnette.Amount;
-            return oui;
-            /*while (Menu == 1)
+           
+
+            while (Menu == 1)
             {
                 Console.SetCursorPosition(0, 0);
                 Console.Write("\n\n                      Potion");
                 Console.Write("\n\n\n");
-                Console.Write("       " + oui + "x Potionnette 20pv") ;
-                //Console.Write("            " + MaximaPocion + "x Maxima pocion 150pv\n");
-                //Console.Write("       " + MPotion + "x Potion 50pv");
-                Console.Write("                 Quit");
+                Console.Write("       " + Potionnette.Amount + "x Potionnette +20% des PV") ;
+                Console.Write("     " + MPotion.Amount + "x Maxima pocion +80% des PV\n");
+                Console.Write("       " + BPotion.Amount + "x Potion +50% des PV");
+                Console.Write("          Quit");
 
                 Console.SetCursorPosition(PosX, PosY);
                 Console.Write("->");
 
                 MoveCursor();
-            }*/
+            }
         }
 
         void ShowBouf()
@@ -229,10 +282,10 @@ namespace Projet_7
                 Console.SetCursorPosition(0, 0);
                 Console.Write("\n\n                      Bouf");
                 Console.Write("\n\n\n");
-                //Console.Write("       " + Boeuf + "x boeuf +damage");
-                //Console.Write("               " + Cheetah + "x Cheetah +dodge\n");
-                //Console.Write("       " + Tortoise + "x tortoise +defence");
-                Console.Write("           Quit\n");
+                Console.Write("       " + Boeuf.Amount + "x boeuf +30% de dégat");
+                Console.Write("         " + Mage.Amount + "x Mage +50% des PM\n");
+                Console.Write("       " + Tortoise.Amount + "x tortoise +30% de défense");
+                Console.Write("    Quit\n");
 
                 Console.SetCursorPosition(PosX,PosY);
                 Console.Write("->");
@@ -247,10 +300,9 @@ namespace Projet_7
                 Console.SetCursorPosition(0, 0);
                 Console.Write("\n\n                      Debouf");
                 Console.Write("\n\n\n");
-                //Console.Write("       " + Pangolin + "x Pangolin -Defence");
-                //Console.Write("           " + Mirror + "x Mirror *can attack himself\n");
-                //Console.Write("       " + Glue + "x GlueGun no dodge");
-                Console.Write("            Quit\n");
+                Console.Write("       " + Pangolin.Amount + "x Pangolin -30% Defence");
+                Console.Write("       " + Bat.Amount + "x Bat -30% d'attaque\n");
+                Console.Write("       Quit\n");
 
                 Console.SetCursorPosition(PosX, PosY);
                 Console.Write("->");

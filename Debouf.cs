@@ -14,5 +14,7 @@ namespace Projet_7
         {
             Duration = duration;
         }
+
+        
     }
 }

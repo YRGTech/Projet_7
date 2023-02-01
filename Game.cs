@@ -20,12 +20,24 @@ namespace Projet_7
             Map map = new Map();
             Console.Write("                                 ,'\\\r\n    _.----.        ____         ,'  _\\   ___    ___     ____\r\n_,-'       `.     |    |  /`.   \\,-'    |   \\  /   |   |    \\  |`.\r\n\\      __    \\    '-.  | /   `.  ___    |    \\/    |   '-.   \\ |  |\r\n \\.    \\ \\   |  __  |  |/    ,','_  `.  |          | __  |    \\|  |\r\n   \\    \\/   /,' _`.|      ,' / / / /   |          ,' _`.|     |  |\r\n    \\     ,-'/  /   \\    ,'   | \\/ / ,`.|         /  /   \\  |     |\r\n     \\    \\ |   \\_/  |   `-.  \\    `'  /|  |    ||   \\_/  | |\\    |\r\n      \\    \\ \\      /       `-.`.___,-' |  |\\  /| \\      /  | |   |\r\n       \\    \\ `.__,'|  |`-._    `|      |__| \\/ |  `.__,'|  | |   |\r\n        \\_.-'       |__|    `-._ |              '-.|     '-.| |   |\r\n                                `'                            '-._|");
             Pikachu pikachu = new Pikachu();
-            _inventory = new Inventory(0,5,5,0);
+            Potion potionnette = new Potion("Potionnette", 3, "ça régène un peu de PV mais pas bcp", 20);
+            Potion potion = new Potion("potion", 3, "ça régène des PV", 50);
+            Potion MaximaPocion= new Potion("MaximaPocion", 3, "ça régène bcp wallah", 80);
+            Bouf Mage = new Bouf("Mage", 3, "Manger un mage vous fait regagner des PM", 40);
+            Bouf Tortoise = new Bouf("Tortoise", 3, "Manger une tortue vous augmente votre défense", 20);
+            Bouf Boeuf = new Bouf("Boeuf", 3, "Manger un boeuf vous augmente votre attaque", 20);
+            Debouf Pangolin = new Debouf("Pangolin", 3, "Vous donnez un pangolain à manger à votre ennemi, il attrape le variant Delta du covid19, sa défense baisse", 20, 3);
+            Debouf Bat = new Debouf("Bat", 3, "Vous donnez une chauve-souris à manger à votre ennemi, il attrape le variant Alpha du covid19, son attaque baisse", 20,3);
             
+
+
+
+
+            _inventory = new Inventory(10,5,5,0,potionnette,potion, MaximaPocion, Boeuf,Mage,Tortoise,Pangolin,Bat,pikachu);            
+
             loop = true;
 
-            //var player = new SoundPlayer("path/to/audiofile.wav");
-            //player.Play();
+         
 
             // boucle de jeu
             while (loop)
