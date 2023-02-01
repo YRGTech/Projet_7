@@ -11,13 +11,28 @@ namespace Projet_7
         private int _id = 0;
         public TeamSummary() { }
 
-        public void openTeamSummary()
+        public void openTeamSummary(Game game)
         {
+            bool _teamSummaryOpened = true;
             Pikachu pikachu = new Pikachu();
             Console.Clear();
             writeTitle();
             WriteMenu(pikachu);
             writePikachu();
+            while (_teamSummaryOpened)
+            {
+                ConsoleKey key = Console.ReadKey(true).Key;
+
+                switch (key)
+                {
+                    case ConsoleKey.Escape:
+                        Menu menu = new Menu();
+                        Console.Clear();
+                        menu.createMenu(game);
+                        _teamSummaryOpened = false;
+                        break;
+                }
+            }
         }
 
         public void WriteMenu(Pokemon IneedaHero)
