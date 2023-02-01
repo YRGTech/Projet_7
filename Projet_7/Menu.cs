@@ -16,7 +16,7 @@ namespace Projet_7
             Save save= new Save();
             options = new List<Option>
             {
-                new Option("Team Summary",() => openTeamSummary() ),
+                new Option("Team Summary",() => openTeamSummary(game) ),
                 new Option("Inventory", () => openInventory()),
                 new Option("Save", () => openSave()),
                 new Option("Exit",() => game.Map.DrawMap()),
@@ -64,10 +64,10 @@ namespace Projet_7
             Console.ReadKey();
         }
 
-        public static void openTeamSummary()
+        public static void openTeamSummary(Game game)
         {
             TeamSummary ts = new TeamSummary();
-            ts.openTeamSummary();
+            ts.openTeamSummary(game);
         }
 
         public static void openInventory()
