@@ -1,4 +1,14 @@
 ﻿using System.Numerics;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Media;
+
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Xml.Linq;
+using System.Text.Json;
 
 namespace Projet_7
 {
@@ -10,18 +20,49 @@ namespace Projet_7
         public bool OpenMenu { get; set; }
         public bool Explo { get; set; }
         public Map? Map { get; set; }
-        public Pikachu? Pikachu { get; set; }
-      
-        public Game() {
-            Map = new Map();
+        public PikachuDresseur? Pikachu { get; set; }
+        public Potion? Potionnette { get; set; }
+        public Potion? Potion{ get; set; }
+        public Potion? MaximaPocion{ get; set; }
+        public Bouf? Boeuf{ get; set; }
+        public Bouf? Tortoise { get; set; }
+        public Bouf? Mage { get; set; }
 
-            Pikachu = new PikachuDresseur();
+        public Debouf? Pangolin { get; set; }
+        public Debouf? Bat { get; set; }
+
+        public Inventory? Inventory { get; set; }
+
+
+        public Game()
+        {
+
+            Map = new Map();
+            SerializeTheObject loadSave;
+            string loadString;
+            loadString = File.ReadAllText("save.json");
+            loadSave = JsonSerializer.Deserialize<SerializeTheObject>(loadString);
+            Pikachu = loadSave.Pika;
+            Map.UpdatePlayerPos(loadSave.PosX, loadSave.PosY);
+            Potionnette = new Potion("Potionnette", /*loadSave.Potionnette*/3, "ça régène un peu de PV mais pas bcp", 20);
+            Potion = new Potion("potion", loadSave.Potion, "ça régène des PV", 50);
+            MaximaPocion = new Potion("MaximaPocion", loadSave.MaximaPocion, "ça régène bcp wallah", 80);
+            Mage = new Bouf("Mage", loadSave.Mage, "Manger un mage vous fait regagner des PM", 40);
+            Tortoise = new Bouf("Tortoise", loadSave.Tortoise, "Manger une tortue vous augmente votre défense", 20);
+            Boeuf = new Bouf("Boeuf", loadSave.Boeuf, "Manger un boeuf vous augmente votre attaque", 20);
+            Pangolin = new Debouf("Pangolin", loadSave.Pangolin, "Vous donnez un pangolain à manger à votre ennemi,\n                              il attrape le variant Delta du covid19, sa défense baisse", 20, 3);
+            Bat = new Debouf("Bat", loadSave.Bat, "Vous donnez une chauve-souris à manger à votre ennemi,\n                              il attrape le variant Alpha du covid19, son attaque baisse", 20, 3);
+            Inventory = new Inventory(0, 5, 5, 0, Potionnette, Potion, MaximaPocion, Boeuf, Mage, Tortoise, Pangolin, Bat, Pikachu);
         }
+
+
         
 
         public void Run()
         {
             Menu menu = new Menu();
+
+            
         Start:
             StartScreen();
             // boucle de jeu
