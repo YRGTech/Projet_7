@@ -11,16 +11,17 @@ namespace Projet_7
         public bool Explo { get; set; }
         public Map? Map { get; set; }
         public Pikachu? Pikachu { get; set; }
+      
+        public Game() {
+            Map = new Map();
 
-        Map _map = new Map();
-
-        Pikachu _pikachu = new PikachuDresseur();
+            Pikachu = new PikachuDresseur();
+        }
+        
 
         public void Run()
         {
             Menu menu = new Menu();
-            Map = _map;
-            Pikachu = _pikachu;
         Start:
             StartScreen();
             // boucle de jeu
@@ -36,13 +37,13 @@ namespace Projet_7
                         case ConsoleKey.Spacebar:
                             Console.Clear();
                             Console.BackgroundColor = ConsoleColor.Black;
-                            if (_lose) { StartScreen(); _lose = false; _map.ResetPlayer(); }
+                            if (_lose) { StartScreen(); _lose = false; Map.ResetPlayer(); Pikachu = new PikachuDresseur(); }
                             else
                             {
                                 _start = false;
                                 Explo = true;
-                                _map.DrawMap();
-                                _map.UpdatePlayerPos(_map.playerX, _map.playerY);
+                                Map.DrawMap();
+                                Map.UpdatePlayerPos(Map.playerX, Map.playerY);
                             }
                             break;
                         default:
@@ -69,7 +70,7 @@ namespace Projet_7
         {
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.White;
-            Combat c = new Combat(_pikachu);
+            Combat c = new Combat(Pikachu);
             c.Fight();
             _win = c.win;
             _lose = c.lose;
@@ -188,34 +189,34 @@ namespace Projet_7
             switch (key)
             {
                 case ConsoleKey.UpArrow:
-                    if (_map.IsValidMove(_map.playerX, _map.playerY - 1))
+                    if (Map.IsValidMove(Map.playerX, Map.playerY - 1))
                     {
-                        _map.UpdatePlayerPos(_map.playerX, _map.playerY - 1);
+                        Map.UpdatePlayerPos(Map.playerX, Map.playerY - 1);
                         DetectCombat();
                     }
 
 
                     break;
                 case ConsoleKey.DownArrow:
-                    if (_map.IsValidMove(_map.playerX, _map.playerY + 1))
+                    if (Map.IsValidMove(Map.playerX, Map.playerY + 1))
                     {
-                        _map.UpdatePlayerPos(_map.playerX, _map.playerY + 1);
+                        Map.UpdatePlayerPos(Map.playerX, Map.playerY + 1);
                         DetectCombat();
                     }
 
                     break;
                 case ConsoleKey.LeftArrow:
-                    if (_map.IsValidMove(_map.playerX - 1, _map.playerY))
+                    if (Map.IsValidMove(Map.playerX - 1, Map.playerY))
                     {
-                        _map.UpdatePlayerPos(_map.playerX - 1, _map.playerY);
+                        Map.UpdatePlayerPos(Map.playerX - 1, Map.playerY);
                         DetectCombat();
                     }
 
                     break;
                 case ConsoleKey.RightArrow:
-                    if (_map.IsValidMove(_map.playerX + 1, _map.playerY))
+                    if (Map.IsValidMove(Map.playerX + 1, Map.playerY))
                     {
-                        _map.UpdatePlayerPos(_map.playerX + 1, _map.playerY);
+                        Map.UpdatePlayerPos(Map.playerX + 1, Map.playerY);
                         DetectCombat();
                     }
 
@@ -232,7 +233,7 @@ namespace Projet_7
         {
             Random rand = new Random();
 
-            if (_map.IsPlayerOnGrass())
+            if (Map.IsPlayerOnGrass())
             {
                 switch (rand.Next(8))
                 {

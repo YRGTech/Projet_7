@@ -211,11 +211,11 @@ namespace Projet_7
         {
             if (poke != Enemy)
             {
-                if (Player.PM < Player.PMmax)
+                if (Player.PM < Player.PMMax)
                 {
-                    if (Player.PMmax - Player.PM < 5)
+                    if (Player.PMMax - Player.PM < 5)
                     {
-                        Player.PM = Player.PMmax;
+                        Player.PM = Player.PMMax;
                     }
                     Player.PM += 5;
                 }
@@ -314,7 +314,7 @@ namespace Projet_7
             {
                 x = 3 * Console.WindowWidth / 4;
                 Console.SetCursorPosition(x, 14);
-                Console.WriteLine("{0} / {1}", Poke.PM.ToString(), Poke.PMmax.ToString());
+                Console.WriteLine("{0} / {1}", Poke.PM.ToString(), Poke.PMMax.ToString());
             }
             Console.SetCursorPosition(x, 12);
             Console.Write("{0}   Niv : {1}", Poke.Name, Poke.LVL.ToString());

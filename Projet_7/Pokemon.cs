@@ -32,7 +32,7 @@
         public int PVMax { get { return _pvMax; } protected set { _pvMax = value; } }
 
         public int PM { get { return _pm; } set { _pm = value; } }
-        public int PMmax { get; protected set; }
+        public int PMMax { get; protected set; }
 
         public int LVL { get => _lvl; set { _lvl = value; } }
 
@@ -66,11 +66,6 @@
                 PV = PVMax;
         }
 
-        public int PMMax
-        {
-            get { return _pmMax; }
-            protected set { _pmMax = value; }
-        }
 
         public bool IsAlive()
         {
@@ -105,7 +100,7 @@
             PV = 95;
             PVMax = PV;
             PM = 50;
-            PMmax = PM;
+            PMMax = PM;
             ATK = 80;
             DEF = 50;
             TYPE = Type.Electric;
@@ -184,7 +179,7 @@
             PV = 95;
             PVMax = PV;
             PM = 50;
-            PMmax = PM;
+            PMMax = PM;
             ATK = 80;
             DEF = 50;
             TYPE = Type.Electric;
