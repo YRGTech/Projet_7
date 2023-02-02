@@ -64,6 +64,7 @@
             PV += value;
             if (PV > PVMax)
                 PV = PVMax;
+        }
 
         public int PMMax
         {
@@ -85,13 +86,12 @@
         {
             LVL = LVL + 1;
             Heal(PVMax);
-            PV = (int)(5 * Math.Log2(LVL) + PV);
-            PM = (int)(5 * Math.Log2(LVL) + PM);
+            PVMax = (int)(5 * Math.Log2(LVL) + PV);
+            PMMax = (int)(5 * Math.Log2(LVL) + PM);
             Random randstat = new Random();
             _atk = _atk + randstat.Next(3) + 1;
             _def = _def + randstat.Next(3) + 1;
 
-            PVMax = PV;
         }
 
     }

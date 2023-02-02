@@ -4,26 +4,25 @@ namespace Projet_7
 {
     public class Game
     {
-        public bool OpenMenu { get; set; }
         private bool start = true;
         private bool _lose;
         private bool win;
 	public bool OpenMenu { get; set; }
         public bool Explo { get; set; }
         public Map? Map { get; set; }
-        Map map = new Map();
+        Map _map = new Map();
 
         Pikachu pikachu = new PikachuDresseur();
 
         public void Run()
         {
             Menu menu = new Menu();
-
+            Map = _map;
 
         Start:
             StartScreen();
             // boucle de jeu
-            while (true && OpenMenu == false)
+            while (true)
             {
                 if (start)
                 {
@@ -35,12 +34,13 @@ namespace Projet_7
                         case ConsoleKey.Spacebar:
                             Console.Clear();
                             Console.BackgroundColor = ConsoleColor.Black;
-                            if (_lose) { StartScreen(); _lose = false; map.ResetPlayer(); }
+                            if (_lose) { StartScreen(); _lose = false; _map.ResetPlayer(); }
                             else
                             {
                                 start = false;
-                                map.DrawMap();
-                                map.UpdatePlayerPos(map.playerX, map.playerY);
+                                Explo = true;
+                                _map.DrawMap();
+                                _map.UpdatePlayerPos(_map.playerX, _map.playerY);
                             }
                             break;
                         default:
@@ -52,7 +52,7 @@ namespace Projet_7
                 {
                     MovePlayer();
 
-                    if (map.IsPlayerOnGrass())
+                    if (_map.IsPlayerOnGrass() && OpenMenu == false)
                     {
                         Random rand = new Random();
                         switch (rand.Next(8))
@@ -69,6 +69,7 @@ namespace Projet_7
                 }
                 else if (OpenMenu)
                 {
+                   
                     menu.createMenu(this);
 
                 }
@@ -84,7 +85,6 @@ namespace Projet_7
             win = c.win;
             _lose = c.lose;
             start = true;
-                    menu.createMenu(this);
 
         }
         public void WinScreen()
@@ -174,24 +174,25 @@ namespace Projet_7
             {
 
                 case ConsoleKey.UpArrow:
-                    if (map.IsValidMove(map.playerX, map.playerY - 1))
-                        map.UpdatePlayerPos(map.playerX, map.playerY - 1);
+                    if (_map.IsValidMove(_map.playerX, _map.playerY - 1))
+                        _map.UpdatePlayerPos(_map.playerX, _map.playerY - 1);
                     break;
                 case ConsoleKey.DownArrow:
-                    if (map.IsValidMove(map.playerX, map.playerY + 1))
-                        map.UpdatePlayerPos(map.playerX, map.playerY + 1);
+                    if (_map.IsValidMove(_map.playerX, _map.playerY + 1))
+                        _map.UpdatePlayerPos(_map.playerX, _map.playerY + 1);
                     break;
                 case ConsoleKey.LeftArrow:
-                    if (map.IsValidMove(map.playerX - 1, map.playerY))
-                        map.UpdatePlayerPos(map.playerX - 1, map.playerY);
+                    if (_map.IsValidMove(_map.playerX - 1, _map.playerY))
+                        _map.UpdatePlayerPos(_map.playerX - 1, _map.playerY);
                     break;
                 case ConsoleKey.RightArrow:
-                    if (map.IsValidMove(map.playerX + 1, map.playerY))
-                        map.UpdatePlayerPos(map.playerX + 1, map.playerY);
+                    if (_map.IsValidMove(_map.playerX + 1, _map.playerY))
+                        _map.UpdatePlayerPos(_map.playerX + 1, _map.playerY);
                     break;
                  case ConsoleKey.X:
                      Explo = false;
                      OpenMenu = true;
+                    break;
                 default:
                     break;
             }

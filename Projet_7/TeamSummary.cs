@@ -38,7 +38,7 @@ namespace Projet_7
 
         public void WriteMenu(Pokemon IneedaHero)
         {
-            int XPneeded = IneedaHero.XPMax - IneedaHero.XP;
+            double XPneeded = IneedaHero.XPMax - IneedaHero.XP;
             Console.WriteLine("===============================================================================================================================================");
             for (int iterator = 0; iterator < 29 ; iterator++)
             {

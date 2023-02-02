@@ -11,6 +11,7 @@ namespace Projet_7
     public class Menu
     {
         private static List<Option>? options;
+        private static Game _game;
         public void createMenu(Game game)
         {
             options = new List<Option>
@@ -18,13 +19,13 @@ namespace Projet_7
                 new Option("Team Summary",() => openTeamSummary(game) ),
                 new Option("Inventory", () => openInventory()),
                 new Option("Save", () => openSave()),
-                new Option("Resume Game", () => game.Map.DrawMap()),
+                new Option("Resume Game", () => ReturnGame()),
                 new Option("Exit",() => Environment.Exit(0)),
             };
             int index = 0;
-
+            _game = game;
             WriteMenu(options, options[index]);
-            
+
             while (game.OpenMenu == true)
             {
                 ConsoleKey key = Console.ReadKey(true).Key;
@@ -52,8 +53,7 @@ namespace Projet_7
                         break;
                     case ConsoleKey.Escape:
                         {
-                            game.Explo = true;
-                            game.OpenMenu = false;
+                            ReturnGame();
                         }
                         break;
                     default:
@@ -85,9 +85,18 @@ namespace Projet_7
             save.openSaveMenu();
         }
 
+        public static void ReturnGame()
+        {
+            _game.OpenMenu = false;
+            _game.Explo = true;
+            Console.Clear();
+            _game.Map.DrawMap();
+            _game.Map.UpdatePlayerPos(_game.Map.playerX, _game.Map.playerY);
 
+        }
         public static void WriteMenu(List<Option> options, Option selectedOption)
         {
+            Console.BackgroundColor = ConsoleColor.Black;
             int temp = 0;
             Console.Clear();
             Console.SetCursorPosition(65, 0);
@@ -104,7 +113,7 @@ namespace Projet_7
             Console.WriteLine("   \\ \\__\\    \\ \\__\\ \\_______\\ \\__\\\\ \\__\\ \\_______\\ \r\n");
             Console.SetCursorPosition(65, 6);
             Console.WriteLine("    \\|__|     \\|__|\\|_______|\\|__| \\|__|\\|_______|\r\n");
-            foreach (Option option in options) 
+            foreach (Option option in options)
             {
                 if (option == selectedOption)
                 {
@@ -114,8 +123,8 @@ namespace Projet_7
                 }
                 else
                 {
-                    Console.SetCursorPosition(86, 20+ temp);
-                    Console.Write (" ");
+                    Console.SetCursorPosition(86, 20 + temp);
+                    Console.Write(" ");
                     temp += 1;
                 }
                 Console.WriteLine(option.Name);
@@ -123,16 +132,5 @@ namespace Projet_7
         }
     }
 
-    public class Option
-    {
-        public string Name { get;}
-        public Action Selected { get; }
-
-        public Option(string name, Action selected)
-        {
-            Name = name;
-            Selected = selected;
-        }
-    }
 
 }
