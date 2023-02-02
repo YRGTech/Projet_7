@@ -79,13 +79,15 @@
         {
             LVL = LVL + 1;
             Heal(PVMax);
-            PV = (int)(5 * Math.Log2(LVL) + PV);
-            PM = (int)(5 * Math.Log2(LVL) + PM);
+            PVMax = (int)(5 * Math.Log2(LVL) + PVMax);
+            PMmax = (int)(5 * Math.Log2(LVL) + PMmax);
             Random randstat = new Random();
             _atk = _atk + randstat.Next(3) + 1;
             _def = _def + randstat.Next(3) + 1;
 
-            PVMax = PV;
+            PV= PVMax;
+            PM= PMmax;
+
         }
 
     }
