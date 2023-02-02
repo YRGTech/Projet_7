@@ -45,7 +45,7 @@ namespace TestProject1
             Console.WriteLine(gizl.PV);
             c.Enemy=gizl;
             c.EnemyTurn();
-            Console.WriteLine(gizl.PV);
+            Console.WriteLine(gizl.ATK);
             Assert.IsTrue(gizl.PV < gizl.PVMax);
         }
     }

@@ -7,7 +7,7 @@ namespace Projet_7
         private bool start = true;
         private bool _lose;
         private bool win;
-	public bool OpenMenu { get; set; }
+        public bool OpenMenu { get; set; }
         public bool Explo { get; set; }
         public Map? Map { get; set; }
         Map _map = new Map();
@@ -52,24 +52,11 @@ namespace Projet_7
                 {
                     MovePlayer();
 
-                    if (_map.IsPlayerOnGrass() && OpenMenu == false)
-                    {
-                        Random rand = new Random();
-                        switch (rand.Next(8))
-                        {
-                            case 0:
-                                StartCombat();
-                                if (win) WinScreen();
-                                else LoseScreen();
-                                break;
-                            default:
-                                break;
-                        }
-                    }
+
                 }
                 else if (OpenMenu)
                 {
-                   
+
                     menu.createMenu(this);
 
                 }
@@ -172,29 +159,63 @@ namespace Projet_7
 
             switch (key)
             {
-
                 case ConsoleKey.UpArrow:
                     if (_map.IsValidMove(_map.playerX, _map.playerY - 1))
+                    {
                         _map.UpdatePlayerPos(_map.playerX, _map.playerY - 1);
+                        DetectCombat();
+                    }
+
+
                     break;
                 case ConsoleKey.DownArrow:
                     if (_map.IsValidMove(_map.playerX, _map.playerY + 1))
+                    {
                         _map.UpdatePlayerPos(_map.playerX, _map.playerY + 1);
+                        DetectCombat();
+                    }
+
                     break;
                 case ConsoleKey.LeftArrow:
                     if (_map.IsValidMove(_map.playerX - 1, _map.playerY))
+                    {
                         _map.UpdatePlayerPos(_map.playerX - 1, _map.playerY);
+                        DetectCombat();
+                    }
+
                     break;
                 case ConsoleKey.RightArrow:
                     if (_map.IsValidMove(_map.playerX + 1, _map.playerY))
+                    {
                         _map.UpdatePlayerPos(_map.playerX + 1, _map.playerY);
+                        DetectCombat();
+                    }
+
                     break;
-                 case ConsoleKey.X:
-                     Explo = false;
-                     OpenMenu = true;
+                case ConsoleKey.X:
+                    Explo = false;
+                    OpenMenu = true;
                     break;
                 default:
                     break;
+            }
+        }
+        public void DetectCombat()
+        {
+            Random rand = new Random();
+
+            if (_map.IsPlayerOnGrass())
+            {
+                switch (rand.Next(8))
+                {
+                    case 0:
+                        StartCombat();
+                        if (win) WinScreen();
+                        else LoseScreen();
+                        break;
+                    default:
+                        break;
+                }
             }
         }
     }
