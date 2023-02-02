@@ -24,7 +24,7 @@ namespace Projet_7
             {
                 new Option("Attack",() => Attack() ),
                 new Option("Flee", () => Flee()),
-                //new Option("Object", () => ),
+                new Option("Object", () => Inventory.Draw()),
             };
             attackOptions = new List<Option>
             {
@@ -204,8 +204,8 @@ namespace Projet_7
         public void Flee()
         {
             _fight = false;
-            Player.Heal(Player.PVMax);
             win = false;
+            if(Enemy.Name == "Giselle") _fight= true;
         }
         public void LightAttack(Pokemon poke, Pokemon target)
         {
@@ -253,8 +253,6 @@ namespace Projet_7
                 {
                     lose = true;
                     _fight = false;
-                    Player.Heal(Player.PVMax);
-
                 }
                 else PlayerTurn();
 
@@ -262,7 +260,6 @@ namespace Projet_7
                 {
                     win = true;
                     _fight = false;
-                    Player.Heal(Player.PVMax);
                     Player.XP += (60 * Enemy.LVL) / 7;
                     while (Player.XP >= Player.XPMax)
                     {

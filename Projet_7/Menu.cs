@@ -18,7 +18,7 @@ namespace Projet_7
             {
                 new Option("Team Summary",() => OpenTeamSummary(game) ),
                 new Option("Inventory", () => OpenInventory()),
-                new Option("Save", () => OpenSave(game, game.Inventory)),
+                new Option("Save", () => OpenSave(game)),
                 new Option("Resume Game", () => ReturnGame()),
                 new Option("Exit",() => Environment.Exit(0)),
             };
@@ -75,14 +75,14 @@ namespace Projet_7
         public static void OpenInventory()
         {
 
-            //inventory.Draw();
+            Inventory.Draw();
 
         }
 
-        public static void OpenSave(Game game, Inventory inventory)
+        public static void OpenSave(Game game)
         {
             Save save = new Save();
-            save.openSaveMenu(game, inventory);
+            save.openSaveMenu(game);
 
         }
 

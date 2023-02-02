@@ -5,7 +5,8 @@ using System.Text;
 
 namespace Projet_7
 {
-    public class Sauvegarde
+    public enum Items
     {
+        Potionnette,Potion,MaximaPocion,Boeuf,Tortoise,Mage,Pangolin,Bat
     }
 }

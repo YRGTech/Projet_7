@@ -31,7 +31,7 @@ namespace Projet_7
         public Debouf? Pangolin { get; set; }
         public Debouf? Bat { get; set; }
 
-        public Inventory? Inventory { get; set; }
+        
 
 
         public Game()
@@ -43,7 +43,8 @@ namespace Projet_7
             loadString = File.ReadAllText("save.json");
             loadSave = JsonSerializer.Deserialize<SerializeTheObject>(loadString);
             Pikachu = loadSave.Pika;
-            Map.UpdatePlayerPos(loadSave.PosX, loadSave.PosY);
+            Map.playerX = loadSave.PosX;
+            Map.playerY = loadSave.PosY;
             Potionnette = new Potion("Potionnette", /*loadSave.Potionnette*/3, "ça régène un peu de PV mais pas bcp", 20);
             Potion = new Potion("potion", loadSave.Potion, "ça régène des PV", 50);
             MaximaPocion = new Potion("MaximaPocion", loadSave.MaximaPocion, "ça régène bcp wallah", 80);
@@ -52,7 +53,7 @@ namespace Projet_7
             Boeuf = new Bouf("Boeuf", loadSave.Boeuf, "Manger un boeuf vous augmente votre attaque", 20);
             Pangolin = new Debouf("Pangolin", loadSave.Pangolin, "Vous donnez un pangolain à manger à votre ennemi,\n                              il attrape le variant Delta du covid19, sa défense baisse", 20, 3);
             Bat = new Debouf("Bat", loadSave.Bat, "Vous donnez une chauve-souris à manger à votre ennemi,\n                              il attrape le variant Alpha du covid19, son attaque baisse", 20, 3);
-            Inventory = new Inventory(0, 5, 5, 0, Potionnette, Potion, MaximaPocion, Boeuf, Mage, Tortoise, Pangolin, Bat, Pikachu);
+            Inventory.NewInventory(0, 5, 5, 0, Potionnette, Potion, MaximaPocion, Boeuf, Mage, Tortoise, Pangolin, Bat, Pikachu);
         }
 
 
@@ -61,8 +62,6 @@ namespace Projet_7
         public void Run()
         {
             Menu menu = new Menu();
-
-            
         Start:
             StartScreen();
             // boucle de jeu
@@ -208,9 +207,9 @@ namespace Projet_7
             Console.Clear();
             bool lvlup = true;
             Console.WriteLine("\r\n ██▓  ██▒   █▓ ██▓        █    ██  ██▓███  \r\n▓██▒ ▓██░   █▒▓██▒        ██  ▓██▒▓██░  ██▒\r\n▒██░  ▓██  █▒░▒██░       ▓██  ▒██░▓██░ ██▓▒\r\n▒██░   ▒██ █░░▒██░       ▓▓█  ░██░▒██▄█▓▒ ▒\r\n░██████▒▒▀█░  ░██████▒   ▒▒█████▓ ▒██▒ ░  ░\r\n░ ▒░▓  ░░ ▐░  ░ ▒░▓  ░   ░▒▓▒ ▒ ▒ ▒▓▒░ ░  ░\r\n░ ░ ▒  ░░ ░░  ░ ░ ▒  ░   ░░▒░ ░ ░ ░▒ ░     \r\n  ░ ░     ░░    ░ ░       ░░░ ░ ░ ░░       \r\n    ░  ░   ░      ░  ░      ░              \r\n          ░                                \r\n");
-            ConsoleKey key = Console.ReadKey(true).Key;
             while (lvlup)
             {
+            ConsoleKey key = Console.ReadKey(true).Key;
                 switch (key)
                 {
                     case ConsoleKey.Spacebar:
@@ -234,6 +233,7 @@ namespace Projet_7
                     {
                         Map.UpdatePlayerPos(Map.playerX, Map.playerY - 1);
                         DetectCombat();
+                        DetectItem();
                     }
 
 
@@ -242,6 +242,7 @@ namespace Projet_7
                     if (Map.IsValidMove(Map.playerX, Map.playerY + 1))
                     {
                         Map.UpdatePlayerPos(Map.playerX, Map.playerY + 1);
+                        DetectItem();
                         DetectCombat();
                     }
 
@@ -250,6 +251,7 @@ namespace Projet_7
                     if (Map.IsValidMove(Map.playerX - 1, Map.playerY))
                     {
                         Map.UpdatePlayerPos(Map.playerX - 1, Map.playerY);
+                        DetectItem();
                         DetectCombat();
                     }
 
@@ -258,6 +260,7 @@ namespace Projet_7
                     if (Map.IsValidMove(Map.playerX + 1, Map.playerY))
                     {
                         Map.UpdatePlayerPos(Map.playerX + 1, Map.playerY);
+                        DetectItem();
                         DetectCombat();
                     }
 
@@ -288,7 +291,65 @@ namespace Projet_7
                 }
             }
         }
+        public void DetectItem()
+        {
+            Items items = RandItem();
+            if (Map.IsPlayerOnItem())
+            {
+                switch (items)
+                {
+                    case Items.Potionnette:
+                        Inventory.Potionnette.Amount++;
+                        break;
+                    case Items.Potion:
+                        Inventory.Potion.Amount++;
+                        break;
+                    case Items.MaximaPocion:
+                        Inventory.MaximaPocion.Amount++;
+                        break;
+                    case Items.Boeuf:
+                        Inventory.Boeuf.Amount++;
+                        break;
+                    case Items.Tortoise:
+                        Inventory.Tortoise.Amount++;
+                        break;
+                    case Items.Mage:
+                        Inventory.Mage.Amount++;
+                        break;
+                    case Items.Pangolin:
+                        Inventory.Pangolin.Amount++;
+                        break;
+                    case Items.Bat:
+                        Inventory.Bat.Amount++;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
 
-        
+        private Items RandItem()
+        {
+            Random rand = new Random();
+            switch (rand.Next(8))
+            {
+                case 0:
+                    return Items.Bat;
+                case 1:
+                    return Items.Potion;
+                case 2: 
+                    return Items.MaximaPocion;
+                case 3:
+                    return Items.Boeuf;
+                case 4:
+                    return Items.Tortoise;
+                case 5:
+                    return Items.Mage;
+                case 6:
+                    return Items.Pangolin;
+                default:
+                    return Items.Potionnette;
+            }
+        }
     }
 }

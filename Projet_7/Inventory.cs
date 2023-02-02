@@ -8,7 +8,7 @@ using System.Xml.Linq;
 
 namespace Projet_7
 {
-    public class Inventory
+    public static class Inventory
     {
 
 
@@ -32,26 +32,26 @@ namespace Projet_7
         }
 
 
-        public int Menu { get; set; }
-        public int PosX { get; set; }
-        public int PosY { get; set; }
-        public Pos ppos { get; set; }
+        public static int Menu { get; set; }
+        public static int PosX { get; set; }
+        public static int PosY { get; set; }
+        public static Pos ppos { get; set; }
 
-        public Potion Potionnette { get; set; }
-        public Potion MPotion { get; set; }
-        public Potion BPotion { get; set; }
+        public static Potion Potionnette { get; set; }
+        public static Potion Potion { get; set; }
+        public static Potion MaximaPocion { get; set; }
 
-        public Bouf Boeuf { get; set; }
-        public Bouf Mage { get; set; }
-        public Bouf Tortoise { get; set; }
+        public static Bouf Boeuf { get; set; }
+        public static Bouf Mage { get; set; }
+        public static Bouf Tortoise { get; set; }
 
-        public Debouf Pangolin { get; set; }
-        public Debouf Bat { get; set; }
+        public static Debouf Pangolin { get; set; }
+        public static Debouf Bat { get; set; }
 
-        public Pikachu Pikachu { get; set; }
-        public Pokemon Opponent { get; set; }
+        public static Pikachu Pikachu { get; set; }
+        public static Pokemon Opponent { get; set; }
 
-        public Inventory(int menu, int posX, int posY, Pos pos,
+        public static void NewInventory(int menu, int posX, int posY, Pos pos,
             Potion potionnette, Potion mption, Potion bpotion,
             Bouf boeuf, Bouf mage, Bouf tortoise,
             Debouf pangolin, Debouf bat,
@@ -62,8 +62,8 @@ namespace Projet_7
             PosY = posY;
             ppos = pos;
             Potionnette = potionnette;
-            MPotion = mption;
-            BPotion = bpotion;
+            Potion = mption;
+            MaximaPocion = bpotion;
             Boeuf = boeuf;
             Mage = mage;
             Tortoise = tortoise;
@@ -74,7 +74,7 @@ namespace Projet_7
         }
 
 
-        public void Draw()
+        public static void Draw()
         {
             PosX = 5;
             PosY = 5;
@@ -100,7 +100,7 @@ namespace Projet_7
 
         }
 
-        private void MoveCursor()
+        private static void MoveCursor()
         {
             // Input
             Console.SetCursorPosition(PosX, PosY);
@@ -164,7 +164,7 @@ namespace Projet_7
             }
         }
 
-        void DetectClickLocation()
+        static void DetectClickLocation()
         {
 
             switch (Menu)
@@ -201,10 +201,10 @@ namespace Projet_7
                     Potionnette.Amount = Potionnette.usePotion(Potionnette.Amount, Potionnette.Description, Pikachu, Potionnette.Percentage, Potionnette.Name);
                     break;
                 case Pos.MPotion:
-                    MPotion.Amount = MPotion.usePotion(MPotion.Amount, MPotion.Description, Pikachu, MPotion.Percentage, MPotion.Name);
+                    Potion.Amount = Potion.usePotion(Potion.Amount, Potion.Description, Pikachu, Potion.Percentage, Potion.Name);
                     break;
                 case Pos.BPotion:
-                    BPotion.Amount = BPotion.usePotion(BPotion.Amount, BPotion.Description, Pikachu, BPotion.Percentage, BPotion.Name);
+                    MaximaPocion.Amount = MaximaPocion.usePotion(MaximaPocion.Amount, MaximaPocion.Description, Pikachu, MaximaPocion.Percentage, MaximaPocion.Name);
                     break;
 
                 //Bouf
@@ -231,7 +231,7 @@ namespace Projet_7
             }
         }
 
-        void Return()
+        static void Return()
         {
             switch (Menu)
             {
@@ -254,7 +254,7 @@ namespace Projet_7
 
 
 
-        public void ShowPotion()
+        public static void ShowPotion()
         {
 
 
@@ -264,8 +264,8 @@ namespace Projet_7
                 Console.Write("\n\n                      Potion");
                 Console.Write("\n\n\n");
                 Console.Write("       " + Potionnette.Amount + "x Potionnette +20% des PV");
-                Console.Write("     " + BPotion.Amount + "x Maxima pocion +80% des PV\n");
-                Console.Write("       " + MPotion.Amount + "x Potion +50% des PV");
+                Console.Write("     " + MaximaPocion.Amount + "x Maxima pocion +80% des PV\n");
+                Console.Write("       " + Potion.Amount + "x Potion +50% des PV");
                 Console.Write("          Quit");
 
                 Console.SetCursorPosition(PosX, PosY);
@@ -275,7 +275,7 @@ namespace Projet_7
             }
         }
 
-        void ShowBouf()
+        static void ShowBouf()
         {
             while (Menu == 2)
             {
@@ -293,7 +293,7 @@ namespace Projet_7
                 MoveCursor();
             }
         }
-        void ShowDebouf()
+        static void ShowDebouf()
         {
             while (Menu == 3)
             {

@@ -8,7 +8,6 @@
         private int _pv;
         private int _pvMax;
         private int _pm;
-        private int _pmMax;
         private int _lvl;
         private double _xp;
         private Type _type;

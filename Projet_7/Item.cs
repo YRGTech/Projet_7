@@ -57,6 +57,7 @@ namespace Projet_7
                 amount--;
                 int nb = percent * pikachu.PMMax / 100;
                 pikachu.PM += nb;
+                if(pikachu.PM > pikachu.PMMax) { pikachu.PM= pikachu.PMMax; }
                 Console.SetCursorPosition(30, 8);
                 Console.Write(describe + "\nVous avez " + pikachu.PM + "PM");
                 Console.SetCursorPosition(30, 9);

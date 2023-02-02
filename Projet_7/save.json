@@ -1,0 +1,28 @@
+{
+  "Pika": {
+    "PV": 95,
+    "PVMax": 95,
+    "PM": 50,
+    "PMMax": 50,
+    "LVL": 1,
+    "ATK": 80,
+    "DEF": 50,
+    "TYPE": 12,
+    "XP": 0,
+    "XPMax": 0.8,
+    "Name": "Pikachute",
+    "Art": "\u0060;-.          ___,\r\n  \u0060.\u0060\\_...._/\u0060.-\u0022\u0060\r\n    \\        /      ,\r\n    /()   () \\    .\u0027 \u0060-._\r\n   |)  .    ()\\  /   _.\u0027\r\n   \\  -\u0027-     ,; \u0027. \u003C\r\n    ;.__     ,;|   \u003E \\\r\n   / ,    / ,  |.-\u0027.-\u0027\r\n  (_/    (_/ ,;|.\u003C\u0060\r\n    \\    ,     ;-\u0060\r\n     \u003E   \\    /\r\n    (_,-\u0027\u0060\u003E .\u0027\r\n         (_,\u0027",
+    "Skill1": 120,
+    "Skill2": 160
+  },
+  "PosX": 1,
+  "PosY": 1,
+  "Potionnette": 3,
+  "Potion": 3,
+  "MaximaPocion": 3,
+  "Tortoise": 3,
+  "Boeuf": 3,
+  "Mage": 3,
+  "Pangolin": 3,
+  "Bat": 3
+}

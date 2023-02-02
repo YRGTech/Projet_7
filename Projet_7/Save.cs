@@ -12,7 +12,7 @@ namespace Projet_7
     {
         public Save() { }
 
-        public void openSaveMenu(Game game, Inventory inventory)
+        public void openSaveMenu(Game game)
         {
             Console.Clear();
             Console.WriteLine("This is the save menu");

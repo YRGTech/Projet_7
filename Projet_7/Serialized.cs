@@ -12,7 +12,7 @@ namespace Projet_7
         public int ATK { get; set; }
         public int DEF { get; set; }
         public int PM { get; set; }*/
-        public Pikachu Pika { get; set; }
+        public PikachuDresseur Pika { get; set; }
         public int PosX { get; set; }
         public int PosY { get; set; }
 
@@ -27,9 +27,9 @@ namespace Projet_7
 
         public int Pangolin { get; set; }
         public int Bat { get; set; }
-        public Inventory Inventory { get; set; }
+        
 
-        public SerializeTheObject(/*int pv, int lvl, int xp, int atk, int def, int pm,*/Pikachu pika, int posX, int posY,
+        public SerializeTheObject(/*int pv, int lvl, int xp, int atk, int def, int pm,*/PikachuDresseur pika, int posX, int posY,
             int potionnette, int potion, int maximapocion, int tortoise, int boeuf, int mage, int pangolin, int bat)
         
         {

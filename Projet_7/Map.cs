@@ -99,6 +99,11 @@
                         Console.BackgroundColor = ConsoleColor.DarkGreen;
                         Console.ForegroundColor = ConsoleColor.DarkGreen;
                     }
+                    else if (_map[y, x] == (char)sprite.ITEM)
+                    {
+                        Console.BackgroundColor = ConsoleColor.Magenta;
+                        Console.ForegroundColor = ConsoleColor.White;
+                    }
                     else if(_map[y, x] == _wall || _map[y, x] == _wallup)
                     {
                         Console.BackgroundColor = ConsoleColor.DarkGray;
@@ -124,6 +129,20 @@
                 Console.BackgroundColor = ConsoleColor.DarkGreen;
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
             }
+            else if (_map[playerY, playerX] == (char)sprite.ITEM)
+            {
+                if (_map[y, x] == _floor)
+                {
+                    Console.BackgroundColor = ConsoleColor.Green;
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    _map[playerY, playerX] = _floor;
+                }
+                else {
+                    Console.BackgroundColor = ConsoleColor.DarkGreen;
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
+                    _map[playerY, playerX] = _grass;
+                }
+            }
             Console.Write(_map[playerY, playerX]);
             Console.SetCursorPosition(x, y);
             Console.ForegroundColor = ConsoleColor.DarkGray;
@@ -136,6 +155,14 @@
         public bool IsPlayerOnGrass()
         {
             if (_map[playerY, playerX] == _grass)
+            {
+                return true;
+            }
+            return false;
+        }
+        public bool IsPlayerOnItem()
+        {
+            if (_map[playerY, playerX] == (char)sprite.ITEM)
             {
                 return true;
             }
