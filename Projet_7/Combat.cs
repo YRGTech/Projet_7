@@ -212,8 +212,19 @@ namespace Projet_7
         }
         public void HeavyAttack(Pokemon poke, Pokemon target)
         {
-            if (poke == Player) poke.PM -= 10;
-            poke.Attack(target, poke.Skill2);
+            if (poke == Player)
+            { 
+                if (poke.PM - 10 < poke.PM)
+                {
+                    Console.SetCursorPosition(Console.WindowHeight/2 - 16, 2);
+                    Console.Write("Not enough PM !!");
+                }
+                else
+                {
+                    poke.PM -= 10;
+                    poke.Attack(target, poke.Skill2);
+                }
+            }
         }
 
         public void Fight()
