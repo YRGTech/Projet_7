@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace Projet_7
 {
-    public class Bouf : Item
+    public class Debouf : Item
     {
-        public Bouf(string name, int amount, string description, int percentage)
+        int Duration { get; set; }
+        public Debouf(string name, int amount, string description, int percentage, int duration)
             : base(name, amount, description, percentage)
         {
-
+            Duration = duration;
         }
+
 
     }
 }

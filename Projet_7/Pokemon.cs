@@ -28,16 +28,16 @@
 
         }
 
-        public int PV { get { return _pv; } protected set { _pv = value; } }
-        public int PVMax { get { return _pvMax; } protected set { _pvMax = value; } }
+        public int PV { get { return _pv; }  set { _pv = value; } }
+        public int PVMax { get { return _pvMax; }  set { _pvMax = value; } }
 
         public int PM { get { return _pm; } set { _pm = value; } }
-        public int PMmax { get; protected set; }
+        public int PMmax { get;  set; }
 
         public int LVL { get => _lvl; set { _lvl = value; } }
 
-        public int ATK { get { return _atk; } init { _atk = value; } }
-        public int DEF { get { return _def; } init { _def = value; } }
+        public int ATK { get { return _atk; } set { _atk = value; } }
+        public int DEF { get { return _def; } set { _def = value; } }
         public Type TYPE { get => _type; init { _type = value; } }
 
         public double XP { get => _xp; set { _xp = value; } }

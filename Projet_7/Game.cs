@@ -1,4 +1,14 @@
 ﻿using System.Numerics;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Media;
+
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Xml.Linq;
+using System.Text.Json;
 
 namespace Projet_7
 {
@@ -10,14 +20,49 @@ namespace Projet_7
         public bool OpenMenu { get; set; }
         public bool Explo { get; set; }
         public Map? Map { get; set; }
-        Map _map = new Map();
+        public Pikachu? Pikachu { get; set; }
+        public Potion? Potionnette { get; set; }
+        public Potion? Potion{ get; set; }
+        public Potion? MaximaPocion{ get; set; }
+        public Bouf? Boeuf{ get; set; }
+        public Bouf? Tortoise { get; set; }
+        public Bouf? Mage { get; set; }
 
-        Pikachu pikachu = new PikachuDresseur();
+        public Debouf? Pangolin { get; set; }
+        public Debouf? Bat { get; set; }
+
+        public Inventory? Inventory { get; set; }
+
+
+        public Game()
+        {
+
+            Map = new Map();
+            SerializeTheObject loadSave;
+            string loadString;
+            loadString = File.ReadAllText("save.json");
+            loadSave = JsonSerializer.Deserialize<SerializeTheObject>(loadString);
+            Pikachu = loadSave.Pika;
+            Map.UpdatePlayerPos(loadSave.PosX, loadSave.PosY);
+            Potionnette = new Potion("Potionnette", /*loadSave.Potionnette*/3, "ça régène un peu de PV mais pas bcp", 20);
+            Potion = new Potion("potion", loadSave.Potion, "ça régène des PV", 50);
+            MaximaPocion = new Potion("MaximaPocion", loadSave.MaximaPocion, "ça régène bcp wallah", 80);
+            Mage = new Bouf("Mage", loadSave.Mage, "Manger un mage vous fait regagner des PM", 40);
+            Tortoise = new Bouf("Tortoise", loadSave.Tortoise, "Manger une tortue vous augmente votre défense", 20);
+            Boeuf = new Bouf("Boeuf", loadSave.Boeuf, "Manger un boeuf vous augmente votre attaque", 20);
+            Pangolin = new Debouf("Pangolin", loadSave.Pangolin, "Vous donnez un pangolain à manger à votre ennemi,\n                              il attrape le variant Delta du covid19, sa défense baisse", 20, 3);
+            Bat = new Debouf("Bat", loadSave.Bat, "Vous donnez une chauve-souris à manger à votre ennemi,\n                              il attrape le variant Alpha du covid19, son attaque baisse", 20, 3);
+            Inventory = new Inventory(0, 5, 5, 0, Potionnette, Potion, MaximaPocion, Boeuf, Mage, Tortoise, Pangolin, Bat, Pikachu);
+        }
+
+
+
 
         public void Run()
         {
             Menu menu = new Menu();
-            Map = _map;
+
+            
 
         Start:
             StartScreen();
@@ -34,13 +79,13 @@ namespace Projet_7
                         case ConsoleKey.Spacebar:
                             Console.Clear();
                             Console.BackgroundColor = ConsoleColor.Black;
-                            if (_lose) { StartScreen(); _lose = false; _map.ResetPlayer(); }
+                            if (_lose) { StartScreen(); _lose = false; Map.ResetPlayer(); }
                             else
                             {
                                 start = false;
                                 Explo = true;
-                                _map.DrawMap();
-                                _map.UpdatePlayerPos(_map.playerX, _map.playerY);
+                                Map.DrawMap();
+                                Map.UpdatePlayerPos(Map.playerX, Map.playerY);
                             }
                             break;
                         default:
@@ -67,7 +112,7 @@ namespace Projet_7
         {
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.White;
-            Combat c = new Combat(pikachu);
+            Combat c = new Combat(Pikachu);
             c.Fight();
             win = c.win;
             _lose = c.lose;
@@ -160,34 +205,34 @@ namespace Projet_7
             switch (key)
             {
                 case ConsoleKey.UpArrow:
-                    if (_map.IsValidMove(_map.playerX, _map.playerY - 1))
+                    if (Map.IsValidMove(Map.playerX, Map.playerY - 1))
                     {
-                        _map.UpdatePlayerPos(_map.playerX, _map.playerY - 1);
+                        Map.UpdatePlayerPos(Map.playerX, Map.playerY - 1);
                         DetectCombat();
                     }
 
 
                     break;
                 case ConsoleKey.DownArrow:
-                    if (_map.IsValidMove(_map.playerX, _map.playerY + 1))
+                    if (Map.IsValidMove(Map.playerX, Map.playerY + 1))
                     {
-                        _map.UpdatePlayerPos(_map.playerX, _map.playerY + 1);
+                        Map.UpdatePlayerPos(Map.playerX, Map.playerY + 1);
                         DetectCombat();
                     }
 
                     break;
                 case ConsoleKey.LeftArrow:
-                    if (_map.IsValidMove(_map.playerX - 1, _map.playerY))
+                    if (Map.IsValidMove(Map.playerX - 1, Map.playerY))
                     {
-                        _map.UpdatePlayerPos(_map.playerX - 1, _map.playerY);
+                        Map.UpdatePlayerPos(Map.playerX - 1, Map.playerY);
                         DetectCombat();
                     }
 
                     break;
                 case ConsoleKey.RightArrow:
-                    if (_map.IsValidMove(_map.playerX + 1, _map.playerY))
+                    if (Map.IsValidMove(Map.playerX + 1, Map.playerY))
                     {
-                        _map.UpdatePlayerPos(_map.playerX + 1, _map.playerY);
+                        Map.UpdatePlayerPos(Map.playerX + 1, Map.playerY);
                         DetectCombat();
                     }
 
@@ -204,7 +249,7 @@ namespace Projet_7
         {
             Random rand = new Random();
 
-            if (_map.IsPlayerOnGrass())
+            if (Map.IsPlayerOnGrass())
             {
                 switch (rand.Next(8))
                 {
