@@ -4,32 +4,113 @@ namespace Projet_7
 {
     public class Game
     {
+<<<<<<< HEAD
         public bool OpenMenu { get; set; }
+        public bool Explo { get; set; }
+        public Map? Map { get; set; }
+
+        public void Run()
+        {
+            Menu menu = new Menu();
+            // affichage de la carte initiale
+            Map = new Map();
+            Console.SetCursorPosition(0, 0);
+            Console.WriteLine("\r\n░█▀▀▄░░░░░░░░░░░▄▀▀█ ");
+            Console.SetCursorPosition(0, 1);
+            Console.WriteLine("\r\n░█░░░▀▄░▄▄▄▄▄░▄▀░░░█");
+            Console.SetCursorPosition(0, 2);
+            Console.WriteLine("\r\n░░▀▄░░░▀░░░░░▀░░░▄▀");
+            Console.SetCursorPosition(0, 3);
+            Console.WriteLine("\r\n░░░░▌░▄▄░░░▄▄░▐▀▀");
+            Console.SetCursorPosition(0, 4);
+            Console.WriteLine("\r\n░░░▐░░█▄░░░▄█░░▌▄▄▀▀▀▀█");
+            Console.SetCursorPosition(0, 5);
+            Console.WriteLine("\r\n░░░▌▄▄▀▀░▄░▀▀▄▄▐░░░░░░█");
+            Console.SetCursorPosition(0, 6);
+            Console.WriteLine("\r\n▄▀▀▐▀▀░▄▄▄▄▄░▀▀▌▄▄▄░░░█");
+            Console.SetCursorPosition(0, 7);
+            Console.WriteLine("\r\n█░░░▀▄░█░░░█░▄▀░░░░█▀▀▀");
+            Console.SetCursorPosition(0, 8);
+            Console.WriteLine("\r\n░▀▄░░▀░░▀▀▀░░▀░░░▄█▀");
+            Console.SetCursorPosition(0, 9);
+            Console.WriteLine("\r\n░░░█░░░░░░░░░░░▄▀▄░▀▄");
+            Console.SetCursorPosition(0, 10);
+            Console.WriteLine("\r\n░░░█░░░░░░░░░▄▀█░░█░░█");
+            Console.SetCursorPosition(0, 11);
+            Console.WriteLine("\r\n░░░█░░░░░░░░░░░█▄█░░▄▀");
+            Console.SetCursorPosition(0, 12);
+            Console.WriteLine("\r\n░░░█░░░░░░░░░░░████▀");
+            Console.SetCursorPosition(0, 13);
+            Console.WriteLine("\r\n░░░▀▄▄▀▀▄▄▀▀▄▄▄█▀");
+
+
+            Console.Write(" ________  ___  ___  __    ________  ___  __    _______      \r\n|\\   __  \\|\\  \\|\\  \\|\\  \\ |\\   __  \\|\\  \\|\\  \\ |\\  ___ \\     \r\n\\ \\  \\|\\  \\ \\  \\ \\  \\/  /|\\ \\  \\|\\  \\ \\  \\/  /|\\ \\   __/|    \r\n \\ \\   ____\\ \\  \\ \\   ___  \\ \\  \\\\\\  \\ \\   ___  \\ \\  \\_|/__  \r\n  \\ \\  \\___|\\ \\  \\ \\  \\\\ \\  \\ \\  \\\\\\  \\ \\  \\\\ \\  \\ \\  \\_|\\ \\ \r\n   \\ \\__\\    \\ \\__\\ \\__\\\\ \\__\\ \\_______\\ \\__\\\\ \\__\\ \\_______\\\r\n    \\|__|     \\|__|\\|__| \\|__|\\|_______|\\|__| \\|__|\\|_______|");
+
+
+            //var player = new SoundPlayer("path/to/audiofile.wav");
+            //player.Play();
+
+            // boucle de jeu
+            while (true && OpenMenu == false)
+            {
+                // récupération de la touche appuyée par le joueur
+                ConsoleKey key = Console.ReadKey(true).Key;
+
+                // mise à jour de la position du joueur en fonction de la touche appuyée
+
+
+                switch (key)
+                {
+                    case ConsoleKey.Spacebar:
+                        Explo = true;
+                        Console.Clear();
+                        Map.DrawMap();
+                        break;
+                    case ConsoleKey.UpArrow:
+                        Map.playerY--;
+                        break;
+                    case ConsoleKey.DownArrow:
+                        Map.playerY++;
+                        break;
+                    case ConsoleKey.LeftArrow:
+                        Map.playerX--;
+                        break;
+                    case ConsoleKey.RightArrow:
+                        Map.playerX++;
+                        break;
+                    case ConsoleKey.X:
+                        Explo = false;
+                        OpenMenu = true;
+                        break;
+                    default:
+                        break;
+                }
+
+                if (Explo)
+=======
+
         private bool start = true;
         private bool _lose;
         private bool win;
-	public bool OpenMenu { get; set; }
-        public bool Explo { get; set; }
-        public Map? Map { get; set; }
+
         Map map = new Map();
 
         Pikachu pikachu = new PikachuDresseur();
 
         public void Run()
         {
-            Menu menu = new Menu();
 
 
         Start:
             StartScreen();
             // boucle de jeu
-            while (true && OpenMenu == false)
+            while (true)
             {
+
                 if (start)
+>>>>>>> YOYO
                 {
                     ConsoleKey key = Console.ReadKey(true).Key;
-
-
                     switch (key)
                     {
                         case ConsoleKey.Spacebar:
@@ -47,8 +128,18 @@ namespace Projet_7
                             break;
                     }
 
+<<<<<<< HEAD
+                    Console.SetCursorPosition(0, 0);
+                    Map.DrawMap();
                 }
-                else if (Explo)
+                else if (OpenMenu)
+                {
+                    menu.createMenu(this);
+
+=======
+>>>>>>> YOYO
+                }
+                else
                 {
                     MovePlayer();
 
@@ -67,11 +158,6 @@ namespace Projet_7
                         }
                     }
                 }
-                else if (OpenMenu)
-                {
-                    menu.createMenu(this);
-
-                }
             }
         }
 
@@ -84,8 +170,6 @@ namespace Projet_7
             win = c.win;
             _lose = c.lose;
             start = true;
-                    menu.createMenu(this);
-
         }
         public void WinScreen()
         {
@@ -189,9 +273,6 @@ namespace Projet_7
                     if (map.IsValidMove(map.playerX + 1, map.playerY))
                         map.UpdatePlayerPos(map.playerX + 1, map.playerY);
                     break;
-                 case ConsoleKey.X:
-                     Explo = false;
-                     OpenMenu = true;
                 default:
                     break;
             }

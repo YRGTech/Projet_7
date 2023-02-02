@@ -34,7 +34,21 @@
         public int PM { get { return _pm; } set { _pm = value; } }
         public int PMmax { get; protected set; }
 
+<<<<<<< HEAD
+        public int PMMax
+        {
+            get { return _pmMax; }
+            protected set { _pmMax = value; }
+        }
+
+        public int LVL
+        {
+            get => _lvl;
+            set { _lvl = value; }
+        }
+=======
         public int LVL { get => _lvl; set { _lvl = value; } }
+>>>>>>> YOYO
 
         public int ATK { get { return _atk; } init { _atk = value; } }
         public int DEF { get { return _def; } init { _def = value; } }
@@ -64,11 +78,6 @@
             PV += value;
             if (PV > PVMax)
                 PV = PVMax;
-
-        public int PMMax
-        {
-            get { return _pmMax; }
-            protected set { _pmMax = value; }
         }
 
         public bool IsAlive()

@@ -81,8 +81,12 @@
 
         public void DrawMap()
         {
+<<<<<<< HEAD
+            Console.Clear();
+=======
 
 
+>>>>>>> YOYO
             // parcours de la carte
             for (int y = 0; y < MAP_HEIGHT; y++)
             {

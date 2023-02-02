@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Runtime.InteropServices;
 
 namespace Projet_7
 {
@@ -39,8 +34,7 @@ namespace Projet_7
             Console.Title = "Pikoke";
             Console.TreatControlCAsInput = true;
             Console.CursorVisible = false;
-            Console.ForegroundColor = ConsoleColor.DarkYellow;
-            
+
             //Set console size to 80% of the largest possible size
             int width = (int)(Console.LargestWindowWidth * 0.8);
             int height = (int)(Console.LargestWindowHeight * 0.8);
