@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace Projet_7
 {
-    public  class TeamSummary : Pikachu
+    public  class TeamSummary 
     {
         private int _id = 0;
         public TeamSummary() { }
 
-        public void openTeamSummary(Game game)
+        public void OpenTeamSummary(Game game)
         {
             bool _teamSummaryOpened = true;
-            Pikachu pikachu = new Pikachu();
+            
             Console.Clear();
-            writeTitle();
+            WriteTitle();
             //changer le new pikachu pour le pikachu du game
-            WriteMenu(pikachu);
-            writePikachu();
+            WriteMenu(game.Pikachu);
+            WritePikachu();
             while (_teamSummaryOpened)
             {
                 ConsoleKey key = Console.ReadKey(true).Key;
@@ -29,7 +29,7 @@ namespace Projet_7
                     case ConsoleKey.Escape:
                         Menu menu = new Menu();
                         Console.Clear();
-                        menu.createMenu(game);
+                        menu.CreateMenu(game);
                         _teamSummaryOpened = false;
                         break;
                 }
@@ -60,10 +60,10 @@ namespace Projet_7
                     WriteCapacity("Before Next Level :", XPneeded.ToString());
                     break;
                 case 13:
-                    WritePVPM("PV :", PV.ToString(), IneedaHero.PVMax.ToString());
+                    WritePVPM("PV :", IneedaHero.PV.ToString(), IneedaHero.PVMax.ToString());
                     break;
                 case 14:
-                    WritePVPM("PM :", PM.ToString(), IneedaHero.PMMax.ToString());
+                    WritePVPM("PM :", IneedaHero.PM.ToString(), IneedaHero.PMMax.ToString());
                     break;
                 case 15:
                     WriteCapacity("Attack :", IneedaHero.ATK.ToString());
@@ -119,7 +119,7 @@ namespace Projet_7
             }
         }
 
-        public void writePikachu()
+        public void WritePikachu()
         {
             Console.SetCursorPosition(155, 16);
             Console.WriteLine("░█▀▀▄░░░░░░░░░░░▄▀▀█ \r\n");
@@ -150,7 +150,7 @@ namespace Projet_7
             Console.SetCursorPosition(155, 29);
             Console.WriteLine("░░░▀▄▄▀▀▄▄▀▀▄▄▄█▀ \r\n");
         }
-        public void writeTitle()
+        public void WriteTitle()
         {
             Console.SetCursorPosition(25, 0);
             Console.WriteLine("________  ___  ___  __    ________          ________  ___  ___  _____ ______   _____ ______   ________  ________      ___    ___ \r\n");

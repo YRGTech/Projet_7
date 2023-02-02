@@ -10,21 +10,21 @@ namespace Projet_7
 {
     public class Menu
     {
-        private static List<Option>? options;
+        private static List<Option>? _options;
         private static Game _game;
-        public void createMenu(Game game)
+        public void CreateMenu(Game game)
         {
-            options = new List<Option>
+            _options = new List<Option>
             {
-                new Option("Team Summary",() => openTeamSummary(game) ),
-                new Option("Inventory", () => openInventory()),
-                new Option("Save", () => openSave()),
+                new Option("Team Summary",() => OpenTeamSummary(game) ),
+                new Option("Inventory", () => OpenInventory()),
+                new Option("Save", () => OpenSave()),
                 new Option("Resume Game", () => ReturnGame()),
                 new Option("Exit",() => Environment.Exit(0)),
             };
             int index = 0;
             _game = game;
-            WriteMenu(options, options[index]);
+            WriteMenu(_options, _options[index]);
 
             while (game.OpenMenu == true)
             {
@@ -32,22 +32,22 @@ namespace Projet_7
                 switch (key)
                 {
                     case ConsoleKey.DownArrow:
-                        if (index + 1 < options.Count)
+                        if (index + 1 < _options.Count)
                         {
                             index++;
-                            WriteMenu(options, options[index]);
+                            WriteMenu(_options, _options[index]);
                         }
                         break;
                     case ConsoleKey.UpArrow:
                         if (index - 1 >= 0)
                         {
                             index--;
-                            WriteMenu(options, options[index]);
+                            WriteMenu(_options, _options[index]);
                         }
                         break;
                     case ConsoleKey.Enter:
                         {
-                            options[index].Selected.Invoke();
+                            _options[index].Selected.Invoke();
                             index = 0;
                         }
                         break;
@@ -58,7 +58,7 @@ namespace Projet_7
                         break;
                     default:
                         {
-                            WriteMenu(options, options[index]);
+                            WriteMenu(_options, _options[index]);
                             break;
                         }
 
@@ -66,20 +66,20 @@ namespace Projet_7
             }
         }
 
-        public static void openTeamSummary(Game game)
+        public static void OpenTeamSummary(Game game)
         {
             TeamSummary ts = new TeamSummary();
-            ts.openTeamSummary(game);
+            ts.OpenTeamSummary(game);
         }
 
-        public static void openInventory()
+        public static void OpenInventory()
         {
             Inventory In = new Inventory();
             In.openInventory();
 
         }
 
-        public static void openSave()
+        public static void OpenSave()
         {
             Save save = new Save();
             save.openSaveMenu();

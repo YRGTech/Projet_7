@@ -1,142 +1,219 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Projet_7.Game">
-    <Position X="23" Y="0.75" Width="1.5" />
+  <Class Name="Projet_7.bouf" Collapsed="true">
+    <Position X="14.5" Y="6.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAgAAAAAABAAZAAgABAAiAAAQABAAAAAEEAAAAAAAAI=</HashCode>
-      <FileName>Game.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>bouf.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Projet_7.Inventory" Collapsed="true">
-    <Position X="17.5" Y="1.75" Width="1.5" />
+  <Class Name="Projet_7.Combat" Collapsed="true">
+    <Position X="38" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Inventory.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Projet_7.Map" Collapsed="true">
-    <Position X="19.25" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>ABABEAAAAAAACEIAAAAASAIAAAKAAAAAAEAAAgCBAYA=</HashCode>
-      <FileName>Map.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Projet_7.Pokemon" Collapsed="true">
-    <Position X="8.25" Y="0.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>mQAAIAAIAAADCgSoAAAAIAYAAIBkAIAAEAEQAAAIgAA=</HashCode>
-      <FileName>Pokemon.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Projet_7.Pikachu">
-    <Position X="15" Y="2" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
-      <FileName>Pokemon.cs</FileName>
-      <NewMemberFileName>Pikachu.cs</NewMemberFileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Projet_7.Program" Collapsed="true">
-    <Position X="21" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
-      <FileName>Program.cs</FileName>
+      <HashCode>AFAAAgQAAEIIwAAAAAAAAAAgYIAAAAABAAAAAwCgACA=</HashCode>
+      <FileName>Combat.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Projet_7.ConsoleManager" Collapsed="true">
-    <Position X="19.25" Y="0.75" Width="1.5" />
+    <Position X="39.75" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>BAAAAEAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAgAAA=</HashCode>
       <FileName>ConsoleManager.cs</FileName>
       <NewMemberFileName>Game.cs</NewMemberFileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Projet_7.Combat" Collapsed="true">
-    <Position X="17.5" Y="0.75" Width="1.5" />
+  <Class Name="Projet_7.Debouf" Collapsed="true">
+    <Position X="16.75" Y="6.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AFAAAgQAAEIIwAAAAAAAAAAgYIAAAAABAAAAAwCgACA=</HashCode>
-      <FileName>Combat.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Debuff.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Projet_7.Giselle">
-    <Position X="3.75" Y="2" Width="1.5" />
+  <Class Name="Projet_7.Game" Collapsed="true">
+    <Position X="41.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAABAABAApAAAAAAAiEAQQABAAAAAEEAAQAAAAAI=</HashCode>
+      <FileName>Game.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projet_7.Inventory" Collapsed="true">
+    <Position X="43.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Inventory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projet_7.Item" Collapsed="true">
+    <Position X="16.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Item.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projet_7.Map" Collapsed="true">
+    <Position X="38" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABABEAAAAAAACEIAAAAASAIAAAKAAAAAAEAAAgCBAYA=</HashCode>
+      <FileName>Map.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projet_7.Menu" Collapsed="true">
+    <Position X="15.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAQAAgAAAACAAAAAAAIAAAAEAAAAAAAAAACQ=</HashCode>
+      <FileName>Menu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projet_7.MenuSauvegarde" Collapsed="true">
+    <Position X="14.25" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MenuSauvegarde.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projet_7.Option" Collapsed="true">
+    <Position X="39.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Option.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projet_7.Pokemon" Collapsed="true">
+    <Position X="25.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>mQAAIAAIAAADCgSoAAAAIAYAAIBkAIAAEAEQAAAIgAA=</HashCode>
+      <FileName>Pokemon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projet_7.Pikachu" Collapsed="true">
+    <Position X="15.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Pokemon.cs</FileName>
+      <NewMemberFileName>Pikachu.cs</NewMemberFileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projet_7.PikachuDresseur" Collapsed="true">
+    <Position X="15.25" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
       <FileName>Pokemon.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Projet_7.Flabebe">
-    <Position X="1.5" Y="2" Width="1.5" />
+  <Class Name="Projet_7.Abo" Collapsed="true">
+    <Position X="22" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
       <FileName>Pokemon.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Projet_7.Chuchmur">
-    <Position X="12.75" Y="2" Width="1.5" />
+  <Class Name="Projet_7.Boustiflor" Collapsed="true">
+    <Position X="26.5" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
       <FileName>Pokemon.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Projet_7.Farfuret">
-    <Position X="10.5" Y="2" Width="1.5" />
+  <Class Name="Projet_7.Farfuret" Collapsed="true">
+    <Position X="33.25" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
       <FileName>Pokemon.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Projet_7.Boustiflor">
-    <Position X="8.5" Y="2.25" Width="1.5" />
+  <Class Name="Projet_7.Chuchmur" Collapsed="true">
+    <Position X="35.5" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
       <FileName>Pokemon.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Projet_7.Abo">
-    <Position X="6" Y="2" Width="1.5" />
+  <Class Name="Projet_7.Flabebe" Collapsed="true">
+    <Position X="17.5" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
       <FileName>Pokemon.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Projet_7.Funecire">
-    <Position X="5.5" Y="4.5" Width="1.5" />
+  <Class Name="Projet_7.Picassault" Collapsed="true">
+    <Position X="19.75" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
       <FileName>Pokemon.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Projet_7.Insolourdo">
-    <Position X="8.5" Y="4.75" Width="1.5" />
+  <Class Name="Projet_7.Insolourdo" Collapsed="true">
+    <Position X="24.25" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
       <FileName>Pokemon.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Projet_7.Picassault">
-    <Position X="11" Y="4.75" Width="1.5" />
+  <Class Name="Projet_7.Funecire" Collapsed="true">
+    <Position X="28.75" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
       <FileName>Pokemon.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Projet_7.PikachuDresseur">
-    <Position X="15" Y="4.5" Width="1.5" />
+  <Class Name="Projet_7.Giselle" Collapsed="true">
+    <Position X="31" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
       <FileName>Pokemon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projet_7.Potion" Collapsed="true">
+    <Position X="19" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Potion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projet_7.Program" Collapsed="true">
+    <Position X="41.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projet_7.Sauvegarde" Collapsed="true">
+    <Position X="43.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Sauvegarde.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projet_7.Save" Collapsed="true">
+    <Position X="38" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Save.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projet_7.Stat" Collapsed="true">
+    <Position X="16.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Stat.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projet_7.TeamSummary" Collapsed="true">
+    <Position X="39.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAACgAAEAABAAAIAAAEAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>TeamSummary.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Enum Name="Projet_7.sprite" Collapsed="true">
-    <Position X="17.5" Y="3" Width="1.5" />
+    <Position X="38" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAgAAEAAAAAAAAACABAAAAAAAAAAAAAAAAACAA=</HashCode>
       <FileName>sprite.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="Projet_7.Type" Collapsed="true">
-    <Position X="19.25" Y="3" Width="1.5" />
+    <Position X="39.75" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIAQAAAAAACAAAIBUAAAAAACAAsAABAEAAEAAAAcAA=</HashCode>
       <FileName>Type.cs</FileName>

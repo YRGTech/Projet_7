@@ -4,27 +4,29 @@ namespace Projet_7
 {
     public class Game
     {
-        private bool start = true;
+        private bool _start = true;
         private bool _lose;
-        private bool win;
+        private bool _win;
         public bool OpenMenu { get; set; }
         public bool Explo { get; set; }
         public Map? Map { get; set; }
+        public Pikachu? Pikachu { get; set; }
+
         Map _map = new Map();
 
-        Pikachu pikachu = new PikachuDresseur();
+        Pikachu _pikachu = new PikachuDresseur();
 
         public void Run()
         {
             Menu menu = new Menu();
             Map = _map;
-
+            Pikachu = _pikachu;
         Start:
             StartScreen();
             // boucle de jeu
             while (true)
             {
-                if (start)
+                if (_start)
                 {
                     ConsoleKey key = Console.ReadKey(true).Key;
 
@@ -37,7 +39,7 @@ namespace Projet_7
                             if (_lose) { StartScreen(); _lose = false; _map.ResetPlayer(); }
                             else
                             {
-                                start = false;
+                                _start = false;
                                 Explo = true;
                                 _map.DrawMap();
                                 _map.UpdatePlayerPos(_map.playerX, _map.playerY);
@@ -57,7 +59,7 @@ namespace Projet_7
                 else if (OpenMenu)
                 {
 
-                    menu.createMenu(this);
+                    menu.CreateMenu(this);
 
                 }
             }
@@ -67,16 +69,22 @@ namespace Projet_7
         {
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.White;
-            Combat c = new Combat(pikachu);
+            Combat c = new Combat(_pikachu);
             c.Fight();
-            win = c.win;
+            _win = c.win;
             _lose = c.lose;
-            start = true;
+            _start = true;
+            if (c.LVLUP > 0)
+            {
+                LVLUPScreen();
+                c.LVLUP--;
+            }
+
 
         }
         public void WinScreen()
         {
-            //Console.Clear();
+            Console.Clear();
             Console.SetCursorPosition((Console.WindowWidth / 2) - 10, (Console.WindowHeight / 2) - 4);
             Console.WriteLine("(  (                 \r\n");
             Console.SetCursorPosition((Console.WindowWidth / 2) - 10, (Console.WindowHeight / 2) - 3);
@@ -153,6 +161,26 @@ namespace Projet_7
             Console.Write(" ________  ___  ___  __    ________  ___  __    _______      \r\n|\\   __  \\|\\  \\|\\  \\|\\  \\ |\\   __  \\|\\  \\|\\  \\ |\\  ___ \\     \r\n\\ \\  \\|\\  \\ \\  \\ \\  \\/  /|\\ \\  \\|\\  \\ \\  \\/  /|\\ \\   __/|    \r\n \\ \\   ____\\ \\  \\ \\   ___  \\ \\  \\\\\\  \\ \\   ___  \\ \\  \\_|/__  \r\n  \\ \\  \\___|\\ \\  \\ \\  \\\\ \\  \\ \\  \\\\\\  \\ \\  \\\\ \\  \\ \\  \\_|\\ \\ \r\n   \\ \\__\\    \\ \\__\\ \\__\\\\ \\__\\ \\_______\\ \\__\\\\ \\__\\ \\_______\\\r\n    \\|__|     \\|__|\\|__| \\|__|\\|_______|\\|__| \\|__|\\|_______|");
 
         }
+        private void LVLUPScreen()
+        {
+            Console.Clear();
+            bool lvlup = true;
+            Console.WriteLine("\r\n ██▓  ██▒   █▓ ██▓        █    ██  ██▓███  \r\n▓██▒ ▓██░   █▒▓██▒        ██  ▓██▒▓██░  ██▒\r\n▒██░  ▓██  █▒░▒██░       ▓██  ▒██░▓██░ ██▓▒\r\n▒██░   ▒██ █░░▒██░       ▓▓█  ░██░▒██▄█▓▒ ▒\r\n░██████▒▒▀█░  ░██████▒   ▒▒█████▓ ▒██▒ ░  ░\r\n░ ▒░▓  ░░ ▐░  ░ ▒░▓  ░   ░▒▓▒ ▒ ▒ ▒▓▒░ ░  ░\r\n░ ░ ▒  ░░ ░░  ░ ░ ▒  ░   ░░▒░ ░ ░ ░▒ ░     \r\n  ░ ░     ░░    ░ ░       ░░░ ░ ░ ░░       \r\n    ░  ░   ░      ░  ░      ░              \r\n          ░                                \r\n");
+            ConsoleKey key = Console.ReadKey(true).Key;
+            while (lvlup)
+            {
+                switch (key)
+                {
+                    case ConsoleKey.Spacebar:
+                        Console.Clear();
+                        Console.BackgroundColor = ConsoleColor.Black;
+                        lvlup = false;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
         public void MovePlayer()
         {
             ConsoleKey key = Console.ReadKey(true).Key;
@@ -210,7 +238,7 @@ namespace Projet_7
                 {
                     case 0:
                         StartCombat();
-                        if (win) WinScreen();
+                        if (_win) WinScreen();
                         else LoseScreen();
                         break;
                     default:
@@ -218,5 +246,7 @@ namespace Projet_7
                 }
             }
         }
+
+        
     }
 }

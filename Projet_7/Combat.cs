@@ -14,6 +14,7 @@ namespace Projet_7
         public bool lose { get; set; }
         public bool Fleed { get; set; }
         public bool win { get; set; }
+        public int LVLUP { get; set; }
 
         private static List<Option>? options;
         private static List<Option>? attackOptions;
@@ -268,6 +269,7 @@ namespace Projet_7
                         Console.WriteLine("XP nxt LVL: {0}      XP: {1}", Player.XPMax, Player.XP);
                         Player.XP -= Player.XPMax;
                         Player.LVLup();
+                        LVLUP++;
                     }
                 }
                 else EnemyTurn();

@@ -86,12 +86,13 @@
         {
             LVL = LVL + 1;
             Heal(PVMax);
-            PVMax = (int)(5 * Math.Log2(LVL) + PV);
-            PMMax = (int)(5 * Math.Log2(LVL) + PM);
+            PVMax = (int)(5 * Math.Log2(LVL) + PVMax);
+            PMMax = (int)(5 * Math.Log2(LVL) + PMMax);
             Random randstat = new Random();
             _atk = _atk + randstat.Next(3) + 1;
             _def = _def + randstat.Next(3) + 1;
-
+            PV = PVMax;
+            PM = PMMax;
         }
 
     }
@@ -188,7 +189,7 @@
             TYPE = Type.Electric;
             LVL = 1;
             XPMax = 60;
-            Name = "PikachuDresseur";
+            Name = "Pikachute";
             Art = "`;-.          ___,\r\n  `.`\\_...._/`.-\"`\r\n    \\        /      ,\r\n    /()   () \\    .' `-._\r\n   |)  .    ()\\  /   _.'\r\n   \\  -'-     ,; '. <\r\n    ;.__     ,;|   > \\\r\n   / ,    / ,  |.-'.-'\r\n  (_/    (_/ ,;|.<`\r\n    \\    ,     ;-`\r\n     >   \\    /\r\n    (_,-'`> .'\r\n         (_,'";
             Skill1 = 1.5 * ATK;
             Skill2 = 2 * ATK;
