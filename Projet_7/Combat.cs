@@ -307,7 +307,7 @@ namespace Projet_7
         }
         public void WriteSpec(Pokemon Poke)
         {
-            int x = 0;
+            int x = 7;
             if (Poke == Player)
             {
                 x = 3 * Console.WindowWidth / 4;
