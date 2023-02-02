@@ -34,7 +34,6 @@ namespace Projet_7
             Console.Title = "Pikoke";
             Console.TreatControlCAsInput = true;
             Console.CursorVisible = false;
-            Console.ForegroundColor = ConsoleColor.DarkYellow;
 
             //Set console size to 80% of the largest possible size
             int width = (int)(Console.LargestWindowWidth * 0.8);

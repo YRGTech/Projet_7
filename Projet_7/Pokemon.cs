@@ -119,7 +119,7 @@
             LVL = 1;
             XPMax = 60;
             Name = "Pikachu";
-            Art = "       ,___          .-;'\r\n       `\"-.`\\_...._/`.`\r\n    ,      \\        /\r\n .-' ',    / ()   ()\\\r\n`'._   \\  /()    .  (|\r\n    > .' ;,     -'-  /\r\n   / <   |;,     __.;\r\n   '-.'-.|  , \\    , \\\r\n      `>.|;, \\_)    \\_)\r\n       `-;     ,    /\r\n          \\    /   <\r\n           '. <`'-,_)\r\n        jgs '._)";
+            Art = "       ,___          .-;'\r\n       `\"-.`\\_...._/`.`\r\n    ,      \\        /\r\n .-' ',    / ()   ()\\\r\n`'._   \\  /()    .  (|\r\n    > .' ;,     -'-  /\r\n   / <   |;,     __.;\r\n   '-.'-.|  , \\    , \\\r\n      `>.|;, \\_)    \\_)\r\n       `-;     ,    /\r\n          \\    /   <\r\n           '. <`'-,_)\r\n            '._)";
             Skill1 = 1.5 * ATK;
             Skill2 = 2 * ATK;
 
@@ -161,8 +161,12 @@
             PV = PV - damage;
             if (PV < 0) { PV = 0; }
         }
+        public override void Draw()
+        {
+            Console.SetCursorPosition(0, 50 - 12);
+            Console.Write(Art);
+        }
 
-        
     }
 
     public class PikachuDresseur : Pikachu
@@ -193,7 +197,7 @@
             TYPE = Type.Electric;
             LVL = 1;
             XPMax = 60;
-            Name = "CopyOfPikachu";
+            Name = "PikachuDresseur";
             Art = "`;-.          ___,\r\n  `.`\\_...._/`.-\"`\r\n    \\        /      ,\r\n    /()   () \\    .' `-._\r\n   |)  .    ()\\  /   _.'\r\n   \\  -'-     ,; '. <\r\n    ;.__     ,;|   > \\\r\n   / ,    / ,  |.-'.-'\r\n  (_/    (_/ ,;|.<`\r\n    \\    ,     ;-`\r\n     >   \\    /\r\n    (_,-'`> .'\r\n         (_,'";
             Skill1 = 1.5 * ATK;
             Skill2 = 2 * ATK;
@@ -239,31 +243,31 @@
 
         public override void Draw()
         {
-            Console.SetCursorPosition(3 * Console.WindowWidth / 4, 0);
+            Console.SetCursorPosition(3 * Console.WindowWidth / 4, 37);
             Console.WriteLine("`;-.          ___,\r\n");
-            Console.SetCursorPosition(3 * Console.WindowWidth / 4, 1);
+            Console.SetCursorPosition(3 * Console.WindowWidth / 4, 38);
             Console.WriteLine("  `.`\\_...._/`.-\"`\r\n");
-            Console.SetCursorPosition(3 * Console.WindowWidth / 4, 2);
+            Console.SetCursorPosition(3 * Console.WindowWidth / 4, 39);
             Console.WriteLine("    \\        /      ,\r\n");
-            Console.SetCursorPosition(3 * Console.WindowWidth / 4, 3);
+            Console.SetCursorPosition(3 * Console.WindowWidth / 4, 40);
             Console.WriteLine("    /()   () \\    .' `-._\r\n");
-            Console.SetCursorPosition(3 * Console.WindowWidth / 4, 4);
+            Console.SetCursorPosition(3 * Console.WindowWidth / 4, 41);
             Console.WriteLine("   |)  .    ()\\  /   _.'\r\n");
-            Console.SetCursorPosition(3 * Console.WindowWidth / 4, 5);
+            Console.SetCursorPosition(3 * Console.WindowWidth / 4, 42);
             Console.WriteLine("   \\  -'-     ,; '. <\r\n");
-            Console.SetCursorPosition(3 * Console.WindowWidth / 4, 6);
+            Console.SetCursorPosition(3 * Console.WindowWidth / 4, 43);
             Console.WriteLine("    ;.__     ,;|   > \\\r\n");
-            Console.SetCursorPosition(3 * Console.WindowWidth / 4, 7);
+            Console.SetCursorPosition(3 * Console.WindowWidth / 4, 44);
             Console.WriteLine("   / ,    / ,  |.-'.-'\r\n");
-            Console.SetCursorPosition(3 * Console.WindowWidth / 4, 8);
+            Console.SetCursorPosition(3 * Console.WindowWidth / 4, 45);
             Console.WriteLine("  (_/    (_/ ,;|.<`\r\n");
-            Console.SetCursorPosition(3 * Console.WindowWidth / 4, 9);
+            Console.SetCursorPosition(3 * Console.WindowWidth / 4, 46);
             Console.WriteLine("    \\    ,     ;-`\r\n");
-            Console.SetCursorPosition(3 * Console.WindowWidth / 4, 10);
+            Console.SetCursorPosition(3 * Console.WindowWidth / 4, 47);
             Console.WriteLine("     >   \\    /\r\n");
-            Console.SetCursorPosition(3 * Console.WindowWidth / 4, 11);
-            Console.WriteLine("    (_,-'`> .'\r\n");
-            Console.SetCursorPosition(3 * Console.WindowWidth / 4, 12);
+            Console.SetCursorPosition(3 * Console.WindowWidth / 4, 48);
+            Console.WriteLine("    (_,-'`> .'");
+            Console.SetCursorPosition(3 * Console.WindowWidth / 4, 49);
             Console.WriteLine("         (_,'");
 
         }
@@ -331,6 +335,11 @@
                 damage = LVL;
             PV = PV - damage;
             if (PV < 0) { PV = 0; }
+        }
+        public override void Draw()
+        {
+            Console.SetCursorPosition(0, 50 - 26);
+            Console.Write(Art);
         }
 
     }
@@ -404,6 +413,11 @@
             PV = PV - damage;
             if (PV < 0) { PV = 0; }
         }
+        public override void Draw()
+        {
+            Console.SetCursorPosition(0, 50 - 14);
+            Console.Write(Art);
+        }
 
     }
 
@@ -467,6 +481,11 @@
             PV = PV - damage;
             if (PV < 0) { PV = 0; }
         }
+        public override void Draw()
+        {
+            Console.SetCursorPosition(0, 50 - 12);
+            Console.Write(Art);
+        }
 
     }
 
@@ -518,7 +537,11 @@
             PV = PV - damage;
             if (PV < 0) { PV = 0; }
         }
-
+        public override void Draw()
+        {
+            Console.SetCursorPosition(0, 50 - 33);
+            Console.Write(Art);
+        }
     }
 
     public class Flabebe : Pokemon
@@ -534,7 +557,7 @@
             LVL = 1;
             XPMax = 60;
             Name = "Flabebe";
-            Art = ".-.'  '.-.\r\n          .-(   \\  /   )-.\r\n         /   '..oOOo..'   \\\r\n ,       \\.--.oOOOOOOo.--./\r\n |\\  ,   (   :oOOOOOOo:   )\r\n_\\.\\/|   /'--'oOOOOOOo'--'\\\r\n'-.. ;/| \\   .''oOOo''.   /\r\n.--`'. :/|'-(   /  \\   )-'\r\n '--. `. / //'-'.__.'-;\r\n   `'-,_';//      ,  /|\r\n        '((       |\\/./_\r\n          \\\\  . |\\; ..-'\r\n           \\\\ |\\: .'`--.\r\n            \\\\, .' .--'\r\n             ))'_,-'`\r\n       jgs  //-'\r\n           // \r\n          //\r\n         |/";
+            Art = ".-.'  '.-.\r\n          .-(   \\  /   )-.\r\n         /   '..oOOo..'   \\\r\n ,       \\.--.oOOOOOOo.--./\r\n |\\  ,   (   :oOOOOOOo:   )\r\n_\\.\\/|   /'--'oOOOOOOo'--'\\\r\n'-.. ;/| \\   .''oOOo''.   /\r\n.--`'. :/|'-(   /  \\   )-'\r\n '--. `. / //'-'.__.'-;\r\n   `'-,_';//      ,  /|\r\n        '((       |\\/./_\r\n          \\\\  . |\\; ..-'\r\n           \\\\ |\\: .'`--.\r\n            \\\\, .' .--'\r\n             ))'_,-'`\r\n            //-'\r\n           // \r\n          //\r\n         |/";
             Skill1 = 1.5 * ATK;
             Skill2 = 2 * ATK;
 
@@ -578,7 +601,11 @@
             PV = PV - damage;
             if (PV < 0) { PV = 0; }
         }
-
+        public override void Draw()
+        {
+            Console.SetCursorPosition(0, 50 - 19);
+            Console.Write(Art);
+        }
     }
 
     public class Picassault : Pokemon
@@ -595,7 +622,7 @@
             LVL = 1;
             XPMax = 60;
             Name = "Picassault";
-            Art = "         .   ,\r\n       '. '.  \\  \\\r\n      ._ '-.'. `\\  \\\r\n        '-._; .'; `-.'. \r\n       `~-.; '.       '.\r\n        '--,`           '.\r\n           -='.          ;\r\n .--=~~=-,    -.;        ;\r\n .-=`;    `~,_.;        /\r\n`  ,-`'    .-;         |\r\n   .-~`.    .;         ;\r\n    .;.-   .-;         ,\\\r\n      `.'   ,=;     .-'  `~.-._\r\n       .';   .';  .'      .'   '-.\r\n         .\\  ;  ;        ,.' _  a',\r\n        .'~\";-`   ;      ;\"~` `'-=.)\r\n      .' .'   . _;  ;',  ;\r\n      '-.._`~`.'  \\  ; ; :\r\n           `~'    _'\\\\_ \\\\_ \r\n                 /=`^^=`\"\"/`)-.\r\n            jgs  \\ =  _ =     =\\\r\n                  `\"\"` `~-. =   ;";
+            Art = "         .   ,\r\n       '. '.  \\  \\\r\n      ._ '-.'. `\\  \\\r\n        '-._; .'; `-.'. \r\n       `~-.; '.       '.\r\n        '--,`           '.\r\n           -='.          ;\r\n .--=~~=-,    -.;        ;\r\n .-=`;    `~,_.;        /\r\n`  ,-`'    .-;         |\r\n   .-~`.    .;         ;\r\n    .;.-   .-;         ,\\\r\n      `.'   ,=;     .-'  `~.-._\r\n       .';   .';  .'      .'   '-.\r\n         .\\  ;  ;        ,.' _  a',\r\n        .'~\";-`   ;      ;\"~` `'-=.)\r\n      .' .'   . _;  ;',  ;\r\n      '-.._`~`.'  \\  ; ; :\r\n           `~'    _'\\\\_ \\\\_ \r\n                 /=`^^=`\"\"/`)-.\r\n                 \\ =  _ =     =\\\r\n                  `\"\"` `~-. =   ;";
             Skill1 = 1.5 * ATK;
             Skill2 = 2 * ATK;
 
@@ -645,7 +672,11 @@
             PV = PV - damage;
             if (PV < 0) { PV = 0; }
         }
-
+        public override void Draw()
+        {
+            Console.SetCursorPosition(0, 50 - 22);
+            Console.Write(Art);
+        }
     }
 
     public class Insolourdo : Pokemon
@@ -696,7 +727,11 @@
             PV = PV - damage;
             if (PV < 0) { PV = 0; }
         }
-
+        public override void Draw()
+        {
+            Console.SetCursorPosition(0, 50 - 6);
+            Console.Write(Art);
+        }
     }
 
     public class Funecire : Pokemon
@@ -712,7 +747,7 @@
             LVL = 1;
             XPMax = 60;
             Name = "Funecire";
-            Art = "            )\r\n           (_)\r\n          .-'-.\r\n          |   |\r\n          |   |\r\n          |   |\r\n          |   |\r\n        __|   |__   .-.\r\n     .-'  |   |  `-:   :\r\n    :     `---'     :-'\r\njgs  `-._       _.-'\r\n         '\"\"\"\"\"\"";
+            Art = "            )\r\n           (_)\r\n          .-'-.\r\n          |   |\r\n          |   |\r\n          |   |\r\n          |   |\r\n        __|   |__   .-.\r\n     .-'  |   |  `-:   :\r\n    :     `---'     :-'\r\n     `-._       _.-'\r\n         '\"\"\"\"\"\"";
             Skill1 = 1.5 * ATK;
             Skill2 = 2 * ATK;
 
@@ -759,7 +794,11 @@
             PV = PV - damage;
             if (PV < 0) { PV = 0; }
         }
-
+        public override void Draw()
+        {
+            Console.SetCursorPosition(0, 50 - 12);
+            Console.Write(Art);
+        }
     }
 
     public class Giselle : Pokemon
@@ -776,7 +815,7 @@
             LVL = 1;
             XPMax = 60;
             Name = "Giselle";
-            Art = "                                              _\r\n                                   .-.  .--''` )\r\n                                _ |  |/`   .-'`\r\n                               ( `\\      /`\r\n                               _)   _.  -'._\r\n                             /`  .'     .-.-;\r\n                             `).'      /  \\  \\\r\n                            (`,        \\_o/_o/__\r\n                             /           .-''`  ``'-.\r\n                             {         /` ,___.--''`\r\n                             {   ;     '-. \\ \\\r\n           _   _             {   |'-....-`'.\\_\\\r\n          / './ '.           \\   \\          `\"`\r\n       _  \\   \\  |            \\   \\\r\n      ( '-.J     \\_..----.._ __)   `\\--..__\r\n     .-`                    `        `\\    ''--...--.\r\n    (_,.--\"\"`/`         .-             `\\       .__ _)\r\n            |          (                 }    .__ _)\r\n            \\_,         '.               }_  - _.'\r\n               \\_,         '.            } `'--'\r\n                  '._.     ,_)          /\r\n                     |    /           .'\r\n                      \\   |    _   .-'\r\n                       \\__/;--.||-'\r\n                        _||   _||__   __\r\n                 _ __.-` \"`)(` `\"  ```._)\r\n           jgs  (_`,-   ,-'  `''-.   '-._)\r\n               (  (    /          '.__.'\r\n                `\"`'--'";
+            Art = "                                              _\r\n                                   .-.  .--''` )\r\n                                _ |  |/`   .-'`\r\n                               ( `\\      /`\r\n                               _)   _.  -'._\r\n                             /`  .'     .-.-;\r\n                             `).'      /  \\  \\\r\n                            (`,        \\_o/_o/__\r\n                             /           .-''`  ``'-.\r\n                             {         /` ,___.--''`\r\n                             {   ;     '-. \\ \\\r\n           _   _             {   |'-....-`'.\\_\\\r\n          / './ '.           \\   \\          `\"`\r\n       _  \\   \\  |            \\   \\\r\n      ( '-.J     \\_..----.._ __)   `\\--..__\r\n     .-`                    `        `\\    ''--...--.\r\n    (_,.--\"\"`/`         .-             `\\       .__ _)\r\n            |          (                 }    .__ _)\r\n            \\_,         '.               }_  - _.'\r\n               \\_,         '.            } `'--'\r\n                  '._.     ,_)          /\r\n                     |    /           .'\r\n                      \\   |    _   .-'\r\n                       \\__/;--.||-'\r\n                        _||   _||__   __\r\n                 _ __.-` \"`)(` `\"  ```._)\r\n                (_`,-   ,-'  `''-.   '-._)\r\n               (  (    /          '.__.'\r\n                `\"`'--'";
             Skill1 = 3.5 * ATK;
             Skill2 = 4 * ATK;
 
@@ -859,7 +898,11 @@
             PV = PV - damage;
             if (PV < 0) { PV = 0; }
         }
-
+        public override void Draw()
+        {
+            Console.SetCursorPosition(0, 50 - 28);
+            Console.Write(Art);
+        }
     }
 
 

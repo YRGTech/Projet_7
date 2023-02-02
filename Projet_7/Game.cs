@@ -5,17 +5,19 @@ namespace Projet_7
     internal class Game
     {
 
-        bool start = true;
-        bool win;
+        private bool start = true;
+        private bool _lose;
+        private bool win;
 
         Map map = new Map();
 
         Pikachu pikachu = new PikachuDresseur();
+
         public void Run()
         {
 
 
-
+        Start:
             StartScreen();
             // boucle de jeu
             while (true)
@@ -27,11 +29,15 @@ namespace Projet_7
                     switch (key)
                     {
                         case ConsoleKey.Spacebar:
-                            start = false;
                             Console.Clear();
                             Console.BackgroundColor = ConsoleColor.Black;
-                            map.DrawMap();
-                            map.UpdatePlayerPos(map.playerX, map.playerY);
+                            if (_lose) { StartScreen(); _lose = false; map.ResetPlayer(); }
+                            else
+                            {
+                                start = false;
+                                map.DrawMap();
+                                map.UpdatePlayerPos(map.playerX, map.playerY);
+                            }
                             break;
                         default:
                             break;
@@ -67,6 +73,7 @@ namespace Projet_7
             Combat c = new Combat(pikachu);
             c.Fight();
             win = c.win;
+            _lose = c.lose;
             start = true;
         }
         public void WinScreen()
@@ -113,6 +120,7 @@ namespace Projet_7
         }
         public void StartScreen()
         {
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
 
             Console.SetCursorPosition(Console.WindowWidth / 2, 0);
             Console.WriteLine(" █▀▀▄          ▄▀▀█\r\n ");

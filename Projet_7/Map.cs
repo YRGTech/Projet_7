@@ -49,7 +49,18 @@
                 }
             }
         }
-
+        public void ResetPlayer()
+        {
+            for (int y = 0; y<MAP_HEIGHT; y++)
+            {
+                string line = lines[y];
+                for (int x = 0; x<MAP_WIDTH; x++)
+                {
+                    char c = line[x];
+                    if (c == '&') { playerX = x; playerY = y; }
+                }
+            }
+        }
 
         public bool IsValidMove(int x, int y)
         {

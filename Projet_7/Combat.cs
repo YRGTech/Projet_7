@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Reflection;
+using System.Threading.Tasks;
 
 namespace Projet_7
 {
@@ -11,6 +12,7 @@ namespace Projet_7
 
 
         public bool lose { get; set; }
+        public bool Fleed { get; set; }
         public bool win { get; set; }
 
         private static List<Option>? options;
@@ -31,33 +33,42 @@ namespace Projet_7
 
             Random randPoke = new Random();
             int enemyLVL = (player.LVL - 2) + randPoke.Next(5);
-            switch (randPoke.Next(10))
+            switch (randPoke.Next(19))
             {
                 case 0:
+                case 10:
                     Enemy = new Pikachu(enemyLVL);
                     break;
                 case 1:
+                case 11:
                     Enemy = new Flabebe(enemyLVL);
                     break;
                 case 2:
+                case 12:
                     Enemy = new Abo(enemyLVL);
                     break;
                 case 3:
+                case 13:
                     Enemy = new Boustiflor(enemyLVL);
                     break;
                 case 4:
+                case 14:
                     Enemy = new Farfuret(enemyLVL);
                     break;
                 case 5:
+                case 15:
                     Enemy = new Chuchmur(enemyLVL);
                     break;
                 case 6:
+                case 16:
                     Enemy = new Picassault(enemyLVL);
                     break;
                 case 7:
+                case 17:
                     Enemy = new Insolourdo(enemyLVL);
                     break;
                 case 8:
+                case 18:
                     Enemy = new Funecire(enemyLVL);
                     break;
                 case 9:
@@ -116,6 +127,7 @@ namespace Projet_7
                             break;
                         }
                 }
+
             }
         }
 
@@ -242,10 +254,13 @@ namespace Projet_7
         public void WriteMenu(List<Option> options, Option selectedOption)
         {
             Console.Clear();
-             Enemy.Draw();
+            Enemy.Draw();
             Player.Draw();
+            int it = 0;
             foreach (Option option in options)
             {
+                Console.SetCursorPosition(120, 30 + it);
+
                 if (option == selectedOption)
                 {
                     Console.Write("> ");
@@ -255,15 +270,15 @@ namespace Projet_7
                     Console.Write(" ");
                 }
                 Console.WriteLine(option.Name);
-
+                it++;
             }
-            Console.SetCursorPosition(10, 10);
-            Console.Write(Player.Name);
-            Console.WriteLine(Player.PV);
-            Console.WriteLine(Player.LVL);
-            Console.SetCursorPosition(10, 11);
-            Console.Write(Enemy.Name);
-            Console.WriteLine(Enemy.PV);
+            //Console.SetCursorPosition(10, 10);
+            //Console.Write(Player.Name);
+            //Console.WriteLine(Player.PV);
+            //Console.WriteLine(Player.LVL);
+            //Console.SetCursorPosition(10, 11);
+            //Console.Write(Enemy.Name);
+            //Console.WriteLine(Enemy.PV);
         }
     }
 }
