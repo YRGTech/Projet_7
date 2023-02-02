@@ -78,7 +78,7 @@ namespace Projet_7
         }
         public void WinScreen()
         {
-            //Console.Clear();
+            Console.Clear();
             Console.SetCursorPosition((Console.WindowWidth / 2) - 10, (Console.WindowHeight / 2) - 4);
             Console.WriteLine("(  (                 \r\n");
             Console.SetCursorPosition((Console.WindowWidth / 2) - 10, (Console.WindowHeight / 2) - 3);
