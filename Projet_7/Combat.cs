@@ -94,14 +94,6 @@ namespace Projet_7
 
         public void PlayerTurn()
         {
-            if (Player.PM <Player.PMmax)
-            {
-                if (Player.PMmax - Player.PM < 5)
-                {
-                    Player.PM = Player.PMmax;
-                }
-                Player.PM += 5;
-            }
             int index = 0;
             WriteMenu(options, options[index]);
             _turn = true;
@@ -216,15 +208,26 @@ namespace Projet_7
         }
         public void LightAttack(Pokemon poke, Pokemon target)
         {
+            if (poke != Enemy)
+            {
+                if (Player.PM < Player.PMmax)
+                {
+                    if (Player.PMmax - Player.PM < 5)
+                    {
+                        Player.PM = Player.PMmax;
+                    }
+                    Player.PM += 5;
+                }
+            }
             poke.Attack(target, poke.Skill1);
         }
         public void HeavyAttack(Pokemon poke, Pokemon target)
         {
             if (poke == Player)
-            { 
+            {
                 if (poke.PM - 10 < 0)
                 {
-                    Console.SetCursorPosition(Console.WindowHeight/2 - 16, 2);
+                    Console.SetCursorPosition(Console.WindowWidth / 2, 10);
                     Console.Write("Not enough PM !!");
                     Thread.Sleep(1000);
                 }
