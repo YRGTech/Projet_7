@@ -27,8 +27,8 @@ namespace Projet_7
             Mage = 241,
             Tortoise = 211,
 
-            Pangolin = 341,
-            Bat = 310,
+            Pangolin = 310,
+            Bat = 341,
         }
 
 
@@ -91,7 +91,7 @@ namespace Projet_7
                 Console.Write("                         Debouf\n");
                 Console.Write("       Bouf");
                 Console.Write("                           Quit\n");
-                Console.Write($"pv = {Pikachu.PV}, PM = {Pikachu.PM}, def = {Pikachu.DEF}, atk = {Pikachu.ATK}");
+                Console.Write($"pv = {Pikachu.PV},\nPM = {Pikachu.PM},\ndef = {Pikachu.DEF},\natk = {Pikachu.ATK}");
 
                 MoveCursor();
             }
@@ -264,8 +264,8 @@ namespace Projet_7
                 Console.Write("\n\n                      Potion");
                 Console.Write("\n\n\n");
                 Console.Write("       " + Potionnette.Amount + "x Potionnette +20% des PV") ;
-                Console.Write("     " + MPotion.Amount + "x Maxima pocion +80% des PV\n");
-                Console.Write("       " + BPotion.Amount + "x Potion +50% des PV");
+                Console.Write("     " + BPotion.Amount + "x Maxima pocion +80% des PV\n");
+                Console.Write("       " + MPotion.Amount + "x Potion +50% des PV");
                 Console.Write("          Quit");
 
                 Console.SetCursorPosition(PosX, PosY);

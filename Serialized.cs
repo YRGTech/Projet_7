@@ -30,8 +30,8 @@ namespace Projet_7
         public Inventory Inventory { get; set; }
 
         public SerializeTheObject(/*int pv, int lvl, int xp, int atk, int def, int pm,*/Pikachu pika, int posX, int posY,
-            /*int potionnette, int potion, int maximapocion, int tortoise, int boeuf, int mage, int pangolin, int bat*/
-            Inventory inventory)
+            int potionnette, int potion, int maximapocion, int tortoise, int boeuf, int mage, int pangolin, int bat)
+            //Inventory inventory)
         {
             /*PV= pv;
             LVL= lvl;
@@ -42,15 +42,15 @@ namespace Projet_7
             Pika = pika;
             PosX= posX;
             PosY= posY;
-            /*Potionnette= potionnette;
+            Potionnette= potionnette;
             Potion = potion;
             MaximaPocion= maximapocion;
             Tortoise= tortoise;
-            Boeuf= Boeuf;
-            Mage= Mage;
-            Pangolin= Pangolin;
-            Bat= bat;*/
-            Inventory= inventory;
+            Boeuf= boeuf;
+            Mage= mage;
+            Pangolin= pangolin;
+            Bat= bat;
+            //Inventory= inventory;
 
         }
 

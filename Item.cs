@@ -35,7 +35,7 @@ namespace Projet_7
                 Console.SetCursorPosition(30, 8);
                 Console.Write(describe + "\nVous avez " + pikachu.PV+ "PV");
                 Console.SetCursorPosition(30, 9);
-                Console.Write(amount + " Potionnette left");
+                Console.Write(amount + " " + name + " left");
                 System.Threading.Thread.Sleep(2500);
                 Console.Clear();
                 
@@ -44,11 +44,7 @@ namespace Projet_7
             {
                 Console.SetCursorPosition(30, 8);
                 Console.Write("You don't have any " + name);
-                System.Threading.Thread.Sleep(2500);
-                Console.Clear();
-                Console.SetCursorPosition(30, 8);
-                Console.Write(" You idiot");
-                System.Threading.Thread.Sleep(800);
+                System.Threading.Thread.Sleep(1800);
                 Console.Clear();
 
             }
@@ -73,11 +69,7 @@ namespace Projet_7
             {
                 Console.SetCursorPosition(30, 8);
                 Console.Write("You don't have any " + name);
-                System.Threading.Thread.Sleep(2500);
-                Console.Clear();
-                Console.SetCursorPosition(30, 8);
-                Console.Write(" You idiot");
-                System.Threading.Thread.Sleep(800);
+                System.Threading.Thread.Sleep(1800);
                 Console.Clear();
 
             }
@@ -91,7 +83,7 @@ namespace Projet_7
                 int nb = percent * pikachu.ATK / 100;
                 pikachu.ATK += nb;
                 Console.SetCursorPosition(30, 8);
-                Console.Write(describe + "\nVous avez " + pikachu.ATK + "PM");
+                Console.Write(describe + "\nVous avez " + pikachu.ATK + "ATK");
                 Console.SetCursorPosition(30, 9);
                 Console.Write(amount + " " + name + " left");
                 System.Threading.Thread.Sleep(2500);
@@ -102,11 +94,7 @@ namespace Projet_7
             {
                 Console.SetCursorPosition(30, 8);
                 Console.Write("You don't have any " + name);
-                System.Threading.Thread.Sleep(2500);
-                Console.Clear();
-                Console.SetCursorPosition(30, 8);
-                Console.Write(" You idiot");
-                System.Threading.Thread.Sleep(800);
+                System.Threading.Thread.Sleep(1800);
                 Console.Clear();
 
             }
@@ -122,7 +110,7 @@ namespace Projet_7
                 int nb = percent * pikachu.DEF / 100;
                 pikachu.DEF += nb;
                 Console.SetCursorPosition(30, 8);
-                Console.Write(describe + "\nVous avez " + pikachu.DEF + "PM");
+                Console.Write(describe + "\nVous avez " + pikachu.DEF + "DEF");
                 Console.SetCursorPosition(30, 9);
                 Console.Write(amount + " " + name + " left");
                 System.Threading.Thread.Sleep(2500);
@@ -133,11 +121,7 @@ namespace Projet_7
             {
                 Console.SetCursorPosition(30, 8);
                 Console.Write("You don't have any " + name);
-                System.Threading.Thread.Sleep(2500);
-                Console.Clear();
-                Console.SetCursorPosition(30, 8);
-                Console.Write(" You idiot");
-                System.Threading.Thread.Sleep(800);
+                System.Threading.Thread.Sleep(1800);
                 Console.Clear();
 
             }
@@ -153,10 +137,10 @@ namespace Projet_7
                 int nb = percent * pikachu.DEF / 100;
                 pikachu.DEF += nb;
                 Console.SetCursorPosition(30, 8);
-                Console.Write(describe + "\nVous avez " + pikachu.DEF + "PM");
-                Console.SetCursorPosition(30, 9);
+                Console.Write(describe + "\nL'ennemi perd " + nb + " de DEF");
+                Console.SetCursorPosition(30, 10);
                 Console.Write(amount + " " + name + " left");
-                System.Threading.Thread.Sleep(2500);
+                System.Threading.Thread.Sleep(5000);
                 Console.Clear();
 
             }
@@ -164,11 +148,7 @@ namespace Projet_7
             {
                 Console.SetCursorPosition(30, 8);
                 Console.Write("You don't have any " + name);
-                System.Threading.Thread.Sleep(2500);
-                Console.Clear();
-                Console.SetCursorPosition(30, 8);
-                Console.Write(" You idiot");
-                System.Threading.Thread.Sleep(800);
+                System.Threading.Thread.Sleep(1800);
                 Console.Clear();
 
             }
@@ -184,10 +164,10 @@ namespace Projet_7
                 int nb = percent * pikachu.ATK / 100;
                 pikachu.ATK += nb;
                 Console.SetCursorPosition(30, 8);
-                Console.Write(describe + "\nVous avez " + pikachu.ATK + "PM");
-                Console.SetCursorPosition(30, 9);
+                Console.Write(describe + "\nL'ennemi perd " + nb + " d'ATK");
+                Console.SetCursorPosition(30, 10);
                 Console.Write(amount + " " + name + " left");
-                System.Threading.Thread.Sleep(2500);
+                System.Threading.Thread.Sleep(5000);
                 Console.Clear();
 
             }
@@ -195,11 +175,7 @@ namespace Projet_7
             {
                 Console.SetCursorPosition(30, 8);
                 Console.Write("You don't have any " + name);
-                System.Threading.Thread.Sleep(2500);
-                Console.Clear();
-                Console.SetCursorPosition(30, 8);
-                Console.Write(" You idiot");
-                System.Threading.Thread.Sleep(800);
+                System.Threading.Thread.Sleep(1800);
                 Console.Clear();
 
             }

@@ -34,12 +34,12 @@ namespace Projet_7
         public int PV
         {
             get { return _pv; }
-            protected set { _pv = value; }
+            set { _pv = value; }
         }
         public int PVMax
         {
             get { return _pvMax; }
-            protected set { _pvMax = value; }
+            set { _pvMax = value; }
         }
 
         public int PM
@@ -50,7 +50,7 @@ namespace Projet_7
         public int PMMax
         {
             get { return _pmMax; }
-            protected set { _pmMax = value; }
+            set { _pmMax = value; }
         }
 
         public int LVL
