@@ -279,6 +279,8 @@ namespace Projet_7
         public void WriteMenu(List<Option> options, Option selectedOption)
         {
             Console.Clear();
+            WriteSpec(Player);
+            WriteSpec(Enemy);
             Enemy.Draw();
             Player.Draw();
             int it = 0;
@@ -304,6 +306,20 @@ namespace Projet_7
             //Console.SetCursorPosition(10, 11);
             //Console.Write(Enemy.Name);
             //Console.WriteLine(Enemy.PV);
+        }
+        public void WriteSpec(Pokemon Poke)
+        {
+            int x = 7;
+            if (Poke == Player)
+            {
+                x = 3 * Console.WindowWidth / 4;
+                Console.SetCursorPosition(x, 14);
+                Console.WriteLine("{0} / {1}", Poke.PM.ToString(), Poke.PMmax.ToString());
+            }
+            Console.SetCursorPosition(x, 12);
+            Console.Write("{0}   Niv : {1}", Poke.Name, Poke.LVL.ToString());
+            Console.SetCursorPosition(x, 13);
+            Console.Write("{0} / {1}", Poke.PV.ToString(), Poke.PVMax.ToString());
         }
     }
 }

@@ -87,13 +87,23 @@
             LVL = LVL + 1;
             Heal(PVMax);
             PVMax = (int)(5 * Math.Log2(LVL) + PVMax);
+<<<<<<< HEAD
             PMMax = (int)(5 * Math.Log2(LVL) + PMMax);
             Random randstat = new Random();
             _atk = _atk + randstat.Next(3) + 1;
             _def = _def + randstat.Next(3) + 1;
             PV = PVMax;
             PM = PMMax;
+=======
+            PMmax = (int)(5 * Math.Log2(LVL) + PMmax);
+            Random randstat = new Random();
+            _atk = _atk + randstat.Next(3) + 1;
+            _def = _def + randstat.Next(3) + 1;
 
+            PV= PVMax;
+            PM= PMmax;
+
+>>>>>>> origin/YOYO2
         }
 
     }
