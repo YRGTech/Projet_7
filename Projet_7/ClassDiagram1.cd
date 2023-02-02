@@ -32,10 +32,9 @@
     <Position X="5.25" Y="2.25" Width="1.5" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
-      <Compartment Name="Properties" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>iQAAIAAIAAADCgToAAAIIAYAAIBkIIAAAAEQAAAIggA=</HashCode>
+      <HashCode>iQAAIAAIAAADCgToAAAIIAYAAIBkIIAAEAEQAAAIggA=</HashCode>
       <FileName>Pokemon.cs</FileName>
     </TypeIdentifier>
   </Class>

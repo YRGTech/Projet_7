@@ -76,6 +76,7 @@ namespace Projet_7
         {
             Inventory In = new Inventory();
             In.openInventory();
+
         }
 
         public static void openSave()
