@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 
 namespace Projet_7
 {
     public class Map
     {
+        string loadString;
+        SerializeTheObject loadSave;
 
         const char _wall = (char)sprite.WALL;
         const char _wallup = (char)sprite.WALLUP;
@@ -51,22 +54,15 @@ namespace Projet_7
 
         public Map()
         {
-            playerX= 1;
-            playerY= 1;
+            loadString = File.ReadAllText("t.json");
+            loadSave = JsonSerializer.Deserialize<SerializeTheObject>(loadString);
+            playerX = loadSave.PosX + 2 ; 
+            playerY = loadSave.PosY + 2;
         }
 
-        public int playerX
-        {
-            get ;
-            set;
-            
-        }
+        public int playerX{ get; set;}
 
-        public int playerY
-        {
-            get;
-            set;
-        }
+        public int playerY { get; set; }
 
         public bool IsValidMove(int x, int y)
         {

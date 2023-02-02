@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Media;
 
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Xml.Linq;
+using System.Text.Json;
 
 namespace Projet_7
 {
@@ -22,22 +25,23 @@ namespace Projet_7
             Pikachu pikachu = new Pikachu();
             Potion potionnette = new Potion("Potionnette", 3, "ça régène un peu de PV mais pas bcp", 20);
             Potion potion = new Potion("potion", 3, "ça régène des PV", 50);
-            Potion MaximaPocion= new Potion("MaximaPocion", 3, "ça régène bcp wallah", 80);
+            Potion MaximaPocion = new Potion("MaximaPocion", 3, "ça régène bcp wallah", 80);
             Bouf Mage = new Bouf("Mage", 3, "Manger un mage vous fait regagner des PM", 40);
             Bouf Tortoise = new Bouf("Tortoise", 3, "Manger une tortue vous augmente votre défense", 20);
             Bouf Boeuf = new Bouf("Boeuf", 3, "Manger un boeuf vous augmente votre attaque", 20);
             Debouf Pangolin = new Debouf("Pangolin", 3, "Vous donnez un pangolain à manger à votre ennemi, il attrape le variant Delta du covid19, sa défense baisse", 20, 3);
-            Debouf Bat = new Debouf("Bat", 3, "Vous donnez une chauve-souris à manger à votre ennemi, il attrape le variant Alpha du covid19, son attaque baisse", 20,3);
+            Debouf Bat = new Debouf("Bat", 3, "Vous donnez une chauve-souris à manger à votre ennemi, il attrape le variant Alpha du covid19, son attaque baisse", 20, 3);
+
             
+            int a;
+            int b;
 
 
-
-
-            _inventory = new Inventory(10,5,5,0,potionnette,potion, MaximaPocion, Boeuf,Mage,Tortoise,Pangolin,Bat,pikachu);            
+            _inventory = new Inventory(10, 5, 5, 0, potionnette, potion, MaximaPocion, Boeuf, Mage, Tortoise, Pangolin, Bat, pikachu);
 
             loop = true;
 
-         
+
 
             // boucle de jeu
             while (loop)
@@ -78,13 +82,26 @@ namespace Projet_7
                 {
                     _inventory.Draw();
                 }
+                else if (key == ConsoleKey.Escape)
+                {
+
+
+                    var save = new SerializeTheObject
+                    {
+                        PosX = map.playerX,
+                        PosY = map.playerY
+                    };
+                    var options = new JsonSerializerOptions { WriteIndented = true };
+                    string jsonString = JsonSerializer.Serialize(save, options);
+                    File.WriteAllText("t.json", jsonString);
+                    loop = false;
+                }
 
                 // réaffichage de la carte avec la nouvelle position du joueur
-                Console.SetCursorPosition(0,0);
+                Console.SetCursorPosition(0, 0);
                 map.DrawMap();
             }
         }
-        // fonction pour vérifier si un mouvement est valide
 
     }
 }
