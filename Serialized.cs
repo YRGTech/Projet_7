@@ -11,8 +11,8 @@ namespace Projet_7
         public double XP { get; set; }
         public int ATK { get; set; }
         public int DEF { get; set; }
-        public int PM { get; set; }
-
+        public int PM { get; set; }*/
+        public Pikachu Pika{ get; set; }
         public int PosX { get; set; }
         public int PosY { get; set; }
 
@@ -27,27 +27,36 @@ namespace Projet_7
 
         public int Pangolin { get; set; }
         public int Bat { get; set; }
+        public Inventory Inventory { get; set; }
 
-        public SerializeTheObject(int pv, int lvl, int xp, int atk, int def, int pm, int posX, int posY, int potionnette, int potion, int maximapocion, int tortoise, int boeuf, int mage, int pangolin, int bat)
+        public SerializeTheObject(/*int pv, int lvl, int xp, int atk, int def, int pm,*/Pikachu pika, int posX, int posY,
+            /*int potionnette, int potion, int maximapocion, int tortoise, int boeuf, int mage, int pangolin, int bat*/
+            Inventory inventory)
         {
-            PV= pv;
+            /*PV= pv;
             LVL= lvl;
             XP= xp;
             ATK= atk;
             DEF= def;
-            PM= pm;
+            PM= pm;*/
+            Pika = pika;
             PosX= posX;
             PosY= posY;
-            Potionnette= potionnette;
+            /*Potionnette= potionnette;
             Potion = potion;
             MaximaPocion= maximapocion;
             Tortoise= tortoise;
             Boeuf= Boeuf;
             Mage= Mage;
             Pangolin= Pangolin;
-            Bat= bat;
-        }*/
+            Bat= bat;*/
+            Inventory= inventory;
 
+        }
+
+        
+        
+/*
         public int PV;
         public int LVL;
         public double XP;
@@ -55,8 +64,8 @@ namespace Projet_7
         public int DEF;
         public int PM;
 
-        public int PosX;
-        public int PosY;
+        public int PosX { get; set; }
+        public int PosY { get; set; }
 
         public int Potionnette;
         public int Potion;
@@ -70,7 +79,11 @@ namespace Projet_7
         public int Pangolin;
         public int Bat;
 
-
+        public SerializeTheObject(int posx, int posy)
+        {
+            PosX= posx;
+            PosY= posy;
+        }*/
 
     }
 }

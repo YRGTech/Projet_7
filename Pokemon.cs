@@ -1,4 +1,8 @@
-﻿namespace Projet_7
+﻿using static System.Net.Mime.MediaTypeNames;
+using System.Text.Json;
+using System;
+
+namespace Projet_7
 {
     public class Pokemon
     {
@@ -103,6 +107,9 @@
         {
             get; set;
         }
+
+       
+
         public virtual void Hurt(int damage, Type type)
         {
 
@@ -142,6 +149,8 @@
 
             PVMax = PV;
         }
+
+
 
     }
 

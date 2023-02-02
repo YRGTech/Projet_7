@@ -19,25 +19,25 @@ namespace Projet_7
 
         public void Run()
         {
+            string loadString;
+            SerializeTheObject loadSave;
+            loadString = File.ReadAllText("t.json");
+            loadSave = JsonSerializer.Deserialize<SerializeTheObject>(loadString);
             // affichage de la carte initiale
-            Map map = new Map();
+            Map map = new Map(loadSave.PosX,loadSave.PosY);
             Console.Write("                                 ,'\\\r\n    _.----.        ____         ,'  _\\   ___    ___     ____\r\n_,-'       `.     |    |  /`.   \\,-'    |   \\  /   |   |    \\  |`.\r\n\\      __    \\    '-.  | /   `.  ___    |    \\/    |   '-.   \\ |  |\r\n \\.    \\ \\   |  __  |  |/    ,','_  `.  |          | __  |    \\|  |\r\n   \\    \\/   /,' _`.|      ,' / / / /   |          ,' _`.|     |  |\r\n    \\     ,-'/  /   \\    ,'   | \\/ / ,`.|         /  /   \\  |     |\r\n     \\    \\ |   \\_/  |   `-.  \\    `'  /|  |    ||   \\_/  | |\\    |\r\n      \\    \\ \\      /       `-.`.___,-' |  |\\  /| \\      /  | |   |\r\n       \\    \\ `.__,'|  |`-._    `|      |__| \\/ |  `.__,'|  | |   |\r\n        \\_.-'       |__|    `-._ |              '-.|     '-.| |   |\r\n                                `'                            '-._|");
-            Pikachu pikachu = new Pikachu();
-            Potion potionnette = new Potion("Potionnette", 3, "ça régène un peu de PV mais pas bcp", 20);
-            Potion potion = new Potion("potion", 3, "ça régène des PV", 50);
-            Potion MaximaPocion = new Potion("MaximaPocion", 3, "ça régène bcp wallah", 80);
-            Bouf Mage = new Bouf("Mage", 3, "Manger un mage vous fait regagner des PM", 40);
-            Bouf Tortoise = new Bouf("Tortoise", 3, "Manger une tortue vous augmente votre défense", 20);
-            Bouf Boeuf = new Bouf("Boeuf", 3, "Manger un boeuf vous augmente votre attaque", 20);
-            Debouf Pangolin = new Debouf("Pangolin", 3, "Vous donnez un pangolain à manger à votre ennemi, il attrape le variant Delta du covid19, sa défense baisse", 20, 3);
-            Debouf Bat = new Debouf("Bat", 3, "Vous donnez une chauve-souris à manger à votre ennemi, il attrape le variant Alpha du covid19, son attaque baisse", 20, 3);
-
-            
-            int a;
-            int b;
+            Pikachu pikachu = loadSave.Pika;
+            /*Potion potionnette = new Potion("Potionnette", loadSave.Potionnette, "ça régène un peu de PV mais pas bcp", 20);
+            Potion potion = new Potion("potion", loadSave.Potion, "ça régène des PV", 50);
+            Potion MaximaPocion = new Potion("MaximaPocion", loadSave.MaximaPocion, "ça régène bcp wallah", 80);
+            Bouf Mage = new Bouf("Mage", loadSave.Mage, "Manger un mage vous fait regagner des PM", 40);
+            Bouf Tortoise = new Bouf("Tortoise", loadSave.Tortoise, "Manger une tortue vous augmente votre défense", 20);
+            Bouf Boeuf = new Bouf("Boeuf", loadSave.Boeuf, "Manger un boeuf vous augmente votre attaque", 20);
+            Debouf Pangolin = new Debouf("Pangolin", loadSave.Pangolin, "Vous donnez un pangolain à manger à votre ennemi, il attrape le variant Delta du covid19, sa défense baisse", 20, 3);
+            Debouf Bat = new Debouf("Bat", loadSave.Bat, "Vous donnez une chauve-souris à manger à votre ennemi, il attrape le variant Alpha du covid19, son attaque baisse", 20, 3);*/
 
 
-            _inventory = new Inventory(10, 5, 5, 0, potionnette, potion, MaximaPocion, Boeuf, Mage, Tortoise, Pangolin, Bat, pikachu);
+            Inventory inventory = loadSave.Inventory;//new Inventory(0, 5, 5, 0, potionnette, potion, MaximaPocion, Boeuf, Mage, Tortoise, Pangolin, Bat, pikachu);
 
             loop = true;
 
@@ -80,20 +80,21 @@ namespace Projet_7
                 }
                 else if (key == ConsoleKey.I)
                 {
-                    _inventory.Draw();
+                    inventory.Draw();
                 }
                 else if (key == ConsoleKey.Escape)
                 {
 
 
-                    var save = new SerializeTheObject
-                    {
-                        PosX = map.playerX,
-                        PosY = map.playerY
-                    };
+                    var save = new SerializeTheObject(pikachu,
+                        map.playerX,map.playerY,/*
+                        potionnette.Amount,potion.Amount,MaximaPocion.Amount,
+                        Tortoise.Amount, Boeuf.Amount,Mage.Amount,
+                        Pangolin.Amount,Bat.Amount*/ inventory);
+                    
                     var options = new JsonSerializerOptions { WriteIndented = true };
-                    string jsonString = JsonSerializer.Serialize(save, options);
-                    File.WriteAllText("t.json", jsonString);
+                    string SaveString = JsonSerializer.Serialize(save, options);
+                    File.WriteAllText("t.json", SaveString);
                     loop = false;
                 }
 

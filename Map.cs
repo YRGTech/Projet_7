@@ -8,8 +8,7 @@ namespace Projet_7
 {
     public class Map
     {
-        string loadString;
-        SerializeTheObject loadSave;
+       
 
         const char _wall = (char)sprite.WALL;
         const char _wallup = (char)sprite.WALLUP;
@@ -52,12 +51,10 @@ namespace Projet_7
         };
        
 
-        public Map()
+        public Map ( int PlayerX, int PlayerY )
         {
-            loadString = File.ReadAllText("t.json");
-            loadSave = JsonSerializer.Deserialize<SerializeTheObject>(loadString);
-            playerX = loadSave.PosX + 2 ; 
-            playerY = loadSave.PosY + 2;
+            playerX = PlayerX;
+            playerY = PlayerY;
         }
 
         public int playerX{ get; set;}
