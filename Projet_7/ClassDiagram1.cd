@@ -3,7 +3,7 @@
   <Class Name="Projet_7.GameFiles.MapFiles.Map" Collapsed="true">
     <Position X="24" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ABABEAAAAAAACEIAAAAASAIgAAKAAAAAAEAAAgCBAYA=</HashCode>
+      <HashCode>ABABEAAAAIAACEIAAAAASAIgAAKAAAAAAEAAAgCBAYA=</HashCode>
       <FileName>GameFiles\MapFiles\Map.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -151,7 +151,7 @@
     <Position X="24" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>GameFiles\SaveFiles\Save.cs</FileName>
+      <FileName>GameFiles\MenuFiles\Save.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Projet_7.GameFiles.SaveFiles.SerializeTheObject" Collapsed="true">
@@ -171,7 +171,7 @@
   <Class Name="Projet_7.Game" Collapsed="true">
     <Position X="27.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAgIAABIQBgA5AAAAAAAiEAYQABABBAAEAAAAAIAAAI=</HashCode>
+      <HashCode>AAgIAABIQBgA5AAAAAAAiEAYQABABBBAEAAAAAIAAAI=</HashCode>
       <FileName>GameFiles\Game.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -191,7 +191,7 @@
     </TypeIdentifier>
   </Class>
   <Enum Name="Projet_7.GameFiles.MapFiles.sprite" Collapsed="true">
-    <Position X="25.75" Y="3.75" Width="1.5" />
+    <Position X="27.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAgAAEAAAAAAAAACABAAAAAAAAAAAQAAAAACAA=</HashCode>
       <FileName>GameFiles\MapFiles\sprite.cs</FileName>
@@ -205,7 +205,7 @@
     </TypeIdentifier>
   </Enum>
   <Enum Name="Projet_7.GameFiles.PokemonsFiles.PokeType" Collapsed="true">
-    <Position X="27.5" Y="3.75" Width="1.5" />
+    <Position X="25.75" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIAQAAAAAACAAAIBUAAAAAACAAsAABAEAAEAAAAcAA=</HashCode>
       <FileName>GameFiles\PokemonsFiles\Type.cs</FileName>

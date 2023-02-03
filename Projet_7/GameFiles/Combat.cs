@@ -141,7 +141,7 @@ namespace Projet_7.GameFiles
             switch (rand.Next(5))
             {
                 case 0:
-                    if (Enemy.TYPE == PokeType.Giselle) HeavyAttack(Enemy, Enemy);
+                    if (Enemy.Name == "Giselle") HeavyAttack(Enemy, Enemy);
                     break;
                 case 1:
                 case 2:
