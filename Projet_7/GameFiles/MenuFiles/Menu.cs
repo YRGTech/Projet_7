@@ -92,7 +92,7 @@ namespace Projet_7.GameFiles.MenuFiles
         {
             _game.OpenMenu = false;
             _game.Explo = true;
-            //Console.Clear();
+            Console.Clear();
             _game.Map.DrawMap();
             _game.Map.UpdatePlayerPos(_game.Map.playerX, _game.Map.playerY);
 

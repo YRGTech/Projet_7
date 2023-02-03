@@ -28,7 +28,7 @@ namespace Projet_7.GameFiles.SaveFiles
 
             var options = new JsonSerializerOptions { WriteIndented = true };
             string SaveString = JsonSerializer.Serialize(save, options);
-            File.WriteAllText("save.json", SaveString);
+            File.WriteAllText("GameFiles/SaveFiles/save.json", SaveString);
 
         }
     }

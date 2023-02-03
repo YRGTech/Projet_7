@@ -82,7 +82,7 @@ namespace Projet_7
                         case ConsoleKey.Spacebar:
                             Console.Clear();
                             Console.BackgroundColor = ConsoleColor.Black;
-                            if (_lose) { StartScreen(); _lose = false; Map.ResetPlayer(); Pikachu = new PikachuDresseur(); }
+                            if (_lose) { StartScreen(); _lose = false; Map = new Map(); Pikachu = new PikachuDresseur(); }
                             else
                             {
                                 _start = false;
