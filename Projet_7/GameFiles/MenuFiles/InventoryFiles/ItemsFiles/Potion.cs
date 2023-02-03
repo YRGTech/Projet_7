@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Projet_7
+namespace Projet_7.GameFiles.MenuFiles.InventoryFiles.ItemsFiles
 {
     public class Potion : Item
     {

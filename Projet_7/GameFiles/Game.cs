@@ -9,6 +9,13 @@ using System.Media;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Xml.Linq;
 using System.Text.Json;
+using Projet_7.GameFiles.MapFiles;
+using Projet_7.GameFiles.SaveFiles;
+using Projet_7.GameFiles.MenuFiles.InventoryFiles.ItemsFiles;
+using Projet_7.GameFiles;
+using Projet_7.GameFiles.MenuFiles.InventoryFiles;
+using Projet_7.GameFiles.MenuFiles;
+using Projet_7.GameFiles.PokemonsFiles;
 
 namespace Projet_7
 {
@@ -22,17 +29,15 @@ namespace Projet_7
         public Map? Map { get; set; }
         public PikachuDresseur? Pikachu { get; set; }
         public Potion? Potionnette { get; set; }
-        public Potion? Potion{ get; set; }
-        public Potion? MaximaPocion{ get; set; }
-        public Bouf? Boeuf{ get; set; }
+        public Potion? Potion { get; set; }
+        public Potion? MaximaPocion { get; set; }
+        public Bouf? Boeuf { get; set; }
         public Bouf? Tortoise { get; set; }
         public Bouf? Mage { get; set; }
 
         public Debouf? Pangolin { get; set; }
         public Debouf? Bat { get; set; }
-
-        
-
+        public bool LootItem { get; private set; }
 
         public Game()
         {
@@ -40,12 +45,12 @@ namespace Projet_7
             Map = new Map();
             SerializeTheObject loadSave;
             string loadString;
-            loadString = File.ReadAllText("save.json");
+            loadString = File.ReadAllText("GameFiles/SaveFiles/save.json");
             loadSave = JsonSerializer.Deserialize<SerializeTheObject>(loadString);
             Pikachu = loadSave.Pika;
             Map.playerX = loadSave.PosX;
             Map.playerY = loadSave.PosY;
-            Potionnette = new Potion("Potionnette", /*loadSave.Potionnette*/3, "ça régène un peu de PV mais pas bcp", 20);
+            Potionnette = new Potion("Potionnette", loadSave.Potionnette, "ça régène un peu de PV mais pas bcp", 20);
             Potion = new Potion("potion", loadSave.Potion, "ça régène des PV", 50);
             MaximaPocion = new Potion("MaximaPocion", loadSave.MaximaPocion, "ça régène bcp wallah", 80);
             Mage = new Bouf("Mage", loadSave.Mage, "Manger un mage vous fait regagner des PM", 40);
@@ -57,7 +62,7 @@ namespace Projet_7
         }
 
 
-        
+
 
         public void Run()
         {
@@ -209,7 +214,7 @@ namespace Projet_7
             Console.WriteLine("\r\n ██▓  ██▒   █▓ ██▓        █    ██  ██▓███  \r\n▓██▒ ▓██░   █▒▓██▒        ██  ▓██▒▓██░  ██▒\r\n▒██░  ▓██  █▒░▒██░       ▓██  ▒██░▓██░ ██▓▒\r\n▒██░   ▒██ █░░▒██░       ▓▓█  ░██░▒██▄█▓▒ ▒\r\n░██████▒▒▀█░  ░██████▒   ▒▒█████▓ ▒██▒ ░  ░\r\n░ ▒░▓  ░░ ▐░  ░ ▒░▓  ░   ░▒▓▒ ▒ ▒ ▒▓▒░ ░  ░\r\n░ ░ ▒  ░░ ░░  ░ ░ ▒  ░   ░░▒░ ░ ░ ░▒ ░     \r\n  ░ ░     ░░    ░ ░       ░░░ ░ ░ ░░       \r\n    ░  ░   ░      ░  ░      ░              \r\n          ░                                \r\n");
             while (lvlup)
             {
-            ConsoleKey key = Console.ReadKey(true).Key;
+                ConsoleKey key = Console.ReadKey(true).Key;
                 switch (key)
                 {
                     case ConsoleKey.Spacebar:
@@ -325,6 +330,12 @@ namespace Projet_7
                     default:
                         break;
                 }
+                Console.BackgroundColor = ConsoleColor.Black;
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.SetCursorPosition(1, 1);
+                Console.WriteLine("You have found a {0} !", items);
+                Thread.Sleep(1000);
+                Map.DrawLineMap(1);
             }
         }
 
@@ -337,7 +348,7 @@ namespace Projet_7
                     return Items.Bat;
                 case 1:
                     return Items.Potion;
-                case 2: 
+                case 2:
                     return Items.MaximaPocion;
                 case 3:
                     return Items.Boeuf;

@@ -1,7 +1,8 @@
 ﻿using System;
 using System.IO;
+using Projet_7.GameFiles.PokemonsFiles;
 
-namespace Projet_7
+namespace Projet_7.GameFiles.SaveFiles
 {
 
     public class SerializeTheObject
@@ -27,11 +28,11 @@ namespace Projet_7
 
         public int Pangolin { get; set; }
         public int Bat { get; set; }
-        
+
 
         public SerializeTheObject(/*int pv, int lvl, int xp, int atk, int def, int pm,*/PikachuDresseur pika, int posX, int posY,
             int potionnette, int potion, int maximapocion, int tortoise, int boeuf, int mage, int pangolin, int bat)
-        
+
         {
             /*PV= pv;
             LVL= lvl;
@@ -55,7 +56,7 @@ namespace Projet_7
 
 
 
-        
+
 
     }
 }

@@ -1,3 +1,7 @@
+using Projet_7.GameFiles;
+using Projet_7.GameFiles.MapFiles;
+using Projet_7.GameFiles.PokemonsFiles;
+
 namespace TestProject1
 {
     public class Tests
@@ -7,7 +11,7 @@ namespace TestProject1
         public void TestHeal()
         {
             Pikachu pikachu = new Pikachu();
-            pikachu.Hurt(50, Projet_7.Type.Giselle);
+            pikachu.Hurt(50, Projet_7.GameFiles.PokemonsFiles.PokeType.Giselle);
             pikachu.Heal(pikachu.PVMax);
             Assert.IsTrue(pikachu.PV > pikachu.PVMax - 50 && pikachu.PV <= pikachu.PVMax);
         }

@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Reflection;
 using System.Threading.Tasks;
+using Projet_7.GameFiles.MenuFiles;
+using Projet_7.GameFiles.MenuFiles.InventoryFiles;
+using Projet_7.GameFiles.PokemonsFiles;
 
-namespace Projet_7
+namespace Projet_7.GameFiles
 {
     public class Combat
     {
@@ -33,7 +36,7 @@ namespace Projet_7
             };
 
             Random randPoke = new Random();
-            int enemyLVL = (player.LVL - 2) + randPoke.Next(5);
+            int enemyLVL = player.LVL - 2 + randPoke.Next(5);
             switch (randPoke.Next(19))
             {
                 case 0:
@@ -138,7 +141,7 @@ namespace Projet_7
             switch (rand.Next(5))
             {
                 case 0:
-                    if (Enemy.TYPE == Type.Giselle) HeavyAttack(Enemy, Enemy);
+                    if (Enemy.TYPE == PokeType.Giselle) HeavyAttack(Enemy, Enemy);
                     break;
                 case 1:
                 case 2:
@@ -160,7 +163,7 @@ namespace Projet_7
 
         public void UseItem()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
         public void Attack()
         {
@@ -205,7 +208,7 @@ namespace Projet_7
         {
             _fight = false;
             win = false;
-            if(Enemy.Name == "Giselle") _fight= true;
+            if (Enemy.Name == "Giselle") _fight = true;
         }
         public void LightAttack(Pokemon poke, Pokemon target)
         {
@@ -260,7 +263,7 @@ namespace Projet_7
                 {
                     win = true;
                     _fight = false;
-                    Player.XP += (60 * Enemy.LVL) / 7;
+                    Player.XP += 60 * Enemy.LVL / 7;
                     while (Player.XP >= Player.XPMax)
                     {
                         Console.WriteLine("XP nxt LVL: {0}      XP: {1}", Player.XPMax, Player.XP);

@@ -1,4 +1,4 @@
-﻿namespace Projet_7
+﻿namespace Projet_7.GameFiles.MapFiles
 {
     public class Map
     {
@@ -34,7 +34,7 @@
 
         public Map()
         {
-            lines = File.ReadAllLines("map.txt");
+            lines = File.ReadAllLines("GameFiles/MapFiles/map.txt");
             firstLine = lines[0];
             _map = new char[MAP_HEIGHT, MAP_WIDTH];
             for (int y = 0; y < MAP_HEIGHT; y++)
@@ -51,10 +51,10 @@
         }
         public void ResetPlayer()
         {
-            for (int y = 0; y<MAP_HEIGHT; y++)
+            for (int y = 0; y < MAP_HEIGHT; y++)
             {
                 string line = lines[y];
-                for (int x = 0; x<MAP_WIDTH; x++)
+                for (int x = 0; x < MAP_WIDTH; x++)
                 {
                     char c = line[x];
                     if (c == '&') { playerX = x; playerY = y; }
@@ -78,7 +78,35 @@
 
             return true;
         }
-
+        public void DrawLineMap(int line)
+        {
+            Console.SetCursorPosition(0, line);
+            for (int x = 0; x < MAP_WIDTH; x++)
+            {
+                // affichage du caractère de la carte
+                if (_map[line, x] == _floor)
+                {
+                    Console.BackgroundColor = ConsoleColor.Green;
+                    Console.ForegroundColor = ConsoleColor.Green;
+                }
+                else if (_map[line, x] == _grass)
+                {
+                    Console.BackgroundColor = ConsoleColor.DarkGreen;
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
+                }
+                else if (_map[line, x] == (char)sprite.ITEM)
+                {
+                    Console.BackgroundColor = ConsoleColor.Magenta;
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
+                else if (_map[line, x] == _wall || _map[line, x] == _wallup)
+                {
+                    Console.BackgroundColor = ConsoleColor.DarkGray;
+                    Console.ForegroundColor = ConsoleColor.DarkGray;
+                }
+                Console.Write(_map[line, x]);
+            }
+        }
         public void DrawMap()
         {
 
@@ -104,7 +132,7 @@
                         Console.BackgroundColor = ConsoleColor.Magenta;
                         Console.ForegroundColor = ConsoleColor.White;
                     }
-                    else if(_map[y, x] == _wall || _map[y, x] == _wallup)
+                    else if (_map[y, x] == _wall || _map[y, x] == _wallup)
                     {
                         Console.BackgroundColor = ConsoleColor.DarkGray;
                         Console.ForegroundColor = ConsoleColor.DarkGray;
@@ -137,7 +165,8 @@
                     Console.ForegroundColor = ConsoleColor.Green;
                     _map[playerY, playerX] = _floor;
                 }
-                else {
+                else
+                {
                     Console.BackgroundColor = ConsoleColor.DarkGreen;
                     Console.ForegroundColor = ConsoleColor.DarkGreen;
                     _map[playerY, playerX] = _grass;

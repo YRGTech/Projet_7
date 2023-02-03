@@ -5,10 +5,15 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
-using static Projet_7.Inventory;
+using Projet_7.GameFiles.PokemonsFiles;
+using static Projet_7.GameFiles.MenuFiles.InventoryFiles.Inventory;
 
-namespace Projet_7
+namespace Projet_7.GameFiles.MenuFiles.InventoryFiles.ItemsFiles
 {
+    public enum Items
+    {
+        Potionnette, Potion, MaximaPocion, Boeuf, Tortoise, Mage, Pangolin, Bat
+    }
     public class Item
     {
         public string Name { get; set; }
@@ -36,7 +41,7 @@ namespace Projet_7
                 Console.Write(describe + "\nVous avez " + pikachu.PV + "PV");
                 Console.SetCursorPosition(30, 9);
                 Console.Write(amount + " " + name + " left");
-                System.Threading.Thread.Sleep(2500);
+                Thread.Sleep(2500);
                 Console.Clear();
 
             }
@@ -44,7 +49,7 @@ namespace Projet_7
             {
                 Console.SetCursorPosition(30, 8);
                 Console.Write("You don't have any " + name);
-                System.Threading.Thread.Sleep(1800);
+                Thread.Sleep(1800);
                 Console.Clear();
 
             }
@@ -57,12 +62,12 @@ namespace Projet_7
                 amount--;
                 int nb = percent * pikachu.PMMax / 100;
                 pikachu.PM += nb;
-                if(pikachu.PM > pikachu.PMMax) { pikachu.PM= pikachu.PMMax; }
+                if (pikachu.PM > pikachu.PMMax) { pikachu.PM = pikachu.PMMax; }
                 Console.SetCursorPosition(30, 8);
                 Console.Write(describe + "\nVous avez " + pikachu.PM + "PM");
                 Console.SetCursorPosition(30, 9);
                 Console.Write(amount + " " + name + " left");
-                System.Threading.Thread.Sleep(2500);
+                Thread.Sleep(2500);
                 Console.Clear();
 
             }
@@ -70,7 +75,7 @@ namespace Projet_7
             {
                 Console.SetCursorPosition(30, 8);
                 Console.Write("You don't have any " + name);
-                System.Threading.Thread.Sleep(1800);
+                Thread.Sleep(1800);
                 Console.Clear();
 
             }
@@ -87,7 +92,7 @@ namespace Projet_7
                 Console.Write(describe + "\nVous avez " + pikachu.ATK + "ATK");
                 Console.SetCursorPosition(30, 9);
                 Console.Write(amount + " " + name + " left");
-                System.Threading.Thread.Sleep(2500);
+                Thread.Sleep(2500);
                 Console.Clear();
 
             }
@@ -95,7 +100,7 @@ namespace Projet_7
             {
                 Console.SetCursorPosition(30, 8);
                 Console.Write("You don't have any " + name);
-                System.Threading.Thread.Sleep(1800);
+                Thread.Sleep(1800);
                 Console.Clear();
 
             }
@@ -114,7 +119,7 @@ namespace Projet_7
                 Console.Write(describe + "\nVous avez " + pikachu.DEF + "DEF");
                 Console.SetCursorPosition(30, 9);
                 Console.Write(amount + " " + name + " left");
-                System.Threading.Thread.Sleep(2500);
+                Thread.Sleep(2500);
                 Console.Clear();
 
             }
@@ -122,7 +127,7 @@ namespace Projet_7
             {
                 Console.SetCursorPosition(30, 8);
                 Console.Write("You don't have any " + name);
-                System.Threading.Thread.Sleep(1800);
+                Thread.Sleep(1800);
                 Console.Clear();
 
             }
@@ -141,7 +146,7 @@ namespace Projet_7
                 Console.Write(describe + "\nL'ennemi perd " + nb + " de DEF");
                 Console.SetCursorPosition(30, 10);
                 Console.Write(amount + " " + name + " left");
-                System.Threading.Thread.Sleep(5000);
+                Thread.Sleep(5000);
                 Console.Clear();
 
             }
@@ -149,7 +154,7 @@ namespace Projet_7
             {
                 Console.SetCursorPosition(30, 8);
                 Console.Write("You don't have any " + name);
-                System.Threading.Thread.Sleep(1800);
+                Thread.Sleep(1800);
                 Console.Clear();
 
             }
@@ -168,7 +173,7 @@ namespace Projet_7
                 Console.Write(describe + "\nL'ennemi perd " + nb + " d'ATK");
                 Console.SetCursorPosition(30, 10);
                 Console.Write(amount + " " + name + " left");
-                System.Threading.Thread.Sleep(5000);
+                Thread.Sleep(5000);
                 Console.Clear();
 
             }
@@ -176,7 +181,7 @@ namespace Projet_7
             {
                 Console.SetCursorPosition(30, 8);
                 Console.Write("You don't have any " + name);
-                System.Threading.Thread.Sleep(1800);
+                Thread.Sleep(1800);
                 Console.Clear();
 
             }

@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Projet_7.GameFiles.PokemonsFiles;
 
-namespace Projet_7
+namespace Projet_7.GameFiles.MenuFiles
 {
-    public  class TeamSummary 
+    public class TeamSummary
     {
         private int _id = 0;
         public TeamSummary() { }
@@ -14,10 +15,9 @@ namespace Projet_7
         public void OpenTeamSummary(Game game)
         {
             bool _teamSummaryOpened = true;
-            
+
             Console.Clear();
             WriteTitle();
-            //changer le new pikachu pour le pikachu du game
             WriteMenu(game.Pikachu);
             WritePikachu();
             while (_teamSummaryOpened)
@@ -40,51 +40,51 @@ namespace Projet_7
         {
             double XPneeded = IneedaHero.XPMax - IneedaHero.XP;
             Console.WriteLine("===============================================================================================================================================");
-            for (int iterator = 0; iterator < 29 ; iterator++)
+            for (int iterator = 0; iterator < 29; iterator++)
             {
                 switch (iterator)
                 {
-                case 0:
-                    WriteCapacity("Name :",IneedaHero.Name.ToString());
-                    break;
-                case 1:
-                    WriteCapacity("Type :", IneedaHero.TYPE.ToString());
-                    break;
-                case 5:
-                    WriteCapacity("Level :", IneedaHero.LVL.ToString());
-                    break;
-                case 6:
-                    WriteCapacity("Experience :", IneedaHero.XP.ToString());
-                    break;
-                case 7:
-                    WriteCapacity("Before Next Level :", XPneeded.ToString());
-                    break;
-                case 13:
-                    WritePVPM("PV :", IneedaHero.PV.ToString(), IneedaHero.PVMax.ToString());
-                    break;
-                case 14:
-                    WritePVPM("PM :", IneedaHero.PM.ToString(), IneedaHero.PMMax.ToString());
-                    break;
-                case 15:
-                    WriteCapacity("Attack :", IneedaHero.ATK.ToString());
-                    break;
-                case 16:
-                    WriteCapacity("Defense :", IneedaHero.DEF.ToString());
-                break;
+                    case 0:
+                        WriteCapacity("Name :", IneedaHero.Name.ToString());
+                        break;
+                    case 1:
+                        WriteCapacity("Type :", IneedaHero.TYPE.ToString());
+                        break;
+                    case 5:
+                        WriteCapacity("Level :", IneedaHero.LVL.ToString());
+                        break;
+                    case 6:
+                        WriteCapacity("Experience :", IneedaHero.XP.ToString());
+                        break;
+                    case 7:
+                        WriteCapacity("Before Next Level :", XPneeded.ToString());
+                        break;
+                    case 13:
+                        WritePVPM("PV :", IneedaHero.PV.ToString(), IneedaHero.PVMax.ToString());
+                        break;
+                    case 14:
+                        WritePVPM("PM :", IneedaHero.PM.ToString(), IneedaHero.PMMax.ToString());
+                        break;
+                    case 15:
+                        WriteCapacity("Attack :", IneedaHero.ATK.ToString());
+                        break;
+                    case 16:
+                        WriteCapacity("Defense :", IneedaHero.DEF.ToString());
+                        break;
                 }
                 Console.WriteLine(" ");
             }
             Console.SetCursorPosition(0, 40);
             Console.WriteLine("===============================================================================================================================================");
             WriteEdgeBorder();
-            Console.SetCursorPosition((Console.WindowWidth/2) - 16, 43);
+            Console.SetCursorPosition(Console.WindowWidth / 2 - 16, 43);
             Console.WriteLine("Press ESC to quit");
         }
         public void WriteCapacity(string statshown, string statistic)
         {
             Console.SetCursorPosition(65, 15 + _id);
             Console.Write(statshown);
-            Console.Write("{0} \n",statistic);
+            Console.Write("{0} \n", statistic);
             if (_id == 1)
             {
                 _id += 6;
@@ -112,7 +112,7 @@ namespace Projet_7
                 Console.SetCursorPosition(0, 10 + iterator);
                 Console.Write("|");
             }
-            for (int iterator2 =0; iterator2 < 30; iterator2++)
+            for (int iterator2 = 0; iterator2 < 30; iterator2++)
             {
                 Console.SetCursorPosition(142, 10 + iterator2);
                 Console.Write("|");

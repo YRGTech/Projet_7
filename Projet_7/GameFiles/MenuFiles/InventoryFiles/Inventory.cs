@@ -5,8 +5,10 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Xml.Linq;
+using Projet_7.GameFiles.MenuFiles.InventoryFiles.ItemsFiles;
+using Projet_7.GameFiles.PokemonsFiles;
 
-namespace Projet_7
+namespace Projet_7.GameFiles.MenuFiles.InventoryFiles
 {
     public static class Inventory
     {

@@ -1,4 +1,4 @@
-﻿namespace Projet_7
+﻿namespace Projet_7.GameFiles.PokemonsFiles
 {
     public class Pokemon
     {
@@ -10,7 +10,7 @@
         private int _pm;
         private int _lvl;
         private double _xp;
-        private Type _type;
+        private PokeType _type;
         private string _name;
         private string _art;
         private double _xpMax;
@@ -21,14 +21,14 @@
             PM = 0;
             _atk = 0;
             _def = 0;
-            _type = Type.Normal;
+            _type = PokeType.Normal;
             LVL = 0;
             Name = "Pokemon";
 
         }
 
-        public int PV { get { return _pv; }  set { _pv = value; } }
-        public int PVMax { get { return _pvMax; }  set { _pvMax = value; } }
+        public int PV { get { return _pv; } set { _pv = value; } }
+        public int PVMax { get { return _pvMax; } set { _pvMax = value; } }
 
         public int PM { get { return _pm; } set { _pm = value; } }
         public int PMMax { get; set; }
@@ -37,7 +37,7 @@
 
         public int ATK { get { return _atk; } set { _atk = value; } }
         public int DEF { get { return _def; } set { _def = value; } }
-        public Type TYPE { get => _type; init { _type = value; } }
+        public PokeType TYPE { get => _type; init { _type = value; } }
 
         public double XP { get => _xp; set { _xp = value; } }
         public double XPMax { get => 0.8 * Math.Pow(LVL, 3); set { _xpMax = value; } }
@@ -48,7 +48,7 @@
 
         public double Skill2 { get; set; }
 
-        public virtual void Hurt(int damage, Type type)
+        public virtual void Hurt(int damage, PokeType type)
         {
 
         }
@@ -102,7 +102,7 @@
             PMMax = PM;
             ATK = 80;
             DEF = 50;
-            TYPE = Type.Electric;
+            TYPE = PokeType.Electric;
             LVL = 1;
             XPMax = 60;
             Name = "Pikachu";
@@ -117,7 +117,7 @@
             PM = 50;
             ATK = 80;
             DEF = 50;
-            TYPE = Type.Electric;
+            TYPE = PokeType.Electric;
             LVL = 1;
             XPMax = 60;
             Name = "Pikachu";
@@ -134,24 +134,24 @@
 
 
 
-        public override void Hurt(int damage, Type type)
+        public override void Hurt(int damage, PokeType type)
         {
             damage = damage - DEF;
             switch (type)
             {
-                case Type.Electric:
+                case PokeType.Electric:
                     damage = damage * 1 / 2;
                     break;
-                case Type.Ground:
+                case PokeType.Ground:
                     damage = damage * 2;
                     break;
-                case Type.Flying:
+                case PokeType.Flying:
                     damage = damage * 1 / 2;
                     break;
-                case Type.Steel:
+                case PokeType.Steel:
                     damage = damage * 1 / 2;
                     break;
-                case Type.Giselle:
+                case PokeType.Giselle:
                     damage = damage * 2;
                     break;
                 default:
@@ -181,7 +181,7 @@
             PMMax = PM;
             ATK = 80;
             DEF = 50;
-            TYPE = Type.Electric;
+            TYPE = PokeType.Electric;
             LVL = 1;
             XPMax = 60;
             Name = "Pikachute";
@@ -196,7 +196,7 @@
             PM = 50;
             ATK = 80;
             DEF = 50;
-            TYPE = Type.Electric;
+            TYPE = PokeType.Electric;
             LVL = 1;
             XPMax = 60;
             Name = "PikachuDresseur";
@@ -213,24 +213,24 @@
 
 
 
-        public override void Hurt(int damage, Type type)
+        public override void Hurt(int damage, PokeType type)
         {
             damage = damage - DEF;
             switch (type)
             {
-                case Type.Electric:
+                case PokeType.Electric:
                     damage = damage * 1 / 2;
                     break;
-                case Type.Ground:
+                case PokeType.Ground:
                     damage = damage * 2;
                     break;
-                case Type.Flying:
+                case PokeType.Flying:
                     damage = damage * 1 / 2;
                     break;
-                case Type.Steel:
+                case PokeType.Steel:
                     damage = damage * 1 / 2;
                     break;
-                case Type.Giselle:
+                case PokeType.Giselle:
                     damage = damage * 2;
                     break;
                 default:
@@ -284,7 +284,7 @@
             PVMax = PV;
             ATK = 60;
             DEF = 44;
-            TYPE = Type.Poison;
+            TYPE = PokeType.Poison;
             LVL = 1;
             XPMax = 60;
             Name = "Abo";
@@ -300,33 +300,33 @@
         }
 
 
-        public override void Hurt(int damage, Type type)
+        public override void Hurt(int damage, PokeType type)
         {
             damage = damage - DEF;
             switch (type)
             {
-                case Type.Fighting:
+                case PokeType.Fighting:
                     damage = damage * 1 / 2;
                     break;
-                case Type.Fairy:
+                case PokeType.Fairy:
                     damage = damage * 1 / 2;
                     break;
-                case Type.Bug:
+                case PokeType.Bug:
                     damage = damage * 1 / 2;
                     break;
-                case Type.Grass:
+                case PokeType.Grass:
                     damage = damage * 1 / 2;
                     break;
-                case Type.Poison:
+                case PokeType.Poison:
                     damage = damage * 1 / 2;
                     break;
-                case Type.Psychic:
+                case PokeType.Psychic:
                     damage = damage * 2;
                     break;
-                case Type.Ground:
+                case PokeType.Ground:
                     damage = damage * 2;
                     break;
-                case Type.Giselle:
+                case PokeType.Giselle:
                     damage = damage * 2;
                     break;
                 default:
@@ -355,7 +355,7 @@
             PVMax = PV;
             ATK = 90;
             DEF = 50;
-            TYPE = Type.Grass;
+            TYPE = PokeType.Grass;
             LVL = 1;
             XPMax = 60;
             Name = "Boustiflor";
@@ -371,39 +371,39 @@
         }
 
 
-        public override void Hurt(int damage, Type type)
+        public override void Hurt(int damage, PokeType type)
         {
             damage = damage - DEF;
             switch (type)
             {
-                case Type.Water:
+                case PokeType.Water:
                     damage = damage * 1 / 2;
                     break;
-                case Type.Fire:
+                case PokeType.Fire:
                     damage = damage * 2;
                     break;
-                case Type.Electric:
+                case PokeType.Electric:
                     damage = damage * 1 / 2;
                     break;
-                case Type.Ice:
+                case PokeType.Ice:
                     damage = damage * 2;
                     break;
-                case Type.Bug:
+                case PokeType.Bug:
                     damage = damage * 2;
                     break;
-                case Type.Grass:
+                case PokeType.Grass:
                     damage = damage * 1 / 2;
                     break;
-                case Type.Poison:
+                case PokeType.Poison:
                     damage = damage * 2;
                     break;
-                case Type.Ground:
+                case PokeType.Ground:
                     damage = damage * 1 / 2;
                     break;
-                case Type.Flying:
+                case PokeType.Flying:
                     damage = damage * 2;
                     break;
-                case Type.Giselle:
+                case PokeType.Giselle:
                     damage = damage * 2;
                     break;
                 default:
@@ -432,7 +432,7 @@
             PVMax = PV;
             ATK = 95;
             DEF = 55;
-            TYPE = Type.Dark;
+            TYPE = PokeType.Dark;
             LVL = 1;
             XPMax = 60;
             Name = "Farfuret";
@@ -448,30 +448,30 @@
         }
 
 
-        public override void Hurt(int damage, Type type)
+        public override void Hurt(int damage, PokeType type)
         {
             damage = damage - DEF;
             switch (type)
             {
-                case Type.Fighting:
+                case PokeType.Fighting:
                     damage = damage * 2;
                     break;
-                case Type.Fairy:
+                case PokeType.Fairy:
                     damage = damage * 2;
                     break;
-                case Type.Bug:
+                case PokeType.Bug:
                     damage = damage * 2;
                     break;
-                case Type.Psychic:
+                case PokeType.Psychic:
                     damage = damage * 0;
                     break;
-                case Type.Ghost:
+                case PokeType.Ghost:
                     damage = damage * 1 / 2;
                     break;
-                case Type.Dark:
+                case PokeType.Dark:
                     damage = damage * 1 / 2;
                     break;
-                case Type.Giselle:
+                case PokeType.Giselle:
                     damage = damage * 2;
                     break;
                 default:
@@ -500,7 +500,7 @@
             PVMax = PV;
             ATK = 51;
             DEF = 23;
-            TYPE = Type.Normal;
+            TYPE = PokeType.Normal;
             LVL = 1;
             XPMax = 60;
             Name = "Chuchmur";
@@ -516,18 +516,18 @@
         }
 
 
-        public override void Hurt(int damage, Type type)
+        public override void Hurt(int damage, PokeType type)
         {
             damage = damage - DEF;
             switch (type)
             {
-                case Type.Fighting:
+                case PokeType.Fighting:
                     damage = damage * 2;
                     break;
-                case Type.Ghost:
+                case PokeType.Ghost:
                     damage = damage * 0;
                     break;
-                case Type.Giselle:
+                case PokeType.Giselle:
                     damage = damage * 2;
                     break;
                 default:
@@ -555,7 +555,7 @@
             PVMax = PV;
             ATK = 38;
             DEF = 39;
-            TYPE = Type.Fairy;
+            TYPE = PokeType.Fairy;
             LVL = 1;
             XPMax = 60;
             Name = "Flabebe";
@@ -571,27 +571,27 @@
         }
 
 
-        public override void Hurt(int damage, Type type)
+        public override void Hurt(int damage, PokeType type)
         {
             damage = damage - DEF;
             switch (type)
             {
-                case Type.Fighting:
+                case PokeType.Fighting:
                     damage = damage * 1 / 2;
                     break;
-                case Type.Poison:
+                case PokeType.Poison:
                     damage = damage * 2;
                     break;
-                case Type.Steel:
+                case PokeType.Steel:
                     damage = damage * 2;
                     break;
-                case Type.Dragon:
+                case PokeType.Dragon:
                     damage = damage * 1 / 2;
                     break;
-                case Type.Dark:
+                case PokeType.Dark:
                     damage = damage * 1 / 2;
                     break;
-                case Type.Giselle:
+                case PokeType.Giselle:
                     damage = damage * 2;
                     break;
                 default:
@@ -620,7 +620,7 @@
             PVMax = PV;
             ATK = 75;
             DEF = 30;
-            TYPE = Type.Flying;
+            TYPE = PokeType.Flying;
             LVL = 1;
             XPMax = 60;
             Name = "Picassault";
@@ -636,33 +636,33 @@
         }
 
 
-        public override void Hurt(int damage, Type type)
+        public override void Hurt(int damage, PokeType type)
         {
             damage = damage - DEF;
             switch (type)
             {
-                case Type.Electric:
+                case PokeType.Electric:
                     damage = damage * 2;
                     break;
-                case Type.Ground:
+                case PokeType.Ground:
                     damage = damage * 0;
                     break;
-                case Type.Fighting:
+                case PokeType.Fighting:
                     damage = damage * 1 / 2;
                     break;
-                case Type.Ice:
+                case PokeType.Ice:
                     damage = damage * 2;
                     break;
-                case Type.Bug:
+                case PokeType.Bug:
                     damage = damage * 1 / 2;
                     break;
-                case Type.Grass:
+                case PokeType.Grass:
                     damage = damage * 1 / 2;
                     break;
-                case Type.Rock:
+                case PokeType.Rock:
                     damage = damage * 2;
                     break;
-                case Type.Giselle:
+                case PokeType.Giselle:
                     damage = damage * 2;
                     break;
                 default:
@@ -690,7 +690,7 @@
             PVMax = PV;
             ATK = 70;
             DEF = 70;
-            TYPE = Type.Normal;
+            TYPE = PokeType.Normal;
             LVL = 1;
             XPMax = 60;
             Name = "Insolourdo";
@@ -706,18 +706,18 @@
         }
 
 
-        public override void Hurt(int damage, Type type)
+        public override void Hurt(int damage, PokeType type)
         {
             damage = damage - DEF;
             switch (type)
             {
-                case Type.Ghost:
+                case PokeType.Ghost:
                     damage = damage * 0;
                     break;
-                case Type.Fighting:
+                case PokeType.Fighting:
                     damage = damage * 2;
                     break;
-                case Type.Giselle:
+                case PokeType.Giselle:
                     damage = damage * 2;
                     break;
                 default:
@@ -745,7 +745,7 @@
             PVMax = PV;
             ATK = 30;
             DEF = 55;
-            TYPE = Type.Ghost;
+            TYPE = PokeType.Ghost;
             LVL = 1;
             XPMax = 60;
             Name = "Funecire";
@@ -761,30 +761,30 @@
         }
 
 
-        public override void Hurt(int damage, Type type)
+        public override void Hurt(int damage, PokeType type)
         {
             damage = damage - DEF;
             switch (type)
             {
-                case Type.Fighting:
+                case PokeType.Fighting:
                     damage = damage * 0;
                     break;
-                case Type.Normal:
+                case PokeType.Normal:
                     damage = damage * 0;
                     break;
-                case Type.Ghost:
+                case PokeType.Ghost:
                     damage = damage * 2;
                     break;
-                case Type.Poison:
+                case PokeType.Poison:
                     damage = damage * 1 / 2;
                     break;
-                case Type.Bug:
+                case PokeType.Bug:
                     damage = damage * 1 / 2;
                     break;
-                case Type.Dark:
+                case PokeType.Dark:
                     damage = damage * 2;
                     break;
-                case Type.Giselle:
+                case PokeType.Giselle:
                     damage = damage * 2;
                     break;
                 default:
@@ -813,7 +813,7 @@
             PM = 1000;
             ATK = 200;
             DEF = 200;
-            TYPE = Type.Giselle;
+            TYPE = PokeType.Giselle;
             LVL = 1;
             XPMax = 60;
             Name = "Giselle";
@@ -829,66 +829,66 @@
         }
 
 
-        public override void Hurt(int damage, Type type)
+        public override void Hurt(int damage, PokeType type)
         {
             damage = damage - DEF;
             switch (type)
             {
-                case Type.Normal:
+                case PokeType.Normal:
                     damage = damage / 4;
                     break;
-                case Type.Fighting:
+                case PokeType.Fighting:
                     damage = damage / 4;
                     break;
-                case Type.Flying:
+                case PokeType.Flying:
                     damage = damage / 4;
                     break;
-                case Type.Poison:
+                case PokeType.Poison:
                     damage = damage / 4;
                     break;
-                case Type.Ground:
+                case PokeType.Ground:
                     damage = damage / 4;
                     break;
-                case Type.Rock:
+                case PokeType.Rock:
                     damage = damage / 4;
                     break;
-                case Type.Bug:
+                case PokeType.Bug:
                     damage = damage / 4;
                     break;
-                case Type.Ghost:
+                case PokeType.Ghost:
                     damage = damage / 4;
                     break;
-                case Type.Steel:
+                case PokeType.Steel:
                     damage = damage / 4;
                     break;
-                case Type.Fire:
+                case PokeType.Fire:
                     damage = damage / 4;
                     break;
-                case Type.Water:
+                case PokeType.Water:
                     damage = damage / 4;
                     break;
-                case Type.Grass:
+                case PokeType.Grass:
                     damage = damage / 4;
                     break;
-                case Type.Electric:
+                case PokeType.Electric:
                     damage = damage / 4;
                     break;
-                case Type.Psychic:
+                case PokeType.Psychic:
                     damage = damage / 4;
                     break;
-                case Type.Ice:
+                case PokeType.Ice:
                     damage = damage / 4;
                     break;
-                case Type.Dragon:
+                case PokeType.Dragon:
                     damage = damage / 4;
                     break;
-                case Type.Dark:
+                case PokeType.Dark:
                     damage = damage / 4;
                     break;
-                case Type.Fairy:
+                case PokeType.Fairy:
                     damage = damage / 4;
                     break;
-                case Type.Giselle:
+                case PokeType.Giselle:
                     damage = damage * 8;
                     break;
                 default:

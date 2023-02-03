@@ -5,8 +5,10 @@ using System.Linq;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Xml.Linq;
+using Projet_7.GameFiles.MenuFiles.InventoryFiles;
+using Projet_7.GameFiles.SaveFiles;
 
-namespace Projet_7
+namespace Projet_7.GameFiles.MenuFiles
 {
     public class Menu
     {
@@ -76,13 +78,13 @@ namespace Projet_7
         {
 
             Inventory.Draw();
-
         }
 
         public static void OpenSave(Game game)
         {
             Save save = new Save();
             save.openSaveMenu(game);
+            WriteMenu(_options, _options[1]);
 
         }
 

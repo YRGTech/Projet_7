@@ -1,6 +1,6 @@
-﻿namespace Projet_7
+﻿namespace Projet_7.GameFiles.PokemonsFiles
 {
-    public enum Type
+    public enum PokeType
     {
         Normal = 0,
         Fighting,
