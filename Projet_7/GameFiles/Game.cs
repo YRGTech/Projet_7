@@ -174,37 +174,49 @@ namespace Projet_7
         {
             Console.ForegroundColor = ConsoleColor.DarkYellow;
 
-            Console.SetCursorPosition(Console.WindowWidth / 2, 0);
+            Console.SetCursorPosition(Console.WindowWidth / 2 - 24, 0);
+            Console.WriteLine("________  ___  ___  __    ________  ___  __    _______      \r\n");
+            Console.SetCursorPosition(Console.WindowWidth / 2 - 25, 1);
+            Console.WriteLine("|\\   __  \\|\\  \\|\\  \\|\\  \\ |\\   __  \\|\\  \\|\\  \\ |\\  ___ \\     \r\n");
+            Console.SetCursorPosition(Console.WindowWidth / 2 - 25, 2);
+            Console.WriteLine("\\ \\  \\|\\  \\ \\  \\ \\  \\/  /|\\ \\  \\|\\  \\ \\  \\/  /|\\ \\   __/|    \r\n");
+            Console.SetCursorPosition(Console.WindowWidth / 2 - 25, 3);
+            Console.WriteLine(" \\ \\   ____\\ \\  \\ \\   ___  \\ \\  \\\\\\  \\ \\   ___  \\ \\  \\_|/__  \r\n");
+            Console.SetCursorPosition(Console.WindowWidth / 2 - 25, 4);
+            Console.WriteLine("  \\ \\  \\___|\\ \\  \\ \\  \\\\ \\  \\ \\  \\\\\\  \\ \\  \\\\ \\  \\ \\  \\_|\\ \\ \r\n");
+            Console.SetCursorPosition(Console.WindowWidth / 2 - 25, 5);
+            Console.WriteLine("   \\ \\__\\    \\ \\__\\ \\__\\\\ \\__\\ \\_______\\ \\__\\\\ \\__\\ \\_______\\\r\n");
+            Console.SetCursorPosition(Console.WindowWidth / 2 - 25, 6);
+            Console.WriteLine("    \\|__|     \\|__|\\|__| \\|__|\\|_______|\\|__| \\|__|\\|_______|\r\n");
+
+            Console.SetCursorPosition(Console.WindowWidth / 2 - 5, 18);
             Console.WriteLine(" █▀▀▄          ▄▀▀█\r\n ");
-            Console.SetCursorPosition(Console.WindowWidth / 2, 1);
+            Console.SetCursorPosition(Console.WindowWidth / 2 - 5, 19);
             Console.WriteLine(" █░░░▀▄░▄▄▄▄▄░▄▀░░░█\r\n");
-            Console.SetCursorPosition(Console.WindowWidth / 2, 2);
+            Console.SetCursorPosition(Console.WindowWidth / 2 - 5, 20);
             Console.WriteLine(" ▀▄░░░▀░░░░░▀░░░▄▀\r\n");
-            Console.SetCursorPosition(Console.WindowWidth / 2, 3);
+            Console.SetCursorPosition(Console.WindowWidth / 2 - 5, 21);
             Console.WriteLine("   ▌░▄▄░░░▄▄░▐▀▀\r\n");
-            Console.SetCursorPosition(Console.WindowWidth / 2, 4);
+            Console.SetCursorPosition(Console.WindowWidth / 2 - 5, 22);
             Console.WriteLine("   ▐░░█▄░░░▄█░░▌▄▄▀▀▀▀█\r\n");
-            Console.SetCursorPosition(Console.WindowWidth / 2, 5);
+            Console.SetCursorPosition(Console.WindowWidth / 2 - 5, 23);
             Console.WriteLine("   ▌▄▄▀▀░▄░▀▀▄▄▐░░░░░░█\r\n");
-            Console.SetCursorPosition(Console.WindowWidth / 2, 6);
+            Console.SetCursorPosition(Console.WindowWidth / 2 - 5, 24);
             Console.WriteLine("▄▀▀▐▀▀░▄▄▄▄▄░▀▀▌▄▄▄░░░█\r\n");
-            Console.SetCursorPosition(Console.WindowWidth / 2, 7);
+            Console.SetCursorPosition(Console.WindowWidth / 2 - 5, 25);
             Console.WriteLine("█░░░▀▄░█░░░█░▄▀░░░░█▀▀▀\r\n");
-            Console.SetCursorPosition(Console.WindowWidth / 2, 8);
+            Console.SetCursorPosition(Console.WindowWidth / 2 - 5, 26);
             Console.WriteLine(" ▀▄░░▀░░▀▀▀░░▀░░░▄█▀\r\n");
-            Console.SetCursorPosition(Console.WindowWidth / 2, 9);
+            Console.SetCursorPosition(Console.WindowWidth / 2 - 5, 27);
             Console.WriteLine("   █░░░░░░░░░░░▄▀▄░▀▄\r\n");
-            Console.SetCursorPosition(Console.WindowWidth / 2, 10);
+            Console.SetCursorPosition(Console.WindowWidth / 2 - 5, 28);
             Console.WriteLine("   █░░░░░░░░░▄▀█░░█░░█\r\n");
-            Console.SetCursorPosition(Console.WindowWidth / 2, 11);
+            Console.SetCursorPosition(Console.WindowWidth / 2 - 5, 29);
             Console.WriteLine("   █░░░░░░░░░░░█▄█░░▄▀\r\n");
-            Console.SetCursorPosition(Console.WindowWidth / 2, 12);
+            Console.SetCursorPosition(Console.WindowWidth / 2 - 5, 30);
             Console.WriteLine("   █░░░░░░░░░░░████▀\r\n");
-            Console.SetCursorPosition(Console.WindowWidth / 2, 13);
+            Console.SetCursorPosition(Console.WindowWidth / 2 - 5, 31);
             Console.WriteLine("   ▀▄▄▀▀▄▄▀▀▄▄▄█▀\r\n");
-
-
-            Console.Write(" ________  ___  ___  __    ________  ___  __    _______      \r\n|\\   __  \\|\\  \\|\\  \\|\\  \\ |\\   __  \\|\\  \\|\\  \\ |\\  ___ \\     \r\n\\ \\  \\|\\  \\ \\  \\ \\  \\/  /|\\ \\  \\|\\  \\ \\  \\/  /|\\ \\   __/|    \r\n \\ \\   ____\\ \\  \\ \\   ___  \\ \\  \\\\\\  \\ \\   ___  \\ \\  \\_|/__  \r\n  \\ \\  \\___|\\ \\  \\ \\  \\\\ \\  \\ \\  \\\\\\  \\ \\  \\\\ \\  \\ \\  \\_|\\ \\ \r\n   \\ \\__\\    \\ \\__\\ \\__\\\\ \\__\\ \\_______\\ \\__\\\\ \\__\\ \\_______\\\r\n    \\|__|     \\|__|\\|__| \\|__|\\|_______|\\|__| \\|__|\\|_______|");
 
         }
         private void LVLUPScreen()
