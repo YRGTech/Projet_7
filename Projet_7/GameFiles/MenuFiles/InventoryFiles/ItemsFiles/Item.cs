@@ -140,10 +140,10 @@ namespace Projet_7.GameFiles.MenuFiles.InventoryFiles.ItemsFiles
             if (amount > 0)
             {
                 amount--;
-                int nb = percent * pikachu.DEF / 100;
-                pikachu.DEF += nb;
+                int nb = percent * pikachu.ATK / 100;
+                pikachu.ATK += nb;
                 Console.SetCursorPosition(30, 8);
-                Console.Write(describe + "\nL'ennemi perd " + nb + " de DEF");
+                Console.Write(describe + "\nL'ennemi perd " + nb + " d' ATK");
                 Console.SetCursorPosition(30, 10);
                 Console.Write(amount + " " + name + " left");
                 Thread.Sleep(5000);
@@ -167,10 +167,10 @@ namespace Projet_7.GameFiles.MenuFiles.InventoryFiles.ItemsFiles
             if (amount > 0)
             {
                 amount--;
-                int nb = percent * pikachu.ATK / 100;
-                pikachu.ATK += nb;
+                int nb = percent * pikachu.DEF / 100;
+                pikachu.DEF += nb;
                 Console.SetCursorPosition(30, 8);
-                Console.Write(describe + "\nL'ennemi perd " + nb + " d'ATK");
+                Console.Write(describe + "\nL'ennemi perd " + nb + " de DEF");
                 Console.SetCursorPosition(30, 10);
                 Console.Write(amount + " " + name + " left");
                 Thread.Sleep(5000);
